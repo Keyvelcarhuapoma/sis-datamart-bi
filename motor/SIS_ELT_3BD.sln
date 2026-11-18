@@ -1,0 +1,15 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.0.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "SIS_ELT_3BD", "SIS_ELT_3BD.dtproj", "{20B111DB-4F80-4687-8857-2951C7670760}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{20B111DB-4F80-4687-8857-2951C7670760}.Development|Default.ActiveCfg = Development
+		{20B111DB-4F80-4687-8857-2951C7670760}.Development|Default.Build.0 = Development
+	EndGlobalSection
+EndGlobal

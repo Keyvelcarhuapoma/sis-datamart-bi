@@ -1,0 +1,21 @@
+model Model
+	culture: es-ES
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-ES
+	valueFilterBehavior: independent
+
+annotation PBI_QueryOrder = ["Dim_Demografia", "Dim_IPRESS", "Dim_Seguro", "Dim_Servicio", "Dim_Tiempo", "Fact_Atenciones"]
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Dim_Demografia
+ref table Dim_IPRESS
+ref table Dim_Seguro
+ref table Dim_Servicio
+ref table Dim_Tiempo
+ref table Fact_Atenciones
+
+ref cultureInfo es-ES
+

@@ -1,0 +1,66 @@
+table Dim_Tiempo
+	lineageTag: 9db117c5-d56c-40f0-9e10-10bd3183cfe7
+
+	column id_tiempo_sk
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 90e0e5c1-4dca-421e-b32d-ad3db8f1e107
+		summarizeBy: none
+		sourceColumn: id_tiempo_sk
+
+	column anio
+		dataType: int64
+		formatString: 0
+		lineageTag: 67007804-93a9-4845-aea9-e70135314e94
+		summarizeBy: none
+		sourceColumn: anio
+
+	column mes
+		dataType: string
+		lineageTag: 6be65704-23ce-4371-98b7-9f0b122bdba4
+		summarizeBy: none
+		sourceColumn: mes
+		sortByColumn: numero_mes
+
+	column numero_mes
+		dataType: int64
+		formatString: 0
+		lineageTag: c52627f6-70f5-40db-b998-4c80dce6637b
+		summarizeBy: none
+		sourceColumn: numero_mes
+
+	column trimestre
+		dataType: int64
+		formatString: 0
+		lineageTag: 5133cb33-0d5d-427b-acb1-52b14782a09c
+		summarizeBy: none
+		sourceColumn: trimestre
+
+	column semestre
+		dataType: int64
+		formatString: 0
+		lineageTag: 58fb8672-5968-43b9-982f-024292f09232
+		summarizeBy: none
+		sourceColumn: semestre
+
+	column periodo_codigo
+		dataType: string
+		lineageTag: 6d5d7c3c-06ed-4e47-a2c1-404e0a08ea69
+		summarizeBy: none
+		sourceColumn: periodo_codigo
+
+	column mes_nombre
+		dataType: string
+		lineageTag: 3a2b6535-63b0-4724-8f04-db34eae25854
+		sourceColumn: mes_nombre
+		sortByColumn: numero_mes
+
+	partition Dim_Tiempo = m
+		mode: directQuery
+		source =
+				let
+				 Origen=Sql.Database("localhost", "SIS_DIMENSIONAL", [CreateNavigationProperties=false]),
+				 Datos=Origen{[Schema="pbi",Item="Dim_Tiempo"]}[Data]
+				in Datos
+

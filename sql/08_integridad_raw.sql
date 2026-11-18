@@ -1,0 +1,4 @@
+IF NOT EXISTS(SELECT 1 FROM sys.foreign_keys WHERE name='FK_Plan_Lote') ALTER TABLE etl.PlanParticion WITH CHECK ADD CONSTRAINT FK_Plan_Lote FOREIGN KEY(id_lote) REFERENCES etl.Lotes(id_lote);
+IF NOT EXISTS(SELECT 1 FROM sys.foreign_keys WHERE name='FK_Publicacion_Lote') ALTER TABLE etl.Publicaciones WITH CHECK ADD CONSTRAINT FK_Publicacion_Lote FOREIGN KEY(id_lote) REFERENCES etl.Lotes(id_lote);
+IF NOT EXISTS(SELECT 1 FROM sys.foreign_keys WHERE name='FK_Particion_Lote') ALTER TABLE etl.Particiones WITH CHECK ADD CONSTRAINT FK_Particion_Lote FOREIGN KEY(id_lote) REFERENCES etl.Lotes(id_lote);
+IF NOT EXISTS(SELECT 1 FROM sys.foreign_keys WHERE name='FK_Registro_Evento') ALTER TABLE raw.Registros WITH CHECK ADD CONSTRAINT FK_Registro_Evento FOREIGN KEY(id_evento) REFERENCES raw.EventosSQL(id_evento);

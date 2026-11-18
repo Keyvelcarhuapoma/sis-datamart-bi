@@ -1,0 +1,20 @@
+relationship 7723f7f6-2f1f-4b04-a422-90a0414feebe
+	fromColumn: Fact_Atenciones.id_demografia_sk
+	toColumn: Dim_Demografia.id_demografia_sk
+
+relationship 57e242ed-49ef-4cbb-845f-3fd632c76672
+	fromColumn: Fact_Atenciones.id_ipress_sk
+	toColumn: Dim_IPRESS.id_ipress_sk
+
+relationship c24e01de-67af-45d8-8f9a-f16f9024b3ad
+	fromColumn: Fact_Atenciones.id_seguro_sk
+	toColumn: Dim_Seguro.id_seguro_sk
+
+relationship 2e0bdb21-81b5-4a1b-9b71-9fb1140e0be9
+	fromColumn: Fact_Atenciones.id_servicio_sk
+	toColumn: Dim_Servicio.id_servicio_sk
+
+relationship b8a0812f-be84-473c-ac4e-dc88e423287d
+	fromColumn: Fact_Atenciones.id_tiempo_sk
+	toColumn: Dim_Tiempo.id_tiempo_sk
+

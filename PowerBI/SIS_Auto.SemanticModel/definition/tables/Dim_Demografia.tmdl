@@ -1,0 +1,31 @@
+table Dim_Demografia
+	lineageTag: 52660549-f58d-453c-9b07-35441bf09ee0
+
+	column id_demografia_sk
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: eba47f89-327b-4d61-a7d7-88bf7b1ee051
+		summarizeBy: none
+		sourceColumn: id_demografia_sk
+
+	column sexo
+		dataType: string
+		lineageTag: d1634e01-e560-4e54-8f69-2af8fe550ea6
+		summarizeBy: none
+		sourceColumn: sexo
+
+	column grupo_edad
+		dataType: string
+		lineageTag: 86cdd28b-b0b8-490f-82a2-f3daaa150ab5
+		summarizeBy: none
+		sourceColumn: grupo_edad
+
+	partition Dim_Demografia = m
+		mode: directQuery
+		source =
+				let
+				 Origen=Sql.Database("localhost", "SIS_DIMENSIONAL", [CreateNavigationProperties=false]),
+				 Datos=Origen{[Schema="pbi",Item="Dim_Demografia"]}[Data]
+				in Datos
+

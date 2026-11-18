@@ -1,0 +1,31 @@
+{
+  "name": "SIS Empresarial",
+  "dataColors": [
+    "#087F8C",
+    "#4268B1",
+    "#E5AD50",
+    "#8566B1",
+    "#5BA88C",
+    "#CE7681"
+  ],
+  "background": "#FFFFFF",
+  "foreground": "#102C42",
+  "tableAccent": "#087F8C",
+  "textClasses": {
+    "title": {
+      "fontFace": "Segoe UI",
+      "fontSize": 13,
+      "color": "#102C42"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 11,
+      "color": "#526779"
+    },
+    "callout": {
+      "fontFace": "Segoe UI",
+      "fontSize": 30,
+      "color": "#102C42"
+    }
+  }
+}

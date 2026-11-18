@@ -1,0 +1,1192 @@
+[
+  {
+    "archivo": ".gitattributes",
+    "bytes": 169,
+    "sha256": "7d9298dd1d4c0897e08ee392b7a103be8f079bc07044f881cd9b914121606430"
+  },
+  {
+    "archivo": ".gitignore",
+    "bytes": 379,
+    "sha256": "dd8b7b4ab7f2c2fa356ac72115b6fb7592fbca144615c4a76aa7c356c94cc365"
+  },
+  {
+    "archivo": "app/aplicacion.py",
+    "bytes": 7772,
+    "sha256": "a575a32eb24feea356ead644b5879a8961365c1592eacef7f0d62350a5dbaebf"
+  },
+  {
+    "archivo": "app/orquestador.py",
+    "bytes": 7756,
+    "sha256": "093f6b6852608319847e1cc60e3872ba8d27c2d1d295fbcdaae5efff1c995ba9"
+  },
+  {
+    "archivo": "app/Pendientes.ps1",
+    "bytes": 393,
+    "sha256": "b697607b22194c85f4c1a432618f80951037b0136a138807296f256bb89ea94b"
+  },
+  {
+    "archivo": "app/worker_sql.py",
+    "bytes": 1210,
+    "sha256": "2028b44230bde63b9b6e44a1f7e9244a88aabde76cc7fa858d5b781abad32ae6"
+  },
+  {
+    "archivo": "Configurar_Proyecto.ps1",
+    "bytes": 628,
+    "sha256": "b6ca9e6230c0c41026efab5b354761a42f82ec2fa4f9c690f4f6605ac613f03d"
+  },
+  {
+    "archivo": "documentacion/01_arquitectura.png",
+    "bytes": 160422,
+    "sha256": "45ee3b238d9364b4293325d2aeb8289ccec257b917f6aca2f00037b25bfe5d9d"
+  },
+  {
+    "archivo": "documentacion/01_arquitectura.svg",
+    "bytes": 7943,
+    "sha256": "2d717d8642a18011872ba9bab7cba97879b0a226449f2aec8739c08fb643338e"
+  },
+  {
+    "archivo": "documentacion/02_normalizada.png",
+    "bytes": 125633,
+    "sha256": "7fbc885f2d3035764ba410f30bdfa64bdd75d8073138b807cc59680faf0ba197"
+  },
+  {
+    "archivo": "documentacion/02_normalizada.svg",
+    "bytes": 8365,
+    "sha256": "51637319f705a9d5edbcd08d5250b0d9b1f267991ae7083ef43813a3af63a8e8"
+  },
+  {
+    "archivo": "documentacion/03_estrella.png",
+    "bytes": 107783,
+    "sha256": "19f944cdabccc78e84472942cdab0c94d246e483be56c72b23be381dade777ea"
+  },
+  {
+    "archivo": "documentacion/03_estrella.svg",
+    "bytes": 5695,
+    "sha256": "12989567ca6f587872120bbd89643e83539be45bfaeab3f524d9b6de75fba04e"
+  },
+  {
+    "archivo": "documentacion/04_ssis.png",
+    "bytes": 142939,
+    "sha256": "f12a70eb44b80ccc6610008caa35dcc3f0e895067ac112bb9f1e8293f6ad6782"
+  },
+  {
+    "archivo": "documentacion/04_ssis.svg",
+    "bytes": 7024,
+    "sha256": "898f716302c653f3e3747d9e8cb5966165dc41767e40a463500b374491434440"
+  },
+  {
+    "archivo": "documentacion/ALCANCE_Y_FUENTES.md",
+    "bytes": 2203,
+    "sha256": "cfb86f11b0b0c44bf01cff73e545690b97ad4f61902f9aaa3bfd3fb6bff9651f"
+  },
+  {
+    "archivo": "documentacion/CAMBIOS_PARA_GITHUB.md",
+    "bytes": 1057,
+    "sha256": "005ed0b8a68b21ca2f5bf7d67c16af4846f5a926722e17d33938ff3306e57fc6"
+  },
+  {
+    "archivo": "documentacion/DIAGRAMA_COMPLETO.html",
+    "bytes": 2185,
+    "sha256": "81afb1752d093bd17ef32f99771f65bf9f12019ae22d7df55c71277c582e9354"
+  },
+  {
+    "archivo": "documentacion/DICCIONARIO_DATOS.json",
+    "bytes": 70845,
+    "sha256": "ac5dc09b05bccf7c9c60517c02a2dab1fed320e2131bd940c6a8b6177569b3c3"
+  },
+  {
+    "archivo": "documentacion/MANUAL_USUARIO.md",
+    "bytes": 2533,
+    "sha256": "95e12c103747602fee8703e25319a222fc06ac2a80251fa661d40acafe523200"
+  },
+  {
+    "archivo": "ejemplos/01_nuevo_2026_UTF8.csv",
+    "bytes": 384,
+    "sha256": "20ca05428d3ce88de3043d864a639fbc302031603b10660132ca4986db94130a"
+  },
+  {
+    "archivo": "ejemplos/02_correccion_2026_UTF8.csv",
+    "bytes": 384,
+    "sha256": "6a4334d6b7952f2c14c5a06822170a4233411f7c1a8496c019f1b378e4fee7fd"
+  },
+  {
+    "archivo": "ejemplos/03_archivo_parcial_RECHAZADO.csv",
+    "bytes": 410,
+    "sha256": "4b2b5d3dab7b8ac38643cdc99e4931201fc7bf31616d19c34aae48b8e60a5720"
+  },
+  {
+    "archivo": "ejemplos/04_windows1252_2026.csv",
+    "bytes": 374,
+    "sha256": "905d0bbc0760ffa9291c4065067d43dd77ec2ee5af58c651c369de7c20903fd9"
+  },
+  {
+    "archivo": "ejemplos/05_nulo_RECHAZADO.csv",
+    "bytes": 383,
+    "sha256": "ccc68e0f56a554977f8342edf5335a7a8fa47df687c1f5edd34dce444f99ed9e"
+  },
+  {
+    "archivo": "ejemplos/06_anio_no_autorizado_RECHAZADO.csv",
+    "bytes": 384,
+    "sha256": "462a9e6601057b1f173068dd33bcbaf585775b89d7404ca33d8c491c77ec5f19"
+  },
+  {
+    "archivo": "ejemplos/07_dos_aportes_iguales.csv",
+    "bytes": 575,
+    "sha256": "92d0d29edcb22bbb972a15ee49c209f773b77b373d86019746dca9f7e946c838"
+  },
+  {
+    "archivo": "ejemplos/08_truncamiento_RECHAZADO.csv",
+    "bytes": 1560,
+    "sha256": "99379a03f5e9d654e75a50821ee3df123a94bb062e0472fc86e2ba10ce2846b7"
+  },
+  {
+    "archivo": "ejemplos/09_texto_danado_RECHAZADO.csv",
+    "bytes": 380,
+    "sha256": "6fe46cbed713d313a991affb6a5062eb75fdc36441eca41802c3a1412aa5a36c"
+  },
+  {
+    "archivo": "ejemplos/10_utf16_2026.csv",
+    "bytes": 742,
+    "sha256": "ce0acfc4250ce659dfa73c4f875adb09dd506c5562bf939c78e4655ee04b1d1f"
+  },
+  {
+    "archivo": "ejemplos/11_Excel_SINTETICO_2026.xlsx",
+    "bytes": 4240,
+    "sha256": "81d0d51d85d4260d274a1f34ce4aa6dc4c8274c66afff7685365dda89a02e1df"
+  },
+  {
+    "archivo": "excel/01_Diagnostico_SIS.xlsx",
+    "bytes": 35251,
+    "sha256": "b28d2ad58069a58e08b8b177279230a0d2f625d7681549d82a7e871199de5ef4"
+  },
+  {
+    "archivo": "excel/02_Estrategias_SIS.xlsx",
+    "bytes": 37251,
+    "sha256": "5efd21b4bfa24a247e1514616ef6e6394f30584d43fe8a27fda1b1b3df0fa3ca"
+  },
+  {
+    "archivo": "excel/03_Balanced_Scorecard_SIS.xlsx",
+    "bytes": 31096,
+    "sha256": "12d13bba621e3dce6e6a9da70232ec044d62af8c9af8bdaa9e40469aaccda50c"
+  },
+  {
+    "archivo": "Inicializar.ps1",
+    "bytes": 2109,
+    "sha256": "e3c06a0c68b7daef1ca0b35573fca0eb61229c6c464edc8c5e4e743415f7da32"
+  },
+  {
+    "archivo": "INICIAR.cmd",
+    "bytes": 61,
+    "sha256": "98250e2980a254f5f39b51c0bf37ffb63af02e662e62174d0c3cf69d61d58922"
+  },
+  {
+    "archivo": "Iniciar.ps1",
+    "bytes": 689,
+    "sha256": "a2d0f822b0582b002ea5f06c910a601cc4be1396b97d003807edd988b2e2f5f1"
+  },
+  {
+    "archivo": "motor/Ejecutar_3BD.ps1",
+    "bytes": 7661,
+    "sha256": "d61b258531cd914fb9f8f4ad6f98936b284a0d8794f019209ec00f1cb665f2d9"
+  },
+  {
+    "archivo": "motor/Ejecutar_Incremental.ps1",
+    "bytes": 1813,
+    "sha256": "be248cb78a7b31e087932fff071fba758a662660641198028df8c8a8d36959cc"
+  },
+  {
+    "archivo": "motor/fuentes/entrada.csv",
+    "bytes": 384,
+    "sha256": "6a4334d6b7952f2c14c5a06822170a4233411f7c1a8496c019f1b378e4fee7fd"
+  },
+  {
+    "archivo": "motor/Project.params",
+    "bytes": 87,
+    "sha256": "9bce5f525d4a3aba1975d684837d40f1a6b3a01c9acbfbf3c6aa7f659a957e2a"
+  },
+  {
+    "archivo": "motor/scripts/Compilar_Incremental.ps1",
+    "bytes": 2078,
+    "sha256": "5d77d4aa802d53db298b2390e85c6f7fa36e60be7ef4d042a09be4227bc7c8ce"
+  },
+  {
+    "archivo": "motor/scripts/CrearIncremental.cs",
+    "bytes": 11173,
+    "sha256": "7895f8b7c03428945a86d712df441f75854e89d084fc3de6a2031d0a6b37494c"
+  },
+  {
+    "archivo": "motor/SIS_ELT_3BD.database",
+    "bytes": 1684,
+    "sha256": "a4088b28d1b04c554f2b4ae728d857c79c9a060dc169913a0112b383941e0425"
+  },
+  {
+    "archivo": "motor/SIS_ELT_3BD.dtproj",
+    "bytes": 26423,
+    "sha256": "0b1101b3880aca48327d982d20ece1438dcb3b6407cd5c52fa4a4492a43a3efd"
+  },
+  {
+    "archivo": "motor/SIS_ELT_3BD.dtsx",
+    "bytes": 147697,
+    "sha256": "8d8bd1ee2c0829d0527b7590ee6e1e99248e2b60291a03cee1a6559d3bfa6b79"
+  },
+  {
+    "archivo": "motor/SIS_ELT_3BD.sln",
+    "bytes": 689,
+    "sha256": "3ce39fb26bd0e3ad6d0d263324a918b2963fa5dbaf34e5e5eebc3c6ec552bc01"
+  },
+  {
+    "archivo": "motor/sql/10_iniciar.sql",
+    "bytes": 976,
+    "sha256": "a6096147844078bfc9d691ced1002c6c748dbc423573dc68636c8e9456739f83"
+  },
+  {
+    "archivo": "motor/sql/15_archivar.sql",
+    "bytes": 3505,
+    "sha256": "b051e9c48dddc98d677f3c490e6718bc4b263eb507ce7f3b28eb871ff8166adf"
+  },
+  {
+    "archivo": "motor/sql/20_validar.sql",
+    "bytes": 4319,
+    "sha256": "0677c6a50f53c9a968ab81ffa1c2ed5bfd5af6fcc8cd31c90fb1f18cea27a323"
+  },
+  {
+    "archivo": "motor/sql/25_detectar.sql",
+    "bytes": 2580,
+    "sha256": "1554d8feeb7dfb2a4447b9c355bf82719e66986aafd270ecac9e29f2cfee83d2"
+  },
+  {
+    "archivo": "motor/sql/30_normalizar.sql",
+    "bytes": 5265,
+    "sha256": "617c826c93fda75d9698caac968f42bd9defca8f6b536a21d9fc35146113a938"
+  },
+  {
+    "archivo": "motor/sql/40_dimensional.sql",
+    "bytes": 3577,
+    "sha256": "8c0f0af05fa6be5ca23d2b559431aa9b38f51067c8e25d97d19f26bfa6a9d829"
+  },
+  {
+    "archivo": "motor/sql/50_conciliar.sql",
+    "bytes": 3044,
+    "sha256": "786a7b9f09fe92486af31b72307a621da3e90e8820b2082fe7ee591097fa6c8a"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/2ee700c4427f421eb6a9/page.json",
+    "bytes": 1115,
+    "sha256": "df0c5a98465e8e0fbe839a1201bd4f6b085ea15859d438bf69e4aecfa4d68363"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/2ee700c4427f421eb6a9/visuals/1a7417a5261b4d08b044/visual.json",
+    "bytes": 12547,
+    "sha256": "4d6a290b47266a9e7c8f16f64b8c37cd72a274d5767e1c953270a3a454e92d34"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/2ee700c4427f421eb6a9/visuals/2f478ead3e1f4bd1a272/visual.json",
+    "bytes": 6950,
+    "sha256": "2bbc38bf553461ebab9182b0b4d9442e5caea8ba42786a17f4af2a725c36d562"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/2ee700c4427f421eb6a9/visuals/4d762ee877e048e495c0/visual.json",
+    "bytes": 10377,
+    "sha256": "d399b2f1868d5a63338f7584cd477c8cdd390e9ee13f474278d5f72f7b5c05c2"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/2ee700c4427f421eb6a9/visuals/57a4dd28d64744488b6e/visual.json",
+    "bytes": 2138,
+    "sha256": "53e952b73fe2aae7c56dd6b9a7d5f3b736ff6ea7828f1e24fee6b8abc07bf291"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/2ee700c4427f421eb6a9/visuals/807b288c2a33487e9c07/visual.json",
+    "bytes": 2142,
+    "sha256": "7cdea7f8cd118bc5223c2a2c7d3c5dd2bb73ea7d9511de6264f1c189283ab6d6"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/2ee700c4427f421eb6a9/visuals/9632c4d865f1447282a3/visual.json",
+    "bytes": 6961,
+    "sha256": "7250c13981e6f3dbdd30781b3589833b5934af95ecf8e518a4a34a8aef47c928"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/2ee700c4427f421eb6a9/visuals/a396a2f19e9e4c889ef2/visual.json",
+    "bytes": 2218,
+    "sha256": "0ca5de90da90c61d6258d84008b7b846f6d1b12b909ae6a04e7c1621243767a4"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/2ee700c4427f421eb6a9/visuals/aca4cf6e4e5d4048b5c5/visual.json",
+    "bytes": 6953,
+    "sha256": "e2d7684daa0ece8a5f192579cd01f63f11c7819556e706af06b68dee4e9cdacd"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/2ee700c4427f421eb6a9/visuals/ae08049aabd14a52b286/visual.json",
+    "bytes": 2195,
+    "sha256": "a561f425c36edd96a23b4fcc70ea4cdc5dd3623e0d95ee6789c667f671dabc2b"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/2ee700c4427f421eb6a9/visuals/b38a50bb88314db2889f/visual.json",
+    "bytes": 6941,
+    "sha256": "39a96a0469c5afeec35054a0bc44d0939474147732a3d64a4065fe1b89d3e884"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/2ee700c4427f421eb6a9/visuals/b8081be94a7c4bbcacf4/visual.json",
+    "bytes": 6938,
+    "sha256": "13f6d4b37d8d1fb6de705c7f68ec492c4883a2bc23aaa6dbf32086717e530980"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/2ee700c4427f421eb6a9/visuals/be28c29166ba4f2c8a96/visual.json",
+    "bytes": 5520,
+    "sha256": "200c82fc9e18bad863e096330dedb692ba1b6321d500893486e4c66c7f4800f8"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/2ee700c4427f421eb6a9/visuals/c3466f079e5e477ea336/visual.json",
+    "bytes": 4364,
+    "sha256": "75a746e261e4ef422177681f4be241b56aed89a908f6d0038c03399c1461858e"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/2ee700c4427f421eb6a9/visuals/d32b36326b6e4cb9ba4b/visual.json",
+    "bytes": 6937,
+    "sha256": "d4821e216d5298362b6d89a07bd8794e9c49cd3f813347f308432d76704a3eb1"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/2ee700c4427f421eb6a9/visuals/d4a4c86545124a2b878c/visual.json",
+    "bytes": 1871,
+    "sha256": "e57fdd4ec31734f05c80b33f2d9fd019f396178bc0e31d8b7384135e70bb06b9"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/2ee700c4427f421eb6a9/visuals/d4be6ec386944663ac16/visual.json",
+    "bytes": 2265,
+    "sha256": "4a5d8b5d70e82ea9aab8a4a5fdba9db6ac4d97c684b3fc4b537a8febf724be1b"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/2ee700c4427f421eb6a9/visuals/e295d630725a46368637/visual.json",
+    "bytes": 5497,
+    "sha256": "55c8aa794240beb6379c2fc188abeb37304597000ff5b86ae82bb31b29df9c83"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/2ee700c4427f421eb6a9/visuals/e49607b175df4f628c42/visual.json",
+    "bytes": 6805,
+    "sha256": "3b0d4d95dd316a6546e734ec0bf13f115699b20c3c7d2139264984268d324b65"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/2ee700c4427f421eb6a9/visuals/eb1a9d629d654020bb80/visual.json",
+    "bytes": 6879,
+    "sha256": "5cb3fa5f62f5e86641fc6de9f8ed632cbd12fc1e3488fdd129aa63f8b8cf2ea5"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/2ee700c4427f421eb6a9/visuals/ff2a2ac587e743fc9c2b/visual.json",
+    "bytes": 2194,
+    "sha256": "c516cb577a12119318b732d8781a3e678d1bdc7fddf2d3d1c5d3e325ae6ce813"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/535e95fdfbe5474da7ce/page.json",
+    "bytes": 1117,
+    "sha256": "dc27e6d673f021bc652db15992692715c8db09a468ec53111330e39e7991e34e"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/535e95fdfbe5474da7ce/visuals/13b148e6fba348dcbd15/visual.json",
+    "bytes": 11089,
+    "sha256": "c83b367dec594aa08efa24c64e4fa3597735406c9a23855fa66be5fcfe7727f2"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/535e95fdfbe5474da7ce/visuals/1a5088b32e2d4b259a18/visual.json",
+    "bytes": 5713,
+    "sha256": "cd312f10ed2906237f8930c3be9f342f28d57cb056935209c6f4312ac1090e74"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/535e95fdfbe5474da7ce/visuals/2fb8664a11e2497fad15/visual.json",
+    "bytes": 5745,
+    "sha256": "a089948519dffd10fcb7643d6bf8b0bb8163d30afe2a5f928c393efb7292365b"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/535e95fdfbe5474da7ce/visuals/34bacae4f78743d89743/visual.json",
+    "bytes": 2145,
+    "sha256": "7ba3618d35359c317b81854631a1c8a5b152c696e935252b3041776861c31265"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/535e95fdfbe5474da7ce/visuals/376e895952ec45bcac52/visual.json",
+    "bytes": 11748,
+    "sha256": "fd624c385e759fd90b572a22dc5a3c8c8a85e21d34581489f0f6c33665e11768"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/535e95fdfbe5474da7ce/visuals/3a9af7a0a93c4a2b9a30/visual.json",
+    "bytes": 6961,
+    "sha256": "0c50d60ac69adc5e432d448f3405a8465190b40f2f1aff3b774f0add493d04c8"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/535e95fdfbe5474da7ce/visuals/3d05d93e45e44ac2aed9/visual.json",
+    "bytes": 5750,
+    "sha256": "08054b27c8caa4797badd368a95ee147dff1a353a5c9f3593d4ad34e995d18b3"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/535e95fdfbe5474da7ce/visuals/44be52a535b04077a7a9/visual.json",
+    "bytes": 2220,
+    "sha256": "c2b8e4c6c6a40aedcd4e480a2c90e2ab697af4ee68c0d631da903112eafd1e18"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/535e95fdfbe5474da7ce/visuals/4c6ee97379e345d78f1d/visual.json",
+    "bytes": 6953,
+    "sha256": "c2f3b6b537ae3658e8ea2eafd2b776cff1d9aec0608ef85cb85ebac6c012e4ee"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/535e95fdfbe5474da7ce/visuals/6602db609c5a438db90c/visual.json",
+    "bytes": 6950,
+    "sha256": "5889ee1b99acbc056d7860742124251d4e51cbb36d749b0165a0012f71bd87d6"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/535e95fdfbe5474da7ce/visuals/709137cd7d6e47c59ede/visual.json",
+    "bytes": 5465,
+    "sha256": "b5019842d6fbcf901f0f24b753e3329042994aca98e24305decf01c461f59a19"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/535e95fdfbe5474da7ce/visuals/7f905c3e50304cbf8fc2/visual.json",
+    "bytes": 6937,
+    "sha256": "1e66c12d280ab93578c8d8c5ac379950d84bdbc862098b3356e211389e344430"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/535e95fdfbe5474da7ce/visuals/8a1311f4ac0b49e2bb7a/visual.json",
+    "bytes": 2196,
+    "sha256": "eb9b2965f5279e1a9d7ae107d08bdd099446b290d9c5c85aaa90f40380022342"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/535e95fdfbe5474da7ce/visuals/93acd24a9c6f4300acef/visual.json",
+    "bytes": 1871,
+    "sha256": "1bc84e735c73f6f915fa0e7c8fd36696e172e6ca1a63a7a9328576caf17bb4d2"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/535e95fdfbe5474da7ce/visuals/cd37859365cc486f81fb/visual.json",
+    "bytes": 5714,
+    "sha256": "e70f16bbddbcc490e6327a26a482ca7fddb7390d79091d401eb2fccc4f72c37b"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/535e95fdfbe5474da7ce/visuals/d28f42a3abf940b6957a/visual.json",
+    "bytes": 2222,
+    "sha256": "bfb5e49808cb9ffba64f0ed26252566d70585c8b8415c9cb9746a02383e35305"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/535e95fdfbe5474da7ce/visuals/daeb7c1882874e09a3f8/visual.json",
+    "bytes": 6938,
+    "sha256": "982c30db89851a07dca893fa42a449a2736a11c0bd30778ac5c86519c4008433"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/535e95fdfbe5474da7ce/visuals/e792db567eb54eccae29/visual.json",
+    "bytes": 6941,
+    "sha256": "28641630479248f37b5aba340b4fe000ba1d8391d7726d386305440fd6bc06f3"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/535e95fdfbe5474da7ce/visuals/f16a3833d39742d58fef/visual.json",
+    "bytes": 2142,
+    "sha256": "6baa59b6972121fce14e9398bba6404818c5fdb4c6eacba0a46817f2da9d83fa"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/7470f0e8589e43978d45/page.json",
+    "bytes": 1124,
+    "sha256": "138bbdfd15165043623d675753fe6b13d60024887aed6bf07e41fb78d97bb0f0"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/7470f0e8589e43978d45/visuals/15e37cb2cb6c4179b09f/visual.json",
+    "bytes": 2248,
+    "sha256": "ae7f8de9c98fc1f9bf5a5c5fa535e3b41a828b8d92c39bfb861164c7caf5bd10"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/7470f0e8589e43978d45/visuals/160a12f8c42440db8ba3/visual.json",
+    "bytes": 1871,
+    "sha256": "2cc9281f0eef4f234f7f66cde16ea6c065688501da64fe01eaba8b62628780a1"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/7470f0e8589e43978d45/visuals/193d310eed464a088701/visual.json",
+    "bytes": 2154,
+    "sha256": "a9d89416ed321685a6f93b214e6de290301baff5f75e3fb85667602470cfafc0"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/7470f0e8589e43978d45/visuals/274bcd59dd234f52bcaa/visual.json",
+    "bytes": 4808,
+    "sha256": "e6e2cecc6a4086b3bf62b44637c9fcfb4e61d531e2633bc5fb8950e044ed6f71"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/7470f0e8589e43978d45/visuals/2cce2c3bbace4a82a6ed/visual.json",
+    "bytes": 6937,
+    "sha256": "a6f2a0c7f53576b1f094b95ddb9e6255909e87ce5de4e9ba86dbbbdb850b03a1"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/7470f0e8589e43978d45/visuals/2f0114553dfc4315b154/visual.json",
+    "bytes": 6941,
+    "sha256": "9cfa88c62e05e3c208cdc56b287406e87deab74ca5e75e350fa54546b438b369"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/7470f0e8589e43978d45/visuals/2f0c01dd40d74985babc/visual.json",
+    "bytes": 2127,
+    "sha256": "60bdcd5eb0d98b6f4c8c4bc0a0a4830c2519c57d13a17e751c55217f2146a7e9"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/7470f0e8589e43978d45/visuals/5cc65f5a52914a5ab13e/visual.json",
+    "bytes": 4807,
+    "sha256": "2e44cdc2adaec8d561aa067d472907b5575d398ed4f31d2b7dd07353ba982ebc"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/7470f0e8589e43978d45/visuals/624a856f2be24bbeb284/visual.json",
+    "bytes": 3865,
+    "sha256": "47fc838570d8496e2ab0a303f02f701466e4ff30d2765b72fd3e54de4e011486"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/7470f0e8589e43978d45/visuals/7c6cd799fd704e998162/visual.json",
+    "bytes": 2141,
+    "sha256": "f786916783af78c74845ab05c2e8e9a54ac3fd9997331493281976e366da6efd"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/7470f0e8589e43978d45/visuals/7cfcbcb7a2e64edabf7f/visual.json",
+    "bytes": 6961,
+    "sha256": "5780f24e9a723ca009b78fb51b168a4feb52d3df3df9f8b0a0cf4ae272d1c0f6"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/7470f0e8589e43978d45/visuals/8502c3451e57404da16e/visual.json",
+    "bytes": 2142,
+    "sha256": "d60ff8236791003236678502788288ff47bedbaa12f897ee3bb7d510e9a1c5b9"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/7470f0e8589e43978d45/visuals/8c807023afed48a89450/visual.json",
+    "bytes": 2176,
+    "sha256": "0fed5d7760e2460399f40569fae697500706e0abb5a3ff7731bd28d48aced17d"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/7470f0e8589e43978d45/visuals/934fc6e020f84a50a3fb/visual.json",
+    "bytes": 2227,
+    "sha256": "5dd4fab06a9f5c33b00199717e62179bb29282f3f434a8ff8843b19f4bd9740f"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/7470f0e8589e43978d45/visuals/9a103b8054f4449b9810/visual.json",
+    "bytes": 6950,
+    "sha256": "5ee90086561549fe4dc51da5e2eaf876f66e2be1192139b086eead8a5858be0c"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/7470f0e8589e43978d45/visuals/9fab9c18c29e4671823c/visual.json",
+    "bytes": 3929,
+    "sha256": "945b6948f1ae0fd4cdb30738f1a936295ce3ac1c1c1f9bb3de8b165e4b16437c"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/7470f0e8589e43978d45/visuals/b8defc45b9c04746be30/visual.json",
+    "bytes": 2139,
+    "sha256": "cbcc7c1b939184473e90a996c83a9c5d51630355b24ab02b0a4956ec67653462"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/7470f0e8589e43978d45/visuals/bab51405fef544aaa15b/visual.json",
+    "bytes": 2135,
+    "sha256": "ba65888df4cc3c591d7018d09ea022858282e1ffc3fc6d8c31dab966fa81a08c"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/7470f0e8589e43978d45/visuals/d119813c385546c1a86e/visual.json",
+    "bytes": 6938,
+    "sha256": "fbff1a7f7311c5f65198148ab1ae3fac524dfb88a4e61b7c9a3cac4893e253b4"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/7470f0e8589e43978d45/visuals/e121dd8fd27d4c27b525/visual.json",
+    "bytes": 6953,
+    "sha256": "889ae132fb75527ce392e75933c823a5baeb5257a03000e9d9403b26535846c7"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/80a274802eb94f71b2be/page.json",
+    "bytes": 1178,
+    "sha256": "71727d632c31b02c260029b876ee88232e6bfef46cb58fc49a89547796ae6402"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/80a274802eb94f71b2be/visuals/9dc508ec03f240748013/visual.json",
+    "bytes": 5697,
+    "sha256": "8fa4e84cea0c39094e1d4c84f66e69c4c8cc0e8c3ad1bd058432a4944886805c"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/80a274802eb94f71b2be/visuals/c95452ea64b9469f8b30/visual.json",
+    "bytes": 5724,
+    "sha256": "abddd0784bdf131a4d97b0e4f9494631c2276b845345b0e7cfce063f1afc7084"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/80a274802eb94f71b2be/visuals/fa177b15571f4be5ad0b/visual.json",
+    "bytes": 8309,
+    "sha256": "a43a31f972bf635b34f47b3791d625991d626d6835412d021f094f8413b184ba"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/8f1b420abb7648b7b36a/page.json",
+    "bytes": 1112,
+    "sha256": "f785c7ac993598500fc3344dc485a51e299c8f23db6ea65e42c3109cb1c189a3"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/8f1b420abb7648b7b36a/visuals/04407ebd98c94712822a/visual.json",
+    "bytes": 5714,
+    "sha256": "d1323a3030e0c1902136847506a108cfa1073e278d8444e580deeb266baa4723"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/8f1b420abb7648b7b36a/visuals/0a3f1208d32c46828bd3/visual.json",
+    "bytes": 2194,
+    "sha256": "abf8a2847bbd3867ac75cf44255893436a484aa617cd61df7b9c8fd488823ccf"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/8f1b420abb7648b7b36a/visuals/0a8a0100197d46d2b97d/visual.json",
+    "bytes": 2192,
+    "sha256": "cee2f9a7be14cb410c27d8bd8feef88cc0af3df6e6455594a1bc74ebedc93f68"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/8f1b420abb7648b7b36a/visuals/1b1d373f248f4521ac53/visual.json",
+    "bytes": 8286,
+    "sha256": "beefdc3a8349354fe9f3f51d2c4fbfe4addc626f05e002cbe962fd2010c5004c"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/8f1b420abb7648b7b36a/visuals/1ecf75d3889846b8a415/visual.json",
+    "bytes": 5741,
+    "sha256": "a32c93834502ac37d2cc425b3f38cd16702722b34cdeaae93542ccb766f2f7e4"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/8f1b420abb7648b7b36a/visuals/237273b8dae14c578d2e/visual.json",
+    "bytes": 6950,
+    "sha256": "19939a8bc6ad8e36556932cbef71448c5a69404bb8e69b8053c2c49900994447"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/8f1b420abb7648b7b36a/visuals/26566cc77c634ab7b7c7/visual.json",
+    "bytes": 5715,
+    "sha256": "05e8c2eae452567fd1c465dbbc8f6e3d2151c9118995246988b0ec76a98ce582"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/8f1b420abb7648b7b36a/visuals/2da7d87c3e974c3195c9/visual.json",
+    "bytes": 2215,
+    "sha256": "54bf421a44d2e24650038286158db5ed0964e4ad09bf20070b398c6cd739ecc9"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/8f1b420abb7648b7b36a/visuals/6e3b0512cedf4d2da4a3/visual.json",
+    "bytes": 4364,
+    "sha256": "c2d35df7164a2689ddaaddcf746dd95b405537fe93e8f759fa6ea7d1bf500fb9"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/8f1b420abb7648b7b36a/visuals/7463128dcf034a67b9b1/visual.json",
+    "bytes": 6953,
+    "sha256": "939bbb11400631d04068a492629adfc250248a9d8a745b8539efe0477b3ad7df"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/8f1b420abb7648b7b36a/visuals/84102abda34d46eb8ded/visual.json",
+    "bytes": 6961,
+    "sha256": "4fb7c4d55ed78c2bf876c9703306a432969d396bc78f3d96019bb79709a2cc2b"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/8f1b420abb7648b7b36a/visuals/91d66447a39e44a5ae47/visual.json",
+    "bytes": 6746,
+    "sha256": "52c4240924a21a40fb3ae47044deffaa05427657507aa71d20839e78b4ef8874"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/8f1b420abb7648b7b36a/visuals/929dbdb1579f4ceeb75c/visual.json",
+    "bytes": 1871,
+    "sha256": "6817a7ef45da63fb2eb00daeef8d0d273c655298c9713ff17d7231c9b714e540"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/8f1b420abb7648b7b36a/visuals/9aff237bd09246c38b8c/visual.json",
+    "bytes": 5746,
+    "sha256": "23f5929d31d5a2b31a0887282d29f725b77a01f17e0f2bf1b906d10b1bdd68bd"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/8f1b420abb7648b7b36a/visuals/9b24ef10e89d4cf4b42f/visual.json",
+    "bytes": 6937,
+    "sha256": "15edbdccbe6e3bf8ed99924635f74c8c1ad0c635d9f64eb984ba4d853c5b8e62"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/8f1b420abb7648b7b36a/visuals/b0b6fc7f1b4e4912a792/visual.json",
+    "bytes": 6862,
+    "sha256": "1a7402cd7a56336f6149889418fe7e6112a24d2005eb6fa53e04797724a7687b"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/8f1b420abb7648b7b36a/visuals/b5ba5443804f44cda44c/visual.json",
+    "bytes": 2139,
+    "sha256": "e6b76c41a49e7dfc852843a5458982bfacc44e93837c8b962cac35c2a71254cd"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/8f1b420abb7648b7b36a/visuals/c0d393cc5737462184c2/visual.json",
+    "bytes": 5699,
+    "sha256": "9fd63dd7bd646fb986a62048f42abf836e8a7946471946ef412674d59f11626f"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/8f1b420abb7648b7b36a/visuals/c9785b3baab34d489de8/visual.json",
+    "bytes": 2244,
+    "sha256": "b9e610cf9e581c2fd8674a49cc57132cb678ac935acaeb7084af1d79b9cc842b"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/8f1b420abb7648b7b36a/visuals/cac94f270c6041d5b0d6/visual.json",
+    "bytes": 6938,
+    "sha256": "ab57419395f6866352ee5309cb3fdc97997cfa5f7c8a03141037ae669316da1e"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/8f1b420abb7648b7b36a/visuals/cbbe01e6760044279604/visual.json",
+    "bytes": 5753,
+    "sha256": "7b5490f1d84d7b3db10b2a9af4ce2778902f2ea68e6a2dd3deba5d3c70008209"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/8f1b420abb7648b7b36a/visuals/dda20401d53a4f9a893f/visual.json",
+    "bytes": 5742,
+    "sha256": "eab456d79e7ea84e00c8c30e149a53fe21a44e55ea1824ae4d853b1107164946"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/8f1b420abb7648b7b36a/visuals/e1c03e8c71164820b9f6/visual.json",
+    "bytes": 2142,
+    "sha256": "20d734b112ec49cee9efe34969c1a9761f52d0b92e548578b8b3bb11e0e0db1f"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/8f1b420abb7648b7b36a/visuals/e635245c715e4fc3bd41/visual.json",
+    "bytes": 6941,
+    "sha256": "6d208f765e6c7ead107a31f5a8c628a3e0d6580de0f974dd70e5d888f5fa46fd"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/8f1b420abb7648b7b36a/visuals/fef5cab765df4894b277/visual.json",
+    "bytes": 5722,
+    "sha256": "c5ed0a2229c051e3046cd5baf5b7d4f2e56d7648402519df0f50e40352dae29c"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/a0700000000000000001/page.json",
+    "bytes": 1124,
+    "sha256": "a0a4b333f1893eda6d222dcb64d26e0feb908a08937345713419bf5e6742aeea"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/a0700000000000000001/visuals/1289de0790444725bb1f/visual.json",
+    "bytes": 2196,
+    "sha256": "34ca630154a511e4717cdf43e98625b1f9c1ac40de3d9ca7077eeebd830bca87"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/a0700000000000000001/visuals/1d15163eb2a24780980e/visual.json",
+    "bytes": 8762,
+    "sha256": "868e9bf4516f65587793505f24b9d9ddde8278dffdd7eb8acb34b4f7a06da802"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/a0700000000000000001/visuals/2b50cfb637614b808af3/visual.json",
+    "bytes": 2085,
+    "sha256": "520dbc2b3fa842a696bb5a14d596f39701c768d4477917e79a65d27c6d2062ae"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/a0700000000000000001/visuals/4429897c186a4e81878e/visual.json",
+    "bytes": 5378,
+    "sha256": "84c7dbc494c2db3724ae3b31d7e32dfb5295bd293bb9eb6ffc550a211de1fd17"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/a0700000000000000001/visuals/5a510c2b2137497694a7/visual.json",
+    "bytes": 2212,
+    "sha256": "30d577473a4035c9ece29475bc2696d2bac29d8e053fca6a3b7dc7c59fd4aa5b"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/a0700000000000000001/visuals/7b7643423a0c46b38d56/visual.json",
+    "bytes": 5364,
+    "sha256": "30815c2b1dd8e41d3a29c4cb3969c719180c824810bb1f4423b3d845dc53d883"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/a0700000000000000001/visuals/7d6f0c0c21d348efb445/visual.json",
+    "bytes": 5366,
+    "sha256": "8ce91fff622c368d1aabf8e8954a96f8d951676ccc350bdcdf9a4b9eaa04a00b"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/a0700000000000000001/visuals/8830695c49834288a4a2/visual.json",
+    "bytes": 8770,
+    "sha256": "39b088695d48cc6e874f2604172cf9d270081233e7d4f4e36e481d84e37f6ed5"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/a0700000000000000001/visuals/972e484578a8431cb8c0/visual.json",
+    "bytes": 2135,
+    "sha256": "def89af73ddcabb47a78dcafa2ef7b136be842d5579e3d46efb33a866cbd5476"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/a0700000000000000001/visuals/a022e6f9ffda49f9a117/visual.json",
+    "bytes": 5370,
+    "sha256": "e3a02a6681285d4a1ef788f808a43b98568d6e524d9e6cddf39cbfcdcc958b4b"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/bd20b191fe124f358892/page.json",
+    "bytes": 1121,
+    "sha256": "74c3fae090b493fb31737ab55b6f7ea624ac1a1b2b2005d84f6e8995d3ab71fb"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/bd20b191fe124f358892/visuals/0b5c201b60604c67a428/visual.json",
+    "bytes": 2142,
+    "sha256": "5c1f990d6a06c531ede8ac6df96d97e0ef373d8fc9ad416c36f27e04f0d0e966"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/bd20b191fe124f358892/visuals/0f2b27a2d60847ec89af/visual.json",
+    "bytes": 5462,
+    "sha256": "a68d844740271a4487caeba3fc6e4adbbb03f4476cdf1863de66708a4be1592e"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/bd20b191fe124f358892/visuals/16233170a916445489ef/visual.json",
+    "bytes": 5702,
+    "sha256": "1e30e29e049f44fabe352a4b4a6344c2d4d706c9f90cc347f5cd411b216be634"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/bd20b191fe124f358892/visuals/175cdb0d7b634fcfa0a7/visual.json",
+    "bytes": 6950,
+    "sha256": "fd68332fbacf790686888a00d4ca9a96faf083ad4684aecd762f68653911b345"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/bd20b191fe124f358892/visuals/2907d9e8c12d41f9ba58/visual.json",
+    "bytes": 5727,
+    "sha256": "c85051f48e0f7c017c074bf656e1ef72ffd8f42b4af11bd91ff4667e4ae2134e"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/bd20b191fe124f358892/visuals/366a042d4f8c47e69402/visual.json",
+    "bytes": 5749,
+    "sha256": "d09bfc2f4e074c1b98240fe6ef06e8512086a71cdce4e8a62803dffa613992ef"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/bd20b191fe124f358892/visuals/3934aad39fde4ca0bca2/visual.json",
+    "bytes": 4364,
+    "sha256": "ff8c480fae64aa483021bfe8e962253250f05c862be125560d2517f68dd789eb"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/bd20b191fe124f358892/visuals/4486d8d4bf3c4cac8d0f/visual.json",
+    "bytes": 6938,
+    "sha256": "4d5c32b20ec3448ac0e7a38daf342b1630ad3b5e14cdf498c7539e8a5a978880"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/bd20b191fe124f358892/visuals/45b8e447e3874c598a18/visual.json",
+    "bytes": 1871,
+    "sha256": "7f2eb7f0e387e3280fc8c031dbcfc329e5f6720dec60d5b4addffdca0dce91af"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/bd20b191fe124f358892/visuals/8802fd85f3ef4313bf95/visual.json",
+    "bytes": 5725,
+    "sha256": "25c111f9f2ab780ce6761a653b053be7e1bbc27de92cff96a121821a0a4fe30e"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/bd20b191fe124f358892/visuals/888a6e08e8eb44659e48/visual.json",
+    "bytes": 2217,
+    "sha256": "4132abeeeae5077f2ed8b17b9ed12f7d5df0bd0409238f294bc5786843a02ea6"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/bd20b191fe124f358892/visuals/911a603272af46bc993e/visual.json",
+    "bytes": 6941,
+    "sha256": "6a1ad4eccaf4b41232d8f692d889b2b32ebc2b81af7b6916603624290f18d3a1"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/bd20b191fe124f358892/visuals/9309c630a6e046aea388/visual.json",
+    "bytes": 5438,
+    "sha256": "7b362a8d25a9a321cc8d3ac57bbc00881afaceebc012e2128df98fbc7b081548"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/bd20b191fe124f358892/visuals/996db50c7ec7485ba8b3/visual.json",
+    "bytes": 6746,
+    "sha256": "abaed113c80ea59d4598ed3fc3bd15c729c7d97a5d7cbbfc84c93d33831b6080"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/bd20b191fe124f358892/visuals/c1a4f2193e3d48e59f63/visual.json",
+    "bytes": 2194,
+    "sha256": "9dc8df9579d2cf76a27459ad040693ccc55fd7308c2e8488ca9bd56948340492"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/bd20b191fe124f358892/visuals/c29d60ca768944bca0f3/visual.json",
+    "bytes": 2224,
+    "sha256": "7a1c4f076ccd5caba94ff80ea2828ce8b11fca12651638e13c950cac3b06900f"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/bd20b191fe124f358892/visuals/d3270e43eb764e7ca0bc/visual.json",
+    "bytes": 2142,
+    "sha256": "58029c095a115f449b345abb22d188301edabde7dd6a061782f18074b9135161"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/bd20b191fe124f358892/visuals/d3584d07a7ba4a2684ff/visual.json",
+    "bytes": 5430,
+    "sha256": "73302f44e04af16428e504c2784be04e221a117e205195e5fdd1b7299594c773"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/bd20b191fe124f358892/visuals/ed51000cf95a4b8486f3/visual.json",
+    "bytes": 13904,
+    "sha256": "df7496fc1fa0dd34eb16c3c1cf7bdc2902a43b2ea23e7d1a582e98e7eb60307f"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/bd20b191fe124f358892/visuals/f7db5ac5149a47778635/visual.json",
+    "bytes": 6937,
+    "sha256": "cb0955a78c69fcc5a5c6bcdaca5195bc48cd120bb350c1fa1a35442e20d6b7dd"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/bd20b191fe124f358892/visuals/f7e6e473b71145e7a055/visual.json",
+    "bytes": 6953,
+    "sha256": "8f6cb86b9c1ea403f36b43c96c542e81ad18520268a2fd7e90879aefd1754acc"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/bd20b191fe124f358892/visuals/fdec7f075b7047e4be26/visual.json",
+    "bytes": 6961,
+    "sha256": "004cc54527fcfec7fffd8e241210a40d36af667692eb90f14c02c1a922e9a6a3"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/e44524c138d743d8a03a/page.json",
+    "bytes": 1123,
+    "sha256": "41911e75806c308c50d2865cffd4f9bf549790b85c363e4fa074acd269ca3235"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/e44524c138d743d8a03a/visuals/09d8e16c213f4e6fbf2a/visual.json",
+    "bytes": 8307,
+    "sha256": "6656099ffd42a4bded44b7206a600015b4fe5d771fe5309b55290c20eaacd29b"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/e44524c138d743d8a03a/visuals/10e2e59151794cbc94ea/visual.json",
+    "bytes": 2204,
+    "sha256": "e36f00632d12f9cd840f0e106978cf5ac401ca89a4b486b624c8e2e13e7e1461"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/e44524c138d743d8a03a/visuals/1a1ea7c49e4b4c73974f/visual.json",
+    "bytes": 6746,
+    "sha256": "572093ce105771189c278b8401fa82fa9a00aa133f0a21ad681cf028a4671249"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/e44524c138d743d8a03a/visuals/2520985baf1a404da9c1/visual.json",
+    "bytes": 6941,
+    "sha256": "58a70e71f59a60ded33170ff7465afe4acc896022a89d1d9dae78763634634e0"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/e44524c138d743d8a03a/visuals/2a2db24382dc487c970a/visual.json",
+    "bytes": 2226,
+    "sha256": "9b016973a8d083e3822645887d457135f7bff9cbe1f2f951a00bd2860bd44033"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/e44524c138d743d8a03a/visuals/2c4add3be73647e9869c/visual.json",
+    "bytes": 2194,
+    "sha256": "d7c38f2a1c21377b81e8e78d4423dc1b64ad2934207ad3bbd488cb622d0f7672"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/e44524c138d743d8a03a/visuals/2cb8c1cf80084aef8fc2/visual.json",
+    "bytes": 5421,
+    "sha256": "a6b726912fd4704cc182e1a83b3a04a490454fdb56f4a514927cc638ffacd2f3"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/e44524c138d743d8a03a/visuals/346a0a3712b747838488/visual.json",
+    "bytes": 5430,
+    "sha256": "aab9bb9784afc283bcc7e4405e55bc9ac29c08654be0443df6ef6f06bc2b501c"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/e44524c138d743d8a03a/visuals/34daf839971844d9902b/visual.json",
+    "bytes": 2138,
+    "sha256": "b017929b6a40702050c4cb840791896a5dbfe95398251e535a4bda7af4ed6571"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/e44524c138d743d8a03a/visuals/418105528ff24babb026/visual.json",
+    "bytes": 6950,
+    "sha256": "ded31d264dfa2f8a9e69b66c9c2fe76f67710edb3376c8f3466e31051cae15b4"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/e44524c138d743d8a03a/visuals/515854a27b9043c2a0ee/visual.json",
+    "bytes": 4364,
+    "sha256": "ffe7a99c7e052b37e47b81a696ad732ce6e43601c2d4534d917125fa6b969458"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/e44524c138d743d8a03a/visuals/5c4f1155105940b181fb/visual.json",
+    "bytes": 6953,
+    "sha256": "097aca80ed9b7e67e47b338da88cc93a9c8b0664cc1b194a43ccb8480271205c"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/e44524c138d743d8a03a/visuals/775ebdcb1c3246debc1d/visual.json",
+    "bytes": 8288,
+    "sha256": "0b00fac22e8e6d1c94678ab9844ca45d15d0328592b0f05a60c3e928e58c437d"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/e44524c138d743d8a03a/visuals/79b1f83768a146c6b4f2/visual.json",
+    "bytes": 2142,
+    "sha256": "fbafacc06f10c9674bba8280e4a155306c710998ebf84256e8ffb8ae34cc9018"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/e44524c138d743d8a03a/visuals/93ee3fb068844329b057/visual.json",
+    "bytes": 6938,
+    "sha256": "ab6029e61d1ff67ab85150bd64a189778e43a80ac17f2ed0f704754d3a802cf5"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/e44524c138d743d8a03a/visuals/af992346a8f845cd9e16/visual.json",
+    "bytes": 8770,
+    "sha256": "d78f3bc7bb2fbe58a38288a5ed360925202cae2075e66754333a598ae3b62cf7"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/e44524c138d743d8a03a/visuals/bf5a386a6d234387bde8/visual.json",
+    "bytes": 6937,
+    "sha256": "09788cd5d3ea09be32e95d8e26fd9589b109538b2f182a0422183302f4127d86"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/e44524c138d743d8a03a/visuals/c7f8abf87b544dbb98d5/visual.json",
+    "bytes": 1871,
+    "sha256": "31e99f4e5a51b624c578d5569447a2f9bfe78f3d780e1edc902666b7e04be0c8"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/e44524c138d743d8a03a/visuals/d80da7913d4947d6a221/visual.json",
+    "bytes": 5454,
+    "sha256": "631474b4cfd3bbe92dadd1ab95d8d3aa8d055302ac43ad6d527b4746b7b20577"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/e44524c138d743d8a03a/visuals/e6ea5a0d804e4b7a9edf/visual.json",
+    "bytes": 6961,
+    "sha256": "f5c2f14626f81b0c89cdc50cbe42e59954ed2dd88e141664c82ec535c6353c1d"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/pages/pages.json",
+    "bytes": 414,
+    "sha256": "0e7c32e4c0ff64917473e05c005e15508160e211e60ed6cc7ef66a3308a3c1c0"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/report.json",
+    "bytes": 1969,
+    "sha256": "cb8e11597cff4dce63927f570aac0e79530bb835cd0fe6400ebb7225089a55e1"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition/version.json",
+    "bytes": 149,
+    "sha256": "32bc72b8e7996a054f96e655c8dd8fda82e5f502532610b45bc21a18cffe30b6"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/definition.pbir",
+    "bytes": 234,
+    "sha256": "eeea6deb101f69ae2dd8721d10c97112f9d8d3f7a8aacd088b60eca66e81813e"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/StaticResources/RegisteredResources/Peru_departamentos.json",
+    "bytes": 306775,
+    "sha256": "293ca29054315b8fee3786388655139649868addd4de6d68d6e27b0f4a717ddd"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/StaticResources/RegisteredResources/SIS_Empresarial.json",
+    "bytes": 547,
+    "sha256": "c984ace1dfc88d0b9043873f816df683a1414aac28c0e7d5571ef82da32e0c40"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.Report/StaticResources/SharedResources/BaseThemes/Fluent2-CY26SU08.json",
+    "bytes": 95082,
+    "sha256": "e16d66ffdbbe1876bc243251e52c454d97c0cf230afdb18c04b10b60a9390e84"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.SemanticModel/definition/cultures/es-ES.tmdl",
+    "bytes": 6848,
+    "sha256": "b970b39e05d147e0bf6d14ebc07684c921deb4a05ec30fa932f55291c1a5a057"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.SemanticModel/definition/database.tmdl",
+    "bytes": 36,
+    "sha256": "05e6e4d3963c40921d429c883e83714a9dd42aeadbb8470e671a6b38dbb34872"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.SemanticModel/definition/model.tmdl",
+    "bytes": 508,
+    "sha256": "38c7a17566b23a7c85f3d4dcc768c0ffc0991e429c95984ac21a1a6829a7c714"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.SemanticModel/definition/relationships.tmdl",
+    "bytes": 658,
+    "sha256": "12d6e85246d71f01a6c6bf15bf5769a27a854bd0308b8fd364097c6134f66cbe"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.SemanticModel/definition/tables/Dim_Demografia.tmdl",
+    "bytes": 750,
+    "sha256": "cba2b140f573168520b1b86287f6f80896c29efb1bd30452f07450cadbdb07bf"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.SemanticModel/definition/tables/Dim_IPRESS.tmdl",
+    "bytes": 2085,
+    "sha256": "08a3d0c2a342a8ba1d4c4f091120c03758bcdda8f4d4d32dca6c6ee20a6224f2"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.SemanticModel/definition/tables/Dim_Seguro.tmdl",
+    "bytes": 607,
+    "sha256": "6b258f6e523159c9a46d07534b11c437e93fd7e336af02250bf78e8eb0ee5aa3"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.SemanticModel/definition/tables/Dim_Servicio.tmdl",
+    "bytes": 762,
+    "sha256": "f155a400ed4a2a4563b98bd136dbfda50b6214e008d16f426563e7463889ce5d"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.SemanticModel/definition/tables/Dim_Tiempo.tmdl",
+    "bytes": 1505,
+    "sha256": "7b7ffa4834426b525e44f794c21d79b43ec7f31732ba0406a4c0a368c8cd14ee"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.SemanticModel/definition/tables/Fact_Atenciones.tmdl",
+    "bytes": 8794,
+    "sha256": "d211f7c236e1ab5a9be727d8072b413696c242bbf15fea39593b4af44c241b49"
+  },
+  {
+    "archivo": "PowerBI/SIS_Auto.SemanticModel/definition.pbism",
+    "bytes": 166,
+    "sha256": "e761066d848bfaec8496b03ec887aa0a158a8c14a2b359240fc43ca46bb54fcf"
+  },
+  {
+    "archivo": "PowerBI/SIS_Final_3BD.pbip",
+    "bytes": 274,
+    "sha256": "5cdd91f00b710a1f220d9fe8218d0749edf840507fcd3d8ff20d9e02746e4402"
+  },
+  {
+    "archivo": "pruebas/verificar_entrega.py",
+    "bytes": 1571,
+    "sha256": "2870a148bd8543ec4ced4e36d6911b3a0c75f314e570c1c5b668e180772af012"
+  },
+  {
+    "archivo": "README.md",
+    "bytes": 5936,
+    "sha256": "93afe85b49bf7a3e56725100571d9094c705a51272c461982ff3898b087a5874"
+  },
+  {
+    "archivo": "RECONSTRUIR_BD.cmd",
+    "bytes": 197,
+    "sha256": "ea1d30a7ae21f5042639bcb82b69436c484d1e9985405f2b6f3348e89276d9a4"
+  },
+  {
+    "archivo": "requirements.txt",
+    "bytes": 17,
+    "sha256": "9bba605fd7b6ea23038de15e5a1ae6714b3d3fb14ed2d6e6bedbfb0665ca2122"
+  },
+  {
+    "archivo": "sql/01_raw.sql",
+    "bytes": 7595,
+    "sha256": "917f8368fb84bb84a1ce98240ce87501e266a089fb13ed1fb64144f37aba48ff"
+  },
+  {
+    "archivo": "sql/02_normalizada.sql",
+    "bytes": 3468,
+    "sha256": "63c3472314fd74e5d781b20a8ad9d89034c77939862ffdf95fa8d1f99edbd080"
+  },
+  {
+    "archivo": "sql/03_dimensional.sql",
+    "bytes": 2402,
+    "sha256": "84f78adf94547e0394dd1aa9038bd6ff0c801ffe63f302028974077e6a051dfe"
+  },
+  {
+    "archivo": "sql/04_eventos.sql",
+    "bytes": 5406,
+    "sha256": "574412435cc43f6670d86f54c140ea327d5becbabc7a79331a0b524dee5cb29c"
+  },
+  {
+    "archivo": "sql/05_vista.sql",
+    "bytes": 3226,
+    "sha256": "55353aff88bd8f677739e39426d31566e485e1517ed1e6d79e6d94637ad89370"
+  },
+  {
+    "archivo": "sql/06_vistas_powerbi.sql",
+    "bytes": 1941,
+    "sha256": "5049af7c3651bdd7d4f6a5c867424071d727adb2139ba1e9c6557293cdc897d8"
+  },
+  {
+    "archivo": "sql/07_aislamiento.sql",
+    "bytes": 508,
+    "sha256": "9b2628e44edcd0c3ec3504be92f8aaceccc81faf31b0bafec80062eb2e0e8b38"
+  },
+  {
+    "archivo": "sql/08_integridad_raw.sql",
+    "bytes": 811,
+    "sha256": "ae0b9989b1896751801a0ae1db2cd74c43b0618281633d12c91dabf0f4047fe3"
+  },
+  {
+    "archivo": "sql/09_integridad_norm.sql",
+    "bytes": 578,
+    "sha256": "77a3c205637e3bb8b90a0c751b2d9919d04b7b052165edf2e91ae13c04eb6f91"
+  },
+  {
+    "archivo": "sql/90_Guia_Carga_Incremental.sql",
+    "bytes": 2109,
+    "sha256": "f102925315df0951893598983ce91a05f1bfbeb9c6711d24dee39d3d1b86709a"
+  },
+  {
+    "archivo": "sql/91_Prueba_Incremental_EndToEnd.sql",
+    "bytes": 2380,
+    "sha256": "f61902873f167efa46585202b6afca2ba7a5a8323c9ace2348ce84f57bf9ef5a"
+  },
+  {
+    "archivo": "sql/AJUSTES_RECURSOS.sql",
+    "bytes": 757,
+    "sha256": "2b76f43915858d7a09a9af2c747c9f4bda254192cbce092b4605b51acbfdbc0f"
+  },
+  {
+    "archivo": "sql/DEMO_Alta_SQL.sql",
+    "bytes": 945,
+    "sha256": "3a48cc528208f6c4310e6c19bc02fa2b3d6c8491248d1bfa6643d24f57432a66"
+  },
+  {
+    "archivo": "sql/DEMO_Baja_SQL.sql",
+    "bytes": 237,
+    "sha256": "03143bd5932f2bb0be034ca709aa3ae1523105b6b03fd4bfafb1f95025f0ab59"
+  }
+]

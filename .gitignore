@@ -1,0 +1,32 @@
+# Datos locales y respaldos
+/operacion/
+/fuentes/
+/respaldos/
+*.bak
+*.mdf
+*.ndf
+*.ldf
+*.sqlite
+*.sqlite3
+*.db
+*.log
+# Power BI: conservar definiciones y excluir caché y configuración local
+**/.pbi/
+*.abf
+*.pbix
+*.pbix.autorecovery
+# Entorno y compilación
+.venv/
+__pycache__/
+*.pyc
+**/bin/
+**/obj/
+**/.vs/
+*.ispac
+*.dtproj.user
+.env
+.env.*
+*.local.json
+Thumbs.db
+.DS_Store
+~$*

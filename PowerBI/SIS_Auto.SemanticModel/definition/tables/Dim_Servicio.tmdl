@@ -1,0 +1,31 @@
+table Dim_Servicio
+	lineageTag: beaddfe7-952b-43fb-91ed-d28eb1f62998
+
+	column id_servicio_sk
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 09f79fec-e460-4e59-88c8-cd8741b0a150
+		summarizeBy: none
+		sourceColumn: id_servicio_sk
+
+	column cod_servicio
+		dataType: string
+		lineageTag: e57e417a-21ac-4aa4-afd4-4676adc2ff6d
+		summarizeBy: none
+		sourceColumn: cod_servicio
+
+	column desc_servicio
+		dataType: string
+		lineageTag: b330d89a-0587-478b-aa28-f62b99b38779
+		summarizeBy: none
+		sourceColumn: desc_servicio
+
+	partition Dim_Servicio = m
+		mode: directQuery
+		source =
+				let
+				 Origen=Sql.Database("localhost", "SIS_DIMENSIONAL", [CreateNavigationProperties=false]),
+				 Datos=Origen{[Schema="pbi",Item="Dim_Servicio"]}[Data]
+				in Datos
+

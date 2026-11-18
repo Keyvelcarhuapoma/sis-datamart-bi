@@ -1,0 +1,25 @@
+table Dim_Seguro
+	lineageTag: a7330ba8-7ba0-4310-96a9-1efee5733498
+
+	column id_seguro_sk
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 799cdc84-4696-415d-bd52-45c152f99592
+		summarizeBy: none
+		sourceColumn: id_seguro_sk
+
+	column plan_seguro
+		dataType: string
+		lineageTag: a77e0f70-6381-4a6b-8430-ad85874f84a0
+		summarizeBy: none
+		sourceColumn: plan_seguro
+
+	partition Dim_Seguro = m
+		mode: directQuery
+		source =
+				let
+				 Origen=Sql.Database("localhost", "SIS_DIMENSIONAL", [CreateNavigationProperties=false]),
+				 Datos=Origen{[Schema="pbi",Item="Dim_Seguro"]}[Data]
+				in Datos
+

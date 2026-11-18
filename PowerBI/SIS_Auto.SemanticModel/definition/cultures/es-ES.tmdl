@@ -1,0 +1,263 @@
+cultureInfo es-ES
+
+	linguisticMetadata =
+			{
+			  "Version": "2.0.0",
+			  "Language": "en-US",
+			  "Entities": {
+			    "dim_ipress.cod_ipress": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_IPRESS",
+			          "ConceptualProperty": "cod_ipress"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Código IPRESS": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_ipress.distrito": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_IPRESS",
+			          "ConceptualProperty": "distrito"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Distrito": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_ipress.nivel_eess": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_IPRESS",
+			          "ConceptualProperty": "nivel_eess"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Nivel": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_ipress.nombre_ipress": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_IPRESS",
+			          "ConceptualProperty": "nombre_ipress"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Establecimiento": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_ipress.provincia": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_IPRESS",
+			          "ConceptualProperty": "provincia"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Provincia": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_ipress.region": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_IPRESS",
+			          "ConceptualProperty": "region"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Región": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_tiempo.periodo_codigo": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Dim_Tiempo",
+			          "ConceptualProperty": "periodo_codigo"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Periodo": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fact_atenciones.atenciones_h2_2018": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fact_Atenciones",
+			          "ConceptualProperty": "Atenciones H2 2018"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2018 · H2": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fact_atenciones.atenciones_h2_2025": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fact_Atenciones",
+			          "ConceptualProperty": "Atenciones H2 2025"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "2025 · H2": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fact_atenciones.filas_publicadas": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fact_Atenciones",
+			          "ConceptualProperty": "Filas publicadas"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Filas": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fact_atenciones.total_atenciones": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fact_Atenciones",
+			          "ConceptualProperty": "Total Atenciones"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Atenciones": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "fact_atenciones.variacion_h2_porcentual": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "Fact_Atenciones",
+			          "ConceptualProperty": "Variacion H2 porcentual"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "Variación %": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    }
+			  }
+			}
+		contentType: json
+

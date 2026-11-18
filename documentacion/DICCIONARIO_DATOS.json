@@ -1,0 +1,2838 @@
+{
+  "SIS_RAW": {
+    "columnas": [
+      {
+        "esquema": "dbo",
+        "tabla": "SIS_Marca",
+        "columna": "nombre",
+        "tipo": "varchar",
+        "max_length": 80,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Afectados",
+        "columna": "id_lote",
+        "tipo": "uniqueidentifier",
+        "max_length": 16,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Afectados",
+        "columna": "periodo",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "AniosPermitidos",
+        "columna": "anio",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Archivos",
+        "columna": "id_lote",
+        "tipo": "uniqueidentifier",
+        "max_length": 16,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Archivos",
+        "columna": "ruta",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Archivos",
+        "columna": "sha256",
+        "tipo": "char",
+        "max_length": 64,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Archivos",
+        "columna": "bytes",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Archivos",
+        "columna": "codepage",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Archivos",
+        "columna": "recibido",
+        "tipo": "datetime2",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "ConfigIncremental",
+        "columna": "id",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "ConfigIncremental",
+        "columna": "ambito",
+        "tipo": "varchar",
+        "max_length": 60,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Errores",
+        "columna": "id_error",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": true
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Errores",
+        "columna": "id_lote",
+        "tipo": "uniqueidentifier",
+        "max_length": 16,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Errores",
+        "columna": "mensaje",
+        "tipo": "nvarchar",
+        "max_length": 4000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Errores",
+        "columna": "fecha",
+        "tipo": "datetime2",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Lotes",
+        "columna": "id_lote",
+        "tipo": "uniqueidentifier",
+        "max_length": 16,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Lotes",
+        "columna": "modo",
+        "tipo": "varchar",
+        "max_length": 20,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Lotes",
+        "columna": "estado",
+        "tipo": "varchar",
+        "max_length": 40,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Lotes",
+        "columna": "archivo",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Lotes",
+        "columna": "fecha_inicio",
+        "tipo": "datetime2",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Lotes",
+        "columna": "fecha_fin",
+        "tipo": "datetime2",
+        "max_length": 8,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Lotes",
+        "columna": "filas_origen",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Lotes",
+        "columna": "filas_aceptadas",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Lotes",
+        "columna": "filas_rechazadas",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Lotes",
+        "columna": "filas_dm",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Lotes",
+        "columna": "atenciones_dm",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Lotes",
+        "columna": "mensaje",
+        "tipo": "nvarchar",
+        "max_length": 4000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Particiones",
+        "columna": "periodo",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Particiones",
+        "columna": "huella",
+        "tipo": "binary",
+        "max_length": 32,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Particiones",
+        "columna": "filas",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Particiones",
+        "columna": "atenciones",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Particiones",
+        "columna": "version",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Particiones",
+        "columna": "id_lote",
+        "tipo": "uniqueidentifier",
+        "max_length": 16,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Particiones",
+        "columna": "actualizado",
+        "tipo": "datetime2",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "PlanParticion",
+        "columna": "id_lote",
+        "tipo": "uniqueidentifier",
+        "max_length": 16,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "PlanParticion",
+        "columna": "periodo",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "PlanParticion",
+        "columna": "huella",
+        "tipo": "binary",
+        "max_length": 32,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "PlanParticion",
+        "columna": "filas",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "PlanParticion",
+        "columna": "atenciones",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "PlanParticion",
+        "columna": "accion",
+        "tipo": "varchar",
+        "max_length": 20,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "PlanParticion",
+        "columna": "filas_anteriores",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "PlanParticion",
+        "columna": "version_anterior",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Proyecto",
+        "columna": "id",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Proyecto",
+        "columna": "nombre",
+        "tipo": "varchar",
+        "max_length": 80,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Publicaciones",
+        "columna": "id_lote",
+        "tipo": "uniqueidentifier",
+        "max_length": 16,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Publicaciones",
+        "columna": "periodo",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Publicaciones",
+        "columna": "version",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Publicaciones",
+        "columna": "huella",
+        "tipo": "binary",
+        "max_length": 32,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Publicaciones",
+        "columna": "filas_retiradas",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Publicaciones",
+        "columna": "filas_insertadas",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Publicaciones",
+        "columna": "atenciones",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Publicaciones",
+        "columna": "fecha",
+        "tipo": "datetime2",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Rechazos",
+        "columna": "id_lote",
+        "tipo": "uniqueidentifier",
+        "max_length": 16,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Rechazos",
+        "columna": "archivo",
+        "tipo": "nvarchar",
+        "max_length": 520,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Rechazos",
+        "columna": "fila_archivo",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Rechazos",
+        "columna": "motivo",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Rechazos",
+        "columna": "anio_original",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Rechazos",
+        "columna": "mes_original",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Rechazos",
+        "columna": "atenciones_original",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Validaciones",
+        "columna": "id_lote",
+        "tipo": "uniqueidentifier",
+        "max_length": 16,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Validaciones",
+        "columna": "control",
+        "tipo": "varchar",
+        "max_length": 100,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Validaciones",
+        "columna": "esperado",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Validaciones",
+        "columna": "obtenido",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Validaciones",
+        "columna": "cumple",
+        "tipo": "bit",
+        "max_length": 1,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Validaciones",
+        "columna": "fecha",
+        "tipo": "datetime2",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "EventosSQL",
+        "columna": "id_evento",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": true
+      },
+      {
+        "esquema": "raw",
+        "tabla": "EventosSQL",
+        "columna": "clave_origen",
+        "tipo": "nvarchar",
+        "max_length": 200,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "EventosSQL",
+        "columna": "version",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "EventosSQL",
+        "columna": "operacion",
+        "tipo": "char",
+        "max_length": 1,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "EventosSQL",
+        "columna": "datos",
+        "tipo": "nvarchar",
+        "max_length": -1,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "EventosSQL",
+        "columna": "estado",
+        "tipo": "varchar",
+        "max_length": 20,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "EventosSQL",
+        "columna": "id_lote",
+        "tipo": "uniqueidentifier",
+        "max_length": 16,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "EventosSQL",
+        "columna": "recibido",
+        "tipo": "datetime2",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "Registros",
+        "columna": "id_raw",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": true
+      },
+      {
+        "esquema": "raw",
+        "tabla": "Registros",
+        "columna": "id_lote",
+        "tipo": "uniqueidentifier",
+        "max_length": 16,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "Registros",
+        "columna": "fila_origen",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "Registros",
+        "columna": "fuente_tipo",
+        "tipo": "varchar",
+        "max_length": 10,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "Registros",
+        "columna": "clave_origen",
+        "tipo": "nvarchar",
+        "max_length": 200,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "Registros",
+        "columna": "version_origen",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "Registros",
+        "columna": "operacion",
+        "tipo": "char",
+        "max_length": 1,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "Registros",
+        "columna": "id_evento",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "Registros",
+        "columna": "ANIO",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "Registros",
+        "columna": "MES",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "Registros",
+        "columna": "REGION",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "Registros",
+        "columna": "PROVINCIA",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "Registros",
+        "columna": "UBIGEO_DISTRITO",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "Registros",
+        "columna": "DISTRITO",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "Registros",
+        "columna": "COD_UNIDAD_EJECUTORA",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "Registros",
+        "columna": "DESC_UNIDAD_EJECUTORA",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "Registros",
+        "columna": "COD_IPRESS",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "Registros",
+        "columna": "IPRESS",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "Registros",
+        "columna": "NIVEL_EESS",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "Registros",
+        "columna": "PLAN_SEGURO",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "Registros",
+        "columna": "COD_SERVICIO",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "Registros",
+        "columna": "DESC_SERVICIO",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "Registros",
+        "columna": "SEXO",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "Registros",
+        "columna": "GRUPO_EDAD",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "raw",
+        "tabla": "Registros",
+        "columna": "ATENCIONES",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "BCP_Evaluacion",
+        "columna": "ANIO",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "BCP_Evaluacion",
+        "columna": "MES",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "BCP_Evaluacion",
+        "columna": "REGION",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "BCP_Evaluacion",
+        "columna": "PROVINCIA",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "BCP_Evaluacion",
+        "columna": "UBIGEO_DISTRITO",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "BCP_Evaluacion",
+        "columna": "DISTRITO",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "BCP_Evaluacion",
+        "columna": "COD_UNIDAD_EJECUTORA",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "BCP_Evaluacion",
+        "columna": "DESC_UNIDAD_EJECUTORA",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "BCP_Evaluacion",
+        "columna": "COD_IPRESS",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "BCP_Evaluacion",
+        "columna": "IPRESS",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "BCP_Evaluacion",
+        "columna": "NIVEL_EESS",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "BCP_Evaluacion",
+        "columna": "PLAN_SEGURO",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "BCP_Evaluacion",
+        "columna": "COD_SERVICIO",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "BCP_Evaluacion",
+        "columna": "DESC_SERVICIO",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "BCP_Evaluacion",
+        "columna": "SEXO",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "BCP_Evaluacion",
+        "columna": "GRUPO_EDAD",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "BCP_Evaluacion",
+        "columna": "ATENCIONES",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Entrada",
+        "columna": "fila_archivo",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": true
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Entrada",
+        "columna": "ANIO",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Entrada",
+        "columna": "MES",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Entrada",
+        "columna": "REGION",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Entrada",
+        "columna": "PROVINCIA",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Entrada",
+        "columna": "UBIGEO_DISTRITO",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Entrada",
+        "columna": "DISTRITO",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Entrada",
+        "columna": "COD_UNIDAD_EJECUTORA",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Entrada",
+        "columna": "DESC_UNIDAD_EJECUTORA",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Entrada",
+        "columna": "COD_IPRESS",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Entrada",
+        "columna": "IPRESS",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Entrada",
+        "columna": "NIVEL_EESS",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Entrada",
+        "columna": "PLAN_SEGURO",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Entrada",
+        "columna": "COD_SERVICIO",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Entrada",
+        "columna": "DESC_SERVICIO",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Entrada",
+        "columna": "SEXO",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Entrada",
+        "columna": "GRUPO_EDAD",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Entrada",
+        "columna": "ATENCIONES",
+        "tipo": "nvarchar",
+        "max_length": 2000,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "ErroresLectura",
+        "columna": "id_error",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": true
+      },
+      {
+        "esquema": "stg",
+        "tabla": "ErroresLectura",
+        "columna": "ErrorCode",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "ErroresLectura",
+        "columna": "ErrorColumn",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Limpia",
+        "columna": "archivo",
+        "tipo": "nvarchar",
+        "max_length": 520,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Limpia",
+        "columna": "fila_archivo",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Limpia",
+        "columna": "id_raw",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Limpia",
+        "columna": "clave_origen",
+        "tipo": "nvarchar",
+        "max_length": 200,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Limpia",
+        "columna": "version_origen",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Limpia",
+        "columna": "ANIO",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Limpia",
+        "columna": "MES",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Limpia",
+        "columna": "REGION",
+        "tipo": "nvarchar",
+        "max_length": 800,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Limpia",
+        "columna": "PROVINCIA",
+        "tipo": "nvarchar",
+        "max_length": 800,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Limpia",
+        "columna": "UBIGEO_DISTRITO",
+        "tipo": "nvarchar",
+        "max_length": 800,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Limpia",
+        "columna": "DISTRITO",
+        "tipo": "nvarchar",
+        "max_length": 800,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Limpia",
+        "columna": "COD_UNIDAD_EJECUTORA",
+        "tipo": "nvarchar",
+        "max_length": 800,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Limpia",
+        "columna": "DESC_UNIDAD_EJECUTORA",
+        "tipo": "nvarchar",
+        "max_length": 800,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Limpia",
+        "columna": "COD_IPRESS",
+        "tipo": "nvarchar",
+        "max_length": 800,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Limpia",
+        "columna": "IPRESS",
+        "tipo": "nvarchar",
+        "max_length": 800,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Limpia",
+        "columna": "NIVEL_EESS",
+        "tipo": "nvarchar",
+        "max_length": 800,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Limpia",
+        "columna": "PLAN_SEGURO",
+        "tipo": "nvarchar",
+        "max_length": 800,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Limpia",
+        "columna": "COD_SERVICIO",
+        "tipo": "nvarchar",
+        "max_length": 800,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Limpia",
+        "columna": "DESC_SERVICIO",
+        "tipo": "nvarchar",
+        "max_length": 800,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Limpia",
+        "columna": "SEXO",
+        "tipo": "nvarchar",
+        "max_length": 800,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Limpia",
+        "columna": "GRUPO_EDAD",
+        "tipo": "nvarchar",
+        "max_length": 800,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Limpia",
+        "columna": "ATENCIONES",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Limpia",
+        "columna": "ubigeo_valido",
+        "tipo": "bit",
+        "max_length": 1,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Limpia",
+        "columna": "clave_ipress",
+        "tipo": "binary",
+        "max_length": 32,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Limpia",
+        "columna": "clave_servicio",
+        "tipo": "binary",
+        "max_length": 32,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Limpia",
+        "columna": "clave_unidad",
+        "tipo": "binary",
+        "max_length": 32,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Limpia",
+        "columna": "huella_fila",
+        "tipo": "binary",
+        "max_length": 32,
+        "is_nullable": true,
+        "is_identity": false
+      }
+    ],
+    "llaves": [
+      {
+        "esquema": "dbo",
+        "tabla": "SIS_Marca",
+        "restriccion": "PK__SIS_Marc__72AFBCC78112A43A",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Proyecto",
+        "restriccion": "PK__Proyecto__3213E83F0AEA2FAA",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Lotes",
+        "restriccion": "PK__Lotes__9A0004869AA9AF4F",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Errores",
+        "restriccion": "PK__Errores__F2369A8AF506830D",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "etl",
+        "tabla": "AniosPermitidos",
+        "restriccion": "PK__AniosPer__61B22F4701857E87",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "stg",
+        "tabla": "Entrada",
+        "restriccion": "PK__Entrada__E88A48A1A968D8D1",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "raw",
+        "tabla": "Registros",
+        "restriccion": "PK__Registro__6ABE0FFB2D433B17",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "raw",
+        "tabla": "EventosSQL",
+        "restriccion": "PK__EventosS__AF150CA5D0E0DF1E",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Particiones",
+        "restriccion": "PK__Particio__2B52F41C576D9C9E",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "etl",
+        "tabla": "PlanParticion",
+        "restriccion": "PK__PlanPart__48B52BC7704A14A9",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Publicaciones",
+        "restriccion": "PK__Publicac__48B52BC71019811F",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "etl",
+        "tabla": "ConfigIncremental",
+        "restriccion": "PK__ConfigIn__3213E83F7C8AD599",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Afectados",
+        "restriccion": "PK__Afectado__48B52BC7F4E419DC",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "stg",
+        "tabla": "ErroresLectura",
+        "restriccion": "PK__ErroresL__F2369A8AB0D0ED32",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "etl",
+        "tabla": "Archivos",
+        "restriccion": "PK__Archivos__9A0004866E641B03",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "raw",
+        "tabla": "EventosSQL",
+        "restriccion": "UQ__EventosS__F4BB9F768CC75ECF",
+        "type_desc": "UNIQUE_CONSTRAINT"
+      }
+    ],
+    "relaciones": [
+      {
+        "name": "FK_Plan_Lote",
+        "is_disabled": false,
+        "is_not_trusted": false,
+        "origen": "etl.PlanParticion",
+        "destino": "etl.Lotes"
+      },
+      {
+        "name": "FK_Publicacion_Lote",
+        "is_disabled": false,
+        "is_not_trusted": false,
+        "origen": "etl.Publicaciones",
+        "destino": "etl.Lotes"
+      },
+      {
+        "name": "FK_Particion_Lote",
+        "is_disabled": false,
+        "is_not_trusted": false,
+        "origen": "etl.Particiones",
+        "destino": "etl.Lotes"
+      },
+      {
+        "name": "FK_Registro_Evento",
+        "is_disabled": false,
+        "is_not_trusted": false,
+        "origen": "raw.Registros",
+        "destino": "raw.EventosSQL"
+      },
+      {
+        "name": "FK__Rechazos__id_lot__5070F446",
+        "is_disabled": false,
+        "is_not_trusted": false,
+        "origen": "etl.Rechazos",
+        "destino": "etl.Lotes"
+      },
+      {
+        "name": "FK__Validacio__id_lo__52593CB8",
+        "is_disabled": false,
+        "is_not_trusted": false,
+        "origen": "etl.Validaciones",
+        "destino": "etl.Lotes"
+      },
+      {
+        "name": "FK__Errores__id_lote__5629CD9C",
+        "is_disabled": false,
+        "is_not_trusted": false,
+        "origen": "etl.Errores",
+        "destino": "etl.Lotes"
+      },
+      {
+        "name": "FK__Registros__id_lo__5EBF139D",
+        "is_disabled": false,
+        "is_not_trusted": false,
+        "origen": "raw.Registros",
+        "destino": "etl.Lotes"
+      },
+      {
+        "name": "FK__EventosSQ__id_lo__6754599E",
+        "is_disabled": false,
+        "is_not_trusted": false,
+        "origen": "raw.EventosSQL",
+        "destino": "etl.Lotes"
+      },
+      {
+        "name": "FK__Afectados__id_lo__76969D2E",
+        "is_disabled": false,
+        "is_not_trusted": false,
+        "origen": "etl.Afectados",
+        "destino": "etl.Lotes"
+      },
+      {
+        "name": "FK__Archivos__id_lot__7E37BEF6",
+        "is_disabled": false,
+        "is_not_trusted": false,
+        "origen": "etl.Archivos",
+        "destino": "etl.Lotes"
+      }
+    ]
+  },
+  "SIS_NORMALIZADA": {
+    "columnas": [
+      {
+        "esquema": "dbo",
+        "tabla": "SIS_Marca",
+        "columna": "nombre",
+        "tipo": "varchar",
+        "max_length": 80,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Distrito",
+        "columna": "id_distrito",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": true
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Distrito",
+        "columna": "id_provincia",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Distrito",
+        "columna": "ubigeo",
+        "tipo": "nvarchar",
+        "max_length": 40,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Distrito",
+        "columna": "nombre",
+        "tipo": "nvarchar",
+        "max_length": 300,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Grupo_Edad",
+        "columna": "id_grupo_edad",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": true
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Grupo_Edad",
+        "columna": "nombre",
+        "tipo": "nvarchar",
+        "max_length": 200,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "IPRESS",
+        "columna": "id_ipress",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": true
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "IPRESS",
+        "columna": "clave_version",
+        "tipo": "binary",
+        "max_length": 32,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "IPRESS",
+        "columna": "cod_ipress",
+        "tipo": "nvarchar",
+        "max_length": 100,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "IPRESS",
+        "columna": "nombre",
+        "tipo": "nvarchar",
+        "max_length": 800,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "IPRESS",
+        "columna": "nivel",
+        "tipo": "nvarchar",
+        "max_length": 100,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "IPRESS",
+        "columna": "id_distrito",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "IPRESS",
+        "columna": "id_unidad",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "IPRESS",
+        "columna": "ubigeo_valido",
+        "tipo": "bit",
+        "max_length": 1,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "OrigenVersion",
+        "columna": "clave_origen",
+        "tipo": "nvarchar",
+        "max_length": 200,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "OrigenVersion",
+        "columna": "version",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "OrigenVersion",
+        "columna": "eliminado",
+        "tipo": "bit",
+        "max_length": 1,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Plan_Seguro",
+        "columna": "id_plan",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": true
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Plan_Seguro",
+        "columna": "nombre",
+        "tipo": "nvarchar",
+        "max_length": 200,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Provincia",
+        "columna": "id_provincia",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": true
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Provincia",
+        "columna": "id_region",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Provincia",
+        "columna": "nombre",
+        "tipo": "nvarchar",
+        "max_length": 300,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Region",
+        "columna": "id_region",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": true
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Region",
+        "columna": "nombre",
+        "tipo": "nvarchar",
+        "max_length": 300,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Registro_Atencion",
+        "columna": "id_registro_atencion",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": true
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Registro_Atencion",
+        "columna": "archivo",
+        "tipo": "nvarchar",
+        "max_length": 520,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Registro_Atencion",
+        "columna": "fila_archivo",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Registro_Atencion",
+        "columna": "anio",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Registro_Atencion",
+        "columna": "mes",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Registro_Atencion",
+        "columna": "id_ipress",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Registro_Atencion",
+        "columna": "id_servicio",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Registro_Atencion",
+        "columna": "id_plan",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Registro_Atencion",
+        "columna": "id_sexo",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Registro_Atencion",
+        "columna": "id_grupo_edad",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Registro_Atencion",
+        "columna": "cantidad_atenciones",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Registro_Atencion",
+        "columna": "fuente_tipo",
+        "tipo": "varchar",
+        "max_length": 10,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Registro_Atencion",
+        "columna": "clave_origen",
+        "tipo": "nvarchar",
+        "max_length": 200,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Registro_Atencion",
+        "columna": "version_origen",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Registro_Atencion",
+        "columna": "id_raw",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Servicio",
+        "columna": "id_servicio",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": true
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Servicio",
+        "columna": "clave_version",
+        "tipo": "binary",
+        "max_length": 32,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Servicio",
+        "columna": "codigo",
+        "tipo": "nvarchar",
+        "max_length": 100,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Servicio",
+        "columna": "descripcion",
+        "tipo": "nvarchar",
+        "max_length": 800,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Sexo",
+        "columna": "id_sexo",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": true
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Sexo",
+        "columna": "nombre",
+        "tipo": "nvarchar",
+        "max_length": 100,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Unidad_Ejecutora",
+        "columna": "id_unidad",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": true
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Unidad_Ejecutora",
+        "columna": "clave_version",
+        "tipo": "binary",
+        "max_length": 32,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Unidad_Ejecutora",
+        "columna": "codigo",
+        "tipo": "nvarchar",
+        "max_length": 100,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Unidad_Ejecutora",
+        "columna": "nombre",
+        "tipo": "nvarchar",
+        "max_length": 800,
+        "is_nullable": false,
+        "is_identity": false
+      }
+    ],
+    "llaves": [
+      {
+        "esquema": "dbo",
+        "tabla": "SIS_Marca",
+        "restriccion": "PK__SIS_Marc__72AFBCC7570F740E",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Region",
+        "restriccion": "PK__Region__3CEC6B52255FA6D7",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Provincia",
+        "restriccion": "PK__Provinci__66C18BFDF5B4D489",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Distrito",
+        "restriccion": "PK__Distrito__65E5575D5D854242",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Unidad_Ejecutora",
+        "restriccion": "PK__Unidad_E__95D7C92B56120E4A",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "IPRESS",
+        "restriccion": "PK__IPRESS__4478766C1F39AD44",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Servicio",
+        "restriccion": "PK__Servicio__6FD07FDC7613131E",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Plan_Seguro",
+        "restriccion": "PK__Plan_Seg__3901EAE3D382C0CD",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Sexo",
+        "restriccion": "PK__Sexo__D692FEE6AEFF3926",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Grupo_Edad",
+        "restriccion": "PK__Grupo_Ed__8D61D7A5EF937223",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Registro_Atencion",
+        "restriccion": "PK__Registro__EEF7E9B086AB7C05",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "OrigenVersion",
+        "restriccion": "PK__OrigenVe__2320C3E37970AF3B",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Region",
+        "restriccion": "UQ__Region__72AFBCC60D9485D2",
+        "type_desc": "UNIQUE_CONSTRAINT"
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Provincia",
+        "restriccion": "UQ__Provinci__5BC6909FF14FB90D",
+        "type_desc": "UNIQUE_CONSTRAINT"
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Distrito",
+        "restriccion": "UQ__Distrito__A3A14BB02A13A8A1",
+        "type_desc": "UNIQUE_CONSTRAINT"
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Unidad_Ejecutora",
+        "restriccion": "UQ__Unidad_E__21061971C02C086E",
+        "type_desc": "UNIQUE_CONSTRAINT"
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "IPRESS",
+        "restriccion": "UQ__IPRESS__210619716F34EEA5",
+        "type_desc": "UNIQUE_CONSTRAINT"
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Servicio",
+        "restriccion": "UQ__Servicio__21061971C3432956",
+        "type_desc": "UNIQUE_CONSTRAINT"
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Plan_Seguro",
+        "restriccion": "UQ__Plan_Seg__72AFBCC6111D072F",
+        "type_desc": "UNIQUE_CONSTRAINT"
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Sexo",
+        "restriccion": "UQ__Sexo__72AFBCC65C3639C4",
+        "type_desc": "UNIQUE_CONSTRAINT"
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Grupo_Edad",
+        "restriccion": "UQ__Grupo_Ed__72AFBCC69F6C37D0",
+        "type_desc": "UNIQUE_CONSTRAINT"
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Registro_Atencion",
+        "restriccion": "UQ__Registro__1DB714281BAD58F4",
+        "type_desc": "UNIQUE_CONSTRAINT"
+      },
+      {
+        "esquema": "oltp",
+        "tabla": "Registro_Atencion",
+        "restriccion": "UQ__Registro__6ABE0FFAF30107A6",
+        "type_desc": "UNIQUE_CONSTRAINT"
+      }
+    ],
+    "relaciones": [
+      {
+        "name": "FK__Provincia__id_re__5070F446",
+        "is_disabled": false,
+        "is_not_trusted": false,
+        "origen": "oltp.Provincia",
+        "destino": "oltp.Region"
+      },
+      {
+        "name": "FK__Distrito__id_pro__5441852A",
+        "is_disabled": false,
+        "is_not_trusted": false,
+        "origen": "oltp.Distrito",
+        "destino": "oltp.Provincia"
+      },
+      {
+        "name": "FK__IPRESS__id_distr__5AEE82B9",
+        "is_disabled": false,
+        "is_not_trusted": false,
+        "origen": "oltp.IPRESS",
+        "destino": "oltp.Distrito"
+      },
+      {
+        "name": "FK__IPRESS__id_unida__5BE2A6F2",
+        "is_disabled": false,
+        "is_not_trusted": false,
+        "origen": "oltp.IPRESS",
+        "destino": "oltp.Unidad_Ejecutora"
+      },
+      {
+        "name": "FK__Registro___id_ip__6C190EBB",
+        "is_disabled": false,
+        "is_not_trusted": false,
+        "origen": "oltp.Registro_Atencion",
+        "destino": "oltp.IPRESS"
+      },
+      {
+        "name": "FK__Registro___id_se__6D0D32F4",
+        "is_disabled": false,
+        "is_not_trusted": false,
+        "origen": "oltp.Registro_Atencion",
+        "destino": "oltp.Servicio"
+      },
+      {
+        "name": "FK__Registro___id_pl__6E01572D",
+        "is_disabled": false,
+        "is_not_trusted": false,
+        "origen": "oltp.Registro_Atencion",
+        "destino": "oltp.Plan_Seguro"
+      },
+      {
+        "name": "FK__Registro___id_se__6EF57B66",
+        "is_disabled": false,
+        "is_not_trusted": false,
+        "origen": "oltp.Registro_Atencion",
+        "destino": "oltp.Sexo"
+      },
+      {
+        "name": "FK__Registro___id_gr__6FE99F9F",
+        "is_disabled": false,
+        "is_not_trusted": false,
+        "origen": "oltp.Registro_Atencion",
+        "destino": "oltp.Grupo_Edad"
+      }
+    ]
+  },
+  "SIS_DIMENSIONAL": {
+    "columnas": [
+      {
+        "esquema": "dbo",
+        "tabla": "SIS_Marca",
+        "columna": "nombre",
+        "tipo": "varchar",
+        "max_length": 80,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_Demografia",
+        "columna": "id_demografia_sk",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": true
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_Demografia",
+        "columna": "sexo",
+        "tipo": "nvarchar",
+        "max_length": 100,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_Demografia",
+        "columna": "grupo_edad",
+        "tipo": "nvarchar",
+        "max_length": 200,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_IPRESS",
+        "columna": "id_ipress_sk",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": true
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_IPRESS",
+        "columna": "id_ipress_oltp",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_IPRESS",
+        "columna": "cod_ipress",
+        "tipo": "nvarchar",
+        "max_length": 100,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_IPRESS",
+        "columna": "nombre_ipress",
+        "tipo": "nvarchar",
+        "max_length": 800,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_IPRESS",
+        "columna": "nivel_eess",
+        "tipo": "nvarchar",
+        "max_length": 100,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_IPRESS",
+        "columna": "ubigeo_distrito",
+        "tipo": "nvarchar",
+        "max_length": 40,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_IPRESS",
+        "columna": "distrito",
+        "tipo": "nvarchar",
+        "max_length": 300,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_IPRESS",
+        "columna": "provincia",
+        "tipo": "nvarchar",
+        "max_length": 300,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_IPRESS",
+        "columna": "region",
+        "tipo": "nvarchar",
+        "max_length": 300,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_IPRESS",
+        "columna": "cod_unidad_ejecutora",
+        "tipo": "nvarchar",
+        "max_length": 100,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_IPRESS",
+        "columna": "desc_unidad_ejecutora",
+        "tipo": "nvarchar",
+        "max_length": 800,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_IPRESS",
+        "columna": "ubigeo_valido",
+        "tipo": "bit",
+        "max_length": 1,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_Seguro",
+        "columna": "id_seguro_sk",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": true
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_Seguro",
+        "columna": "id_plan_oltp",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_Seguro",
+        "columna": "plan_seguro",
+        "tipo": "nvarchar",
+        "max_length": 200,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_Servicio",
+        "columna": "id_servicio_sk",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": true
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_Servicio",
+        "columna": "id_servicio_oltp",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_Servicio",
+        "columna": "cod_servicio",
+        "tipo": "nvarchar",
+        "max_length": 100,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_Servicio",
+        "columna": "desc_servicio",
+        "tipo": "nvarchar",
+        "max_length": 800,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_Tiempo",
+        "columna": "id_tiempo_sk",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": true
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_Tiempo",
+        "columna": "anio",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_Tiempo",
+        "columna": "numero_mes",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_Tiempo",
+        "columna": "mes",
+        "tipo": "nvarchar",
+        "max_length": 40,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_Tiempo",
+        "columna": "trimestre",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_Tiempo",
+        "columna": "semestre",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_Tiempo",
+        "columna": "periodo_codigo",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Fact_Atenciones",
+        "columna": "id_hecho_atencion",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": true
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Fact_Atenciones",
+        "columna": "id_tiempo_sk",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Fact_Atenciones",
+        "columna": "id_ipress_sk",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Fact_Atenciones",
+        "columna": "id_servicio_sk",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Fact_Atenciones",
+        "columna": "id_seguro_sk",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Fact_Atenciones",
+        "columna": "id_demografia_sk",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Fact_Atenciones",
+        "columna": "cantidad_atenciones",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Fact_Atenciones",
+        "columna": "filas_origen",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Fact_Atenciones",
+        "columna": "id_lote",
+        "tipo": "uniqueidentifier",
+        "max_length": 16,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Publicacion",
+        "columna": "id",
+        "tipo": "int",
+        "max_length": 4,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Publicacion",
+        "columna": "version",
+        "tipo": "bigint",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Publicacion",
+        "columna": "id_lote",
+        "tipo": "uniqueidentifier",
+        "max_length": 16,
+        "is_nullable": true,
+        "is_identity": false
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Publicacion",
+        "columna": "fecha",
+        "tipo": "datetime2",
+        "max_length": 8,
+        "is_nullable": false,
+        "is_identity": false
+      }
+    ],
+    "llaves": [
+      {
+        "esquema": "dbo",
+        "tabla": "SIS_Marca",
+        "restriccion": "PK__SIS_Marc__72AFBCC7058E9B22",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_Tiempo",
+        "restriccion": "PK__Dim_Tiem__218F5824C33F0E3F",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_IPRESS",
+        "restriccion": "PK__Dim_IPRE__F25C23B2333CDB58",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_Servicio",
+        "restriccion": "PK__Dim_Serv__F473BF9FCB9E5D9F",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_Seguro",
+        "restriccion": "PK__Dim_Segu__11DF478C94865D88",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_Demografia",
+        "restriccion": "PK__Dim_Demo__2BC56D38B5BF99BE",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Fact_Atenciones",
+        "restriccion": "PK__Fact_Ate__5FDEE1DECAC27333",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Publicacion",
+        "restriccion": "PK__Publicac__3213E83FA7ACB3BA",
+        "type_desc": "PRIMARY_KEY_CONSTRAINT"
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_Tiempo",
+        "restriccion": "UQ__Dim_Tiem__247E44665C7EC0BE",
+        "type_desc": "UNIQUE_CONSTRAINT"
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_IPRESS",
+        "restriccion": "UQ__Dim_IPRE__25931B42FC7380A2",
+        "type_desc": "UNIQUE_CONSTRAINT"
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_Servicio",
+        "restriccion": "UQ__Dim_Serv__C030B8989A60D3AC",
+        "type_desc": "UNIQUE_CONSTRAINT"
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_Seguro",
+        "restriccion": "UQ__Dim_Segu__F111096B8E6A1A1F",
+        "type_desc": "UNIQUE_CONSTRAINT"
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_Demografia",
+        "restriccion": "UQ__Dim_Demo__0E429FC6C7B00B75",
+        "type_desc": "UNIQUE_CONSTRAINT"
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Fact_Atenciones",
+        "restriccion": "UQ__Fact_Ate__95B6DF90B867DC13",
+        "type_desc": "UNIQUE_CONSTRAINT"
+      },
+      {
+        "esquema": "dm",
+        "tabla": "Dim_Tiempo",
+        "restriccion": "UQ__Dim_Tiem__2498AB9811DE118B",
+        "type_desc": "UNIQUE_CONSTRAINT"
+      }
+    ],
+    "relaciones": [
+      {
+        "name": "FK__Fact_Aten__id_ti__5CD6CB2B",
+        "is_disabled": false,
+        "is_not_trusted": false,
+        "origen": "dm.Fact_Atenciones",
+        "destino": "dm.Dim_Tiempo"
+      },
+      {
+        "name": "FK__Fact_Aten__id_ip__5DCAEF64",
+        "is_disabled": false,
+        "is_not_trusted": false,
+        "origen": "dm.Fact_Atenciones",
+        "destino": "dm.Dim_IPRESS"
+      },
+      {
+        "name": "FK__Fact_Aten__id_se__5EBF139D",
+        "is_disabled": false,
+        "is_not_trusted": false,
+        "origen": "dm.Fact_Atenciones",
+        "destino": "dm.Dim_Servicio"
+      },
+      {
+        "name": "FK__Fact_Aten__id_se__5FB337D6",
+        "is_disabled": false,
+        "is_not_trusted": false,
+        "origen": "dm.Fact_Atenciones",
+        "destino": "dm.Dim_Seguro"
+      },
+      {
+        "name": "FK__Fact_Aten__id_de__60A75C0F",
+        "is_disabled": false,
+        "is_not_trusted": false,
+        "origen": "dm.Fact_Atenciones",
+        "destino": "dm.Dim_Demografia"
+      }
+    ]
+  }
+}

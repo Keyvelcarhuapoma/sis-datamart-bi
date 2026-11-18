@@ -1,0 +1,1748 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="11/10/2026 11:35:58 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="LOCAL"
+  DTS:CreatorName="Equipo SIS"
+  DTS:Description="ELT de tres bases: CSV directo a SIS_RAW; validacion y normalizacion en SQL; modelo estrella incremental. SQL eventos con clave/version."
+  DTS:DTSID="{442E5CFD-C55D-449B-8FDB-C234B0124092}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1000.7"
+  DTS:LocaleID="3082"
+  DTS:MaxConcurrentExecutables="1"
+  DTS:ObjectName="SIS_ELT_3BD"
+  DTS:ProtectionLevel="0"
+  DTS:VersionGUID="{51F29B86-19B2-4747-9E6F-533E84B35A8B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[CSV_Entrada]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{79D3A3F9-B229-4FA6-B4EF-AE2EF3B060C7}"
+      DTS:ObjectName="CSV_Entrada">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">@[User::Archivo_Entrada]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="3082"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter="_x000D__x000A_"
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="65001"
+          DTS:ConnectionString=".\motor\fuentes\entrada.csv">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ANIO"
+              DTS:DTSID="{1F79794B-E55B-4CF0-9FF6-9EDE2AAE049C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MES"
+              DTS:DTSID="{5F036EF5-5185-496A-AD1D-411104BE6CD1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="REGION"
+              DTS:DTSID="{638A0324-1789-48C1-9CD7-C2305621ABE4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PROVINCIA"
+              DTS:DTSID="{793EAA20-C0F0-4B85-BA48-10421798C0E1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="UBIGEO_DISTRITO"
+              DTS:DTSID="{34549E0A-5F44-4A4B-AF63-E506E29F8CC8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DISTRITO"
+              DTS:DTSID="{431A4FE2-71DC-4AD5-805E-C6DE8E8C3AB1}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="COD_UNIDAD_EJECUTORA"
+              DTS:DTSID="{33EA6DAC-8EBD-4ACD-ACB4-46BE3E68104C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DESC_UNIDAD_EJECUTORA"
+              DTS:DTSID="{3178733E-5233-4F5A-8DFD-4EF5D2653475}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="COD_IPRESS"
+              DTS:DTSID="{1CB1C170-8F87-4B08-AE39-34D55B5B3824}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="IPRESS"
+              DTS:DTSID="{FF035ABB-9266-4A9B-A125-7B30F3B2B5B8}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NIVEL_EESS"
+              DTS:DTSID="{AB4100F2-DE0F-42E7-BE39-1C7F3C598F07}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="PLAN_SEGURO"
+              DTS:DTSID="{DA9258FC-1365-455A-ACB6-FA85986A0BE7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="COD_SERVICIO"
+              DTS:DTSID="{F962FC0C-0A71-43E0-BA30-E37AF5717DF2}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DESC_SERVICIO"
+              DTS:DTSID="{92155610-E309-4C7D-98AE-369F6A68A5DB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SEXO"
+              DTS:DTSID="{35706310-9639-4B2E-9BED-1052EAFB6F28}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="1000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="GRUPO_EDAD"
+              DTS:DTSID="{79C1EC1C-9BA1-480B-A42C-171E4C33619C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="1000"
+              DTS:DataType="130"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ATENCIONES"
+              DTS:DTSID="{238C88AE-3554-4D5F-9415-AFB864E10FEF}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SQL_Carga_Rapida]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{FE84ADED-61F6-48E4-9B06-4D1EB9FF344B}"
+      DTS:ObjectName="SQL_Carga_Rapida">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">"Provider=MSOLEDBSQL19;Data Source=" + @[User::Servidor] + ";Initial Catalog=" + @[User::BaseDatos] + ";Integrated Security=SSPI;Use Encryption for Data=Mandatory;Trust Server Certificate=True;"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=SIS_RAW;Provider=MSOLEDBSQL19;Integrated Security=SSPI;Use Encryption for Data=Mandatory;Trust Server Certificate=True;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SQL_SIS_ELT_3BD]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{7CA2D0E4-DE97-42C7-8986-6E68F81413F6}"
+      DTS:ObjectName="SQL_SIS_ELT_3BD">
+      <DTS:PropertyExpression
+        DTS:Name="ConnectionString">"Data Source=" + @[User::Servidor] + ";Initial Catalog=" + @[User::BaseDatos] + ";Integrated Security=True;Encrypt=True;TrustServerCertificate=True;"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Retain="True"
+          DTS:ConnectionString="Data Source=localhost;Initial Catalog=SIS_RAW;Integrated Security=True;Encrypt=True;TrustServerCertificate=True;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{606F05E9-6590-421F-A77C-A21CCE70BB22}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Archivo_Entrada">
+      <DTS:VariableValue
+        DTS:DataType="8">.\motor\fuentes\entrada.csv</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{589EDD2D-F235-46C7-BB5A-B548B3AB7ADF}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="BaseDatos">
+      <DTS:VariableValue
+        DTS:DataType="8">SIS_RAW</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{7301BD19-A6C4-497D-A25B-CA90A4B20D64}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FilasEsperadas">
+      <DTS:VariableValue
+        DTS:DataType="8">40000</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1A33DBFB-5710-4683-BB46-589EEC777E4C}"
+      DTS:EvaluateAsExpression="True"
+      DTS:Expression="@[System::ExecutionInstanceGUID]"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="IdLote">
+      <DTS:VariableValue
+        DTS:DataType="8">{B3EA4D44-6382-462A-8959-6932828680D9}</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{FF31E43C-F566-4006-89EF-CDB3B72EEFEF}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Modo">
+      <DTS:VariableValue
+        DTS:DataType="8">SNAPSHOT</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E4C5F148-D75E-402D-BAAE-4EAF0D0373F3}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="Servidor">
+      <DTS:VariableValue
+        DTS:DataType="8">localhost</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5A110CA9-D0F6-41E3-BF8F-AB6F7112A895}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SimularFallo">
+      <DTS:VariableValue
+        DTS:DataType="8">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{9BC4DAA5-86F4-4741-8B3E-DE7318E09508}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SQL_01_Iniciar_Lote_y_Bloquear">
+      <DTS:VariableValue
+        DTS:DataType="8">SET NOCOUNT ON;SET XACT_ABORT ON;
+IF DB_NAME()&lt;&gt;'SIS_RAW' OR NOT EXISTS(SELECT 1 FROM etl.Proyecto WHERE nombre='SIS-3BD-v1') THROW 52003,'Base no autorizada.',1;
+DECLARE @Lock int;EXEC @Lock=sys.sp_getapplock @Resource='SIS_3BD',@LockMode='Exclusive',@LockOwner='Session',@LockTimeout=0;
+IF @Lock&lt;0 THROW 52004,'Otra carga 3BD esta activa.',1;
+EXEC sys.sp_set_session_context @key=N'Lote',@value=@Lote;
+UPDATE raw.EventosSQL SET estado='PENDIENTE',id_lote=NULL WHERE estado='PROCESANDO';
+UPDATE etl.Lotes SET estado='ERROR',fecha_fin=sysdatetime(),mensaje=N'Proceso anterior interrumpido; repetir entrada.' WHERE id_lote&lt;&gt;@Lote AND estado NOT IN('EXITOSO','ERROR');
+IF EXISTS(SELECT 1 FROM etl.Lotes WHERE id_lote=@Lote)
+ UPDATE etl.Lotes SET estado='CARGANDO_RAW',fecha_fin=NULL,mensaje=NULL WHERE id_lote=@Lote;
+ELSE
+ INSERT etl.Lotes(id_lote,modo,estado,archivo) VALUES(@Lote,@Modo,'CARGANDO_RAW',@Archivo);
+TRUNCATE TABLE stg.Entrada;
+
+TRUNCATE TABLE stg.ErroresLectura;
+</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{F905FC44-FAB7-4CB3-88D5-394D3BE2670A}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SQL_03_Archivar_RAW_Historico">
+      <DTS:VariableValue
+        DTS:DataType="8">SET NOCOUNT ON;
+IF @Modo='SNAPSHOT'
+ INSERT raw.Registros(id_lote,fila_origen,fuente_tipo,[ANIO],[MES],[REGION],[PROVINCIA],[UBIGEO_DISTRITO],[DISTRITO],[COD_UNIDAD_EJECUTORA],[DESC_UNIDAD_EJECUTORA],[COD_IPRESS],[IPRESS],[NIVEL_EESS],[PLAN_SEGURO],[COD_SERVICIO],[DESC_SERVICIO],[SEXO],[GRUPO_EDAD],[ATENCIONES]) SELECT @Lote,fila_archivo,'SNAPSHOT',[ANIO],[MES],[REGION],[PROVINCIA],[UBIGEO_DISTRITO],[DISTRITO],[COD_UNIDAD_EJECUTORA],[DESC_UNIDAD_EJECUTORA],[COD_IPRESS],[IPRESS],[NIVEL_EESS],[PLAN_SEGURO],[COD_SERVICIO],[DESC_SERVICIO],[SEXO],[GRUPO_EDAD],[ATENCIONES] FROM stg.Entrada;
+ELSE IF EXISTS(SELECT 1 FROM raw.Registros WHERE id_lote=@Lote AND fuente_tipo='SQL' AND estado_proceso='PENDIENTE') BEGIN
+ UPDATE raw.Registros SET estado_proceso='PROCESANDO' WHERE id_lote=@Lote AND fuente_tipo='SQL' AND estado_proceso='PENDIENTE';
+END ELSE BEGIN
+ ;WITH e AS(SELECT TOP(1000) * FROM raw.EventosSQL WITH(UPDLOCK,READPAST) WHERE estado='PENDIENTE' ORDER BY id_evento)
+ UPDATE e SET estado='PROCESANDO',id_lote=@Lote;
+ INSERT raw.Registros(id_lote,fila_origen,fuente_tipo,clave_origen,version_origen,operacion,id_evento,[ANIO],[MES],[REGION],[PROVINCIA],[UBIGEO_DISTRITO],[DISTRITO],[COD_UNIDAD_EJECUTORA],[DESC_UNIDAD_EJECUTORA],[COD_IPRESS],[IPRESS],[NIVEL_EESS],[PLAN_SEGURO],[COD_SERVICIO],[DESC_SERVICIO],[SEXO],[GRUPO_EDAD],[ATENCIONES])
+ SELECT @Lote,e.id_evento,'SQL',e.clave_origen,e.version,e.operacion,e.id_evento,j.[ANIO],j.[MES],j.[REGION],j.[PROVINCIA],j.[UBIGEO_DISTRITO],j.[DISTRITO],j.[COD_UNIDAD_EJECUTORA],j.[DESC_UNIDAD_EJECUTORA],j.[COD_IPRESS],j.[IPRESS],j.[NIVEL_EESS],j.[PLAN_SEGURO],j.[COD_SERVICIO],j.[DESC_SERVICIO],j.[SEXO],j.[GRUPO_EDAD],j.[ATENCIONES] FROM raw.EventosSQL e OUTER APPLY OPENJSON(e.datos) WITH([ANIO] nvarchar(1000) '$.ANIO',[MES] nvarchar(1000) '$.MES',[REGION] nvarchar(1000) '$.REGION',[PROVINCIA] nvarchar(1000) '$.PROVINCIA',[UBIGEO_DISTRITO] nvarchar(1000) '$.UBIGEO_DISTRITO',[DISTRITO] nvarchar(1000) '$.DISTRITO',[COD_UNIDAD_EJECUTORA] nvarchar(1000) '$.COD_UNIDAD_EJECUTORA',[DESC_UNIDAD_EJECUTORA] nvarchar(1000) '$.DESC_UNIDAD_EJECUTORA',[COD_IPRESS] nvarchar(1000) '$.COD_IPRESS',[IPRESS] nvarchar(1000) '$.IPRESS',[NIVEL_EESS] nvarchar(1000) '$.NIVEL_EESS',[PLAN_SEGURO] nvarchar(1000) '$.PLAN_SEGURO',[COD_SERVICIO] nvarchar(1000) '$.COD_SERVICIO',[DESC_SERVICIO] nvarchar(1000) '$.DESC_SERVICIO',[SEXO] nvarchar(1000) '$.SEXO',[GRUPO_EDAD] nvarchar(1000) '$.GRUPO_EDAD',[ATENCIONES] nvarchar(1000) '$.ATENCIONES') j WHERE e.id_lote=@Lote AND e.estado='PROCESANDO';
+END;
+DECLARE @N bigint=(SELECT COUNT_BIG(*) FROM raw.Registros WHERE id_lote=@Lote);
+
+UPDATE etl.Lotes SET filas_origen=@N,estado='RAW_ARCHIVADO' WHERE id_lote=@Lote;
+
+IF EXISTS(SELECT 1 FROM stg.ErroresLectura) BEGIN
+ INSERT etl.Rechazos(id_lote,archivo,motivo) SELECT @Lote,@Archivo,CONCAT('PARSER_SSIS: ErrorCode=',ErrorCode,'; columna=',ErrorColumn,'; original completo archivado en la recepcion') FROM stg.ErroresLectura;
+ UPDATE etl.Lotes SET filas_rechazadas=(SELECT COUNT_BIG(*) FROM stg.ErroresLectura),filas_origen=filas_origen+(SELECT COUNT_BIG(*) FROM stg.ErroresLectura) WHERE id_lote=@Lote;
+ THROW 52012,'Errores de lectura: lote conservado, no se publica parcialmente.',1;
+END;
+IF @Modo='SNAPSHOT' AND (SELECT COUNT_BIG(*) FROM raw.Registros WHERE id_lote=@Lote)&lt;&gt;(SELECT COUNT_BIG(*) FROM stg.Entrada) THROW 52013,'Conteo RAW no coincide con la entrada SSIS.',1;
+
+IF @Modo='SNAPSHOT' AND @N=0 THROW 52005,'Snapshot vacio: no autoriza borrar periodos.',1;
+</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2E940977-C5B5-4CF7-9D42-3EA476650655}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SQL_04_Validar_Contrato_y_Nulos">
+      <DTS:VariableValue
+        DTS:DataType="8">SET NOCOUNT ON; SET XACT_ABORT ON;
+TRUNCATE TABLE stg.Limpia;
+INSERT etl.Rechazos SELECT @Lote,archivo,fila_archivo,motivo,anio_original,mes_original,atenciones_original FROM stg.v_Normalizada CROSS APPLY(SELECT CONCAT(CASE WHEN anio_num IS NULL OR NOT EXISTS(SELECT 1 FROM etl.AniosPermitidos y WHERE y.anio=anio_num) THEN N'ANIO_INVALIDO; ' ELSE N'' END,CASE WHEN mes_num IS NULL OR mes_num NOT BETWEEN 1 AND 12 THEN N'MES_INVALIDO; ' ELSE N'' END,CASE WHEN atenciones_num IS NULL OR atenciones_num &lt; 0 THEN N'ATENCIONES_INVALIDAS; ' ELSE N'' END,CASE WHEN CHARINDEX(NCHAR(65533),CONCAT(REGION,PROVINCIA,DISTRITO,IPRESS,DESC_SERVICIO) COLLATE Latin1_General_100_BIN2)&gt;0 THEN N'TEXTO_CON_REEMPLAZO; ' ELSE N'' END,CASE WHEN COD_IPRESS=N'NO INFORMADO' OR COD_SERVICIO=N'NO INFORMADO' THEN N'CODIGO_OBLIGATORIO_AUSENTE; ' ELSE N'' END,CASE WHEN LEN(REGION)&gt;150 OR LEN(PROVINCIA)&gt;150 OR LEN(DISTRITO)&gt;150 OR LEN(UBIGEO_DISTRITO)&gt;20 OR LEN(COD_IPRESS)&gt;50 OR LEN(COD_SERVICIO)&gt;50 OR LEN(COD_UNIDAD_EJECUTORA)&gt;50 OR LEN(NIVEL_EESS)&gt;50 OR LEN(PLAN_SEGURO)&gt;100 OR LEN(SEXO)&gt;50 OR LEN(GRUPO_EDAD)&gt;100 OR LEN(IPRESS)&gt;400 OR LEN(DESC_SERVICIO)&gt;400 OR LEN(DESC_UNIDAD_EJECUTORA)&gt;400 THEN N'LONGITUD_EXCEDIDA; ' ELSE N'' END) motivo) q WHERE motivo&lt;&gt;N'' OPTION(MAXDOP 1, MAX_GRANT_PERCENT=1);
+INSERT stg.Limpia([archivo],[fila_archivo],[id_raw],[clave_origen],[version_origen],[ANIO],[MES],[REGION],[PROVINCIA],[UBIGEO_DISTRITO],[DISTRITO],[COD_UNIDAD_EJECUTORA],[DESC_UNIDAD_EJECUTORA],[COD_IPRESS],[IPRESS],[NIVEL_EESS],[PLAN_SEGURO],[COD_SERVICIO],[DESC_SERVICIO],[SEXO],[GRUPO_EDAD],[ATENCIONES],[ubigeo_valido],[clave_ipress],[clave_servicio],[clave_unidad]) SELECT archivo,fila_archivo,id_raw,clave_origen,version_origen,anio_num,mes_num,[REGION],[PROVINCIA],[UBIGEO_DISTRITO],[DISTRITO],[COD_UNIDAD_EJECUTORA],[DESC_UNIDAD_EJECUTORA],[COD_IPRESS],[IPRESS],[NIVEL_EESS],[PLAN_SEGURO],[COD_SERVICIO],[DESC_SERVICIO],[SEXO],[GRUPO_EDAD],atenciones_num,CASE WHEN LEN(UBIGEO_DISTRITO)=6 AND UBIGEO_DISTRITO NOT LIKE '%[^0-9]%' AND LEFT(UBIGEO_DISTRITO,2) BETWEEN '01' AND '25' THEN 1 ELSE 0 END,HASHBYTES('SHA2_256',CONCAT([COD_IPRESS],NCHAR(31),[IPRESS],NCHAR(31),[NIVEL_EESS],NCHAR(31),[UBIGEO_DISTRITO],NCHAR(31),[DISTRITO],NCHAR(31),[PROVINCIA],NCHAR(31),[REGION],NCHAR(31),[COD_UNIDAD_EJECUTORA],NCHAR(31),[DESC_UNIDAD_EJECUTORA])),HASHBYTES('SHA2_256',CONCAT([COD_SERVICIO],NCHAR(31),[DESC_SERVICIO])),HASHBYTES('SHA2_256',CONCAT([COD_UNIDAD_EJECUTORA],NCHAR(31),[DESC_UNIDAD_EJECUTORA])) FROM stg.v_Normalizada CROSS APPLY(SELECT CONCAT(CASE WHEN anio_num IS NULL OR NOT EXISTS(SELECT 1 FROM etl.AniosPermitidos y WHERE y.anio=anio_num) THEN N'ANIO_INVALIDO; ' ELSE N'' END,CASE WHEN mes_num IS NULL OR mes_num NOT BETWEEN 1 AND 12 THEN N'MES_INVALIDO; ' ELSE N'' END,CASE WHEN atenciones_num IS NULL OR atenciones_num &lt; 0 THEN N'ATENCIONES_INVALIDAS; ' ELSE N'' END,CASE WHEN CHARINDEX(NCHAR(65533),CONCAT(REGION,PROVINCIA,DISTRITO,IPRESS,DESC_SERVICIO) COLLATE Latin1_General_100_BIN2)&gt;0 THEN N'TEXTO_CON_REEMPLAZO; ' ELSE N'' END,CASE WHEN COD_IPRESS=N'NO INFORMADO' OR COD_SERVICIO=N'NO INFORMADO' THEN N'CODIGO_OBLIGATORIO_AUSENTE; ' ELSE N'' END,CASE WHEN LEN(REGION)&gt;150 OR LEN(PROVINCIA)&gt;150 OR LEN(DISTRITO)&gt;150 OR LEN(UBIGEO_DISTRITO)&gt;20 OR LEN(COD_IPRESS)&gt;50 OR LEN(COD_SERVICIO)&gt;50 OR LEN(COD_UNIDAD_EJECUTORA)&gt;50 OR LEN(NIVEL_EESS)&gt;50 OR LEN(PLAN_SEGURO)&gt;100 OR LEN(SEXO)&gt;50 OR LEN(GRUPO_EDAD)&gt;100 OR LEN(IPRESS)&gt;400 OR LEN(DESC_SERVICIO)&gt;400 OR LEN(DESC_UNIDAD_EJECUTORA)&gt;400 THEN N'LONGITUD_EXCEDIDA; ' ELSE N'' END) motivo) q WHERE motivo=N'' OPTION(MAXDOP 1, MAX_GRANT_PERCENT=1);
+
+IF EXISTS(SELECT 1 FROM etl.Rechazos WHERE id_lote=@Lote)
+ BEGIN UPDATE etl.Lotes SET filas_aceptadas=(SELECT COUNT_BIG(*) FROM stg.Limpia),filas_rechazadas=(SELECT COUNT_BIG(*) FROM etl.Rechazos WHERE id_lote=@Lote) WHERE id_lote=@Lote;
+ THROW 51302,'Snapshot invalido: se registraron rechazos. No se publica parcialmente un mes.',1; END;
+
+IF @Modo='SQL' AND EXISTS(SELECT 1 FROM raw.Registros r JOIN SIS_NORMALIZADA.oltp.OrigenVersion v ON v.clave_origen=r.clave_origen WHERE r.id_lote=@Lote AND r.version_origen&lt;=v.version) THROW 52006,'Version SQL anterior o igual a la publicada.',1;
+UPDATE etl.Lotes SET filas_aceptadas=(SELECT COUNT_BIG(*) FROM stg.Limpia),filas_rechazadas=0,estado='VALIDADO' WHERE id_lote=@Lote;
+
+</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BABEEECB-B19E-4D68-BF04-59A7278E6C0B}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SQL_05_Detectar_Incremento">
+      <DTS:VariableValue
+        DTS:DataType="8">SET NOCOUNT ON;
+IF @Modo='SNAPSHOT' BEGIN
+ UPDATE l SET huella_fila=HASHBYTES('SHA2_256',(SELECT l.[ANIO],l.[MES],l.[REGION],l.[PROVINCIA],l.[UBIGEO_DISTRITO],l.[DISTRITO],l.[COD_UNIDAD_EJECUTORA],l.[DESC_UNIDAD_EJECUTORA],l.[COD_IPRESS],l.[IPRESS],l.[NIVEL_EESS],l.[PLAN_SEGURO],l.[COD_SERVICIO],l.[DESC_SERVICIO],l.[SEXO],l.[GRUPO_EDAD],l.[ATENCIONES] FOR JSON PATH,WITHOUT_ARRAY_WRAPPER)) FROM stg.Limpia l;
+ -- Merkle por 256 cubetas: conserva multiplicidad sin concatenar todo el mes en un unico valor.
+ SELECT ANIO*100+MES periodo,CONVERT(varchar(64),huella_fila,2) h,COUNT_BIG(*) n INTO #H FROM stg.Limpia GROUP BY ANIO,MES,huella_fila OPTION(MAXDOP 1,MAX_GRANT_PERCENT=1);
+ SELECT periodo,LEFT(h,2) cubeta,HASHBYTES('SHA2_256',STRING_AGG(CONVERT(varchar(max),CONCAT(h,':',n,';')),'') WITHIN GROUP(ORDER BY h)) firma INTO #B FROM #H GROUP BY periodo,LEFT(h,2) OPTION(MAXDOP 1,MAX_GRANT_PERCENT=1);
+ SELECT periodo,HASHBYTES('SHA2_256',STRING_AGG(CONVERT(varchar(max),CONCAT(cubeta,CONVERT(varchar(64),firma,2))),';') WITHIN GROUP(ORDER BY cubeta)) firma INTO #P FROM #B GROUP BY periodo OPTION(MAXDOP 1,MAX_GRANT_PERCENT=1);
+ INSERT etl.PlanParticion(id_lote,periodo,huella,filas,atenciones,accion,filas_anteriores,version_anterior)
+ SELECT @Lote,n.periodo,h.firma,n.filas,n.atenciones,CASE WHEN p.periodo IS NULL THEN 'NUEVO' WHEN p.huella=h.firma AND p.filas=n.filas THEN 'SIN_CAMBIOS' ELSE 'CAMBIADO' END,COALESCE(p.filas,0),COALESCE(p.version,0)
+ FROM(SELECT ANIO*100+MES periodo,COUNT_BIG(*) filas,SUM(ATENCIONES) atenciones FROM stg.Limpia GROUP BY ANIO,MES)n JOIN #P h ON h.periodo=n.periodo LEFT JOIN etl.Particiones p ON p.periodo=n.periodo;
+ IF EXISTS(SELECT 1 FROM etl.PlanParticion WHERE id_lote=@Lote AND filas&lt;filas_anteriores*0.8) BEGIN
+  INSERT etl.Rechazos(id_lote,archivo,motivo) SELECT @Lote,@Archivo,CONCAT('SNAPSHOT_PARCIAL: periodo ',periodo,', filas previas ',filas_anteriores,', recibidas ',filas) FROM etl.PlanParticion WHERE id_lote=@Lote AND filas&lt;filas_anteriores*0.8;
+  THROW 52007,'Posible snapshot parcial: disminucion superior al 20%; requiere revision.',1;
+ END;
+ INSERT etl.Afectados SELECT @Lote,periodo FROM etl.PlanParticion WHERE id_lote=@Lote AND accion&lt;&gt;'SIN_CAMBIOS';
+END ELSE BEGIN
+ INSERT etl.Afectados SELECT @Lote,periodo FROM(
+ SELECT ANIO*100+MES periodo FROM stg.Limpia
+ UNION SELECT a.anio*100+a.mes FROM SIS_NORMALIZADA.oltp.Registro_Atencion a JOIN raw.Registros r ON r.clave_origen=a.clave_origen WHERE r.id_lote=@Lote AND a.fuente_tipo='SQL')p;
+END;
+UPDATE etl.Lotes SET estado='CAMBIOS_DETECTADOS' WHERE id_lote=@Lote;
+</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{A8031DDF-1CF3-4ACD-B71C-1727A7F3D6AA}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SQL_06_Normalizar_SIS_NORMALIZADA">
+      <DTS:VariableValue
+        DTS:DataType="8">SET NOCOUNT ON;SET XACT_ABORT ON;
+BEGIN TRAN;
+SELECT l.* INTO #Carga FROM stg.Limpia l WHERE @Modo='SQL' OR EXISTS(SELECT 1 FROM etl.Afectados a WHERE a.id_lote=@Lote AND a.periodo=l.ANIO*100+l.MES) OPTION(MAXDOP 1,MAX_GRANT_PERCENT=1);
+IF @Modo='SNAPSHOT'
+ DELETE a FROM SIS_NORMALIZADA.oltp.Registro_Atencion a JOIN etl.Afectados p ON p.id_lote=@Lote AND a.anio=p.periodo/100 AND a.mes=p.periodo%100 WHERE a.fuente_tipo='SNAPSHOT' OPTION(MAXDOP 1,MAX_GRANT_PERCENT=1);
+ELSE
+ DELETE a FROM SIS_NORMALIZADA.oltp.Registro_Atencion a WHERE a.fuente_tipo='SQL' AND EXISTS(SELECT 1 FROM raw.Registros r WHERE r.id_lote=@Lote AND r.clave_origen=a.clave_origen) OPTION(MAXDOP 1,MAX_GRANT_PERCENT=1);
+IF @SimularFallo=1 THROW 52008,'Fallo controlado: rollback entre las tres bases.',1;
+INSERT SIS_NORMALIZADA.oltp.Region(nombre) SELECT DISTINCT REGION FROM #Carga l WHERE NOT EXISTS(SELECT 1 FROM SIS_NORMALIZADA.oltp.Region x WHERE x.nombre=l.REGION) OPTION(MAXDOP 1, MAX_GRANT_PERCENT=1);
+INSERT SIS_NORMALIZADA.oltp.Provincia(id_region,nombre) SELECT DISTINCT r.id_region,l.PROVINCIA FROM #Carga l JOIN SIS_NORMALIZADA.oltp.Region r ON r.nombre=l.REGION WHERE NOT EXISTS(SELECT 1 FROM SIS_NORMALIZADA.oltp.Provincia x WHERE x.id_region=r.id_region AND x.nombre=l.PROVINCIA) OPTION(MAXDOP 1, MAX_GRANT_PERCENT=1);
+INSERT SIS_NORMALIZADA.oltp.Distrito(id_provincia,ubigeo,nombre) SELECT DISTINCT p.id_provincia,l.UBIGEO_DISTRITO,l.DISTRITO FROM #Carga l JOIN SIS_NORMALIZADA.oltp.Region r ON r.nombre=l.REGION JOIN SIS_NORMALIZADA.oltp.Provincia p ON p.id_region=r.id_region AND p.nombre=l.PROVINCIA WHERE NOT EXISTS(SELECT 1 FROM SIS_NORMALIZADA.oltp.Distrito x WHERE x.id_provincia=p.id_provincia AND x.ubigeo=l.UBIGEO_DISTRITO AND x.nombre=l.DISTRITO) OPTION(MAXDOP 1, MAX_GRANT_PERCENT=1);
+INSERT SIS_NORMALIZADA.oltp.Unidad_Ejecutora(clave_version,codigo,nombre) SELECT DISTINCT clave_unidad,COD_UNIDAD_EJECUTORA,DESC_UNIDAD_EJECUTORA FROM #Carga l WHERE NOT EXISTS(SELECT 1 FROM SIS_NORMALIZADA.oltp.Unidad_Ejecutora x WHERE x.clave_version=l.clave_unidad) OPTION(MAXDOP 1, MAX_GRANT_PERCENT=1);
+INSERT SIS_NORMALIZADA.oltp.IPRESS(clave_version,cod_ipress,nombre,nivel,id_distrito,id_unidad,ubigeo_valido)
+SELECT DISTINCT l.clave_ipress,l.COD_IPRESS,l.IPRESS,l.NIVEL_EESS,d.id_distrito,u.id_unidad,l.ubigeo_valido
+FROM #Carga l JOIN SIS_NORMALIZADA.oltp.Region r ON r.nombre=l.REGION JOIN SIS_NORMALIZADA.oltp.Provincia p ON p.id_region=r.id_region AND p.nombre=l.PROVINCIA JOIN SIS_NORMALIZADA.oltp.Distrito d ON d.id_provincia=p.id_provincia AND d.ubigeo=l.UBIGEO_DISTRITO AND d.nombre=l.DISTRITO JOIN SIS_NORMALIZADA.oltp.Unidad_Ejecutora u ON u.clave_version=l.clave_unidad WHERE NOT EXISTS(SELECT 1 FROM SIS_NORMALIZADA.oltp.IPRESS x WHERE x.clave_version=l.clave_ipress) OPTION(MAXDOP 1, MAX_GRANT_PERCENT=1);
+INSERT SIS_NORMALIZADA.oltp.Servicio(clave_version,codigo,descripcion) SELECT DISTINCT clave_servicio,COD_SERVICIO,DESC_SERVICIO FROM #Carga l WHERE NOT EXISTS(SELECT 1 FROM SIS_NORMALIZADA.oltp.Servicio x WHERE x.clave_version=l.clave_servicio) OPTION(MAXDOP 1, MAX_GRANT_PERCENT=1);
+INSERT SIS_NORMALIZADA.oltp.Plan_Seguro(nombre) SELECT DISTINCT PLAN_SEGURO FROM #Carga l WHERE NOT EXISTS(SELECT 1 FROM SIS_NORMALIZADA.oltp.Plan_Seguro x WHERE x.nombre=l.PLAN_SEGURO) OPTION(MAXDOP 1, MAX_GRANT_PERCENT=1);
+INSERT SIS_NORMALIZADA.oltp.Sexo(nombre) SELECT DISTINCT SEXO FROM #Carga l WHERE NOT EXISTS(SELECT 1 FROM SIS_NORMALIZADA.oltp.Sexo x WHERE x.nombre=l.SEXO) OPTION(MAXDOP 1, MAX_GRANT_PERCENT=1);
+INSERT SIS_NORMALIZADA.oltp.Grupo_Edad(nombre) SELECT DISTINCT GRUPO_EDAD FROM #Carga l WHERE NOT EXISTS(SELECT 1 FROM SIS_NORMALIZADA.oltp.Grupo_Edad x WHERE x.nombre=l.GRUPO_EDAD) OPTION(MAXDOP 1, MAX_GRANT_PERCENT=1);
+
+INSERT SIS_NORMALIZADA.oltp.Registro_Atencion(archivo,fila_archivo,anio,mes,id_ipress,id_servicio,id_plan,id_sexo,id_grupo_edad,cantidad_atenciones,fuente_tipo,clave_origen,version_origen,id_raw)
+SELECT l.archivo,l.fila_archivo,l.ANIO,l.MES,i.id_ipress,s.id_servicio,p.id_plan,x.id_sexo,g.id_grupo_edad,l.ATENCIONES,@Modo,l.clave_origen,l.version_origen,l.id_raw
+FROM #Carga l JOIN SIS_NORMALIZADA.oltp.IPRESS i ON i.clave_version=l.clave_ipress JOIN SIS_NORMALIZADA.oltp.Servicio s ON s.clave_version=l.clave_servicio JOIN SIS_NORMALIZADA.oltp.Plan_Seguro p ON p.nombre=l.PLAN_SEGURO JOIN SIS_NORMALIZADA.oltp.Sexo x ON x.nombre=l.SEXO JOIN SIS_NORMALIZADA.oltp.Grupo_Edad g ON g.nombre=l.GRUPO_EDAD OPTION(MAXDOP 1,MAX_GRANT_PERCENT=1);
+IF @Modo='SQL' BEGIN
+ SELECT clave_origen,MAX(version_origen) version INTO #V FROM raw.Registros WHERE id_lote=@Lote GROUP BY clave_origen;
+ UPDATE v SET version=n.version,eliminado=CASE WHEN r.operacion='D' THEN 1 ELSE 0 END FROM SIS_NORMALIZADA.oltp.OrigenVersion v JOIN #V n ON n.clave_origen=v.clave_origen JOIN raw.Registros r ON r.id_lote=@Lote AND r.clave_origen=n.clave_origen AND r.version_origen=n.version;
+ INSERT SIS_NORMALIZADA.oltp.OrigenVersion SELECT n.clave_origen,n.version,CASE WHEN r.operacion='D' THEN 1 ELSE 0 END FROM #V n JOIN raw.Registros r ON r.id_lote=@Lote AND r.clave_origen=n.clave_origen AND r.version_origen=n.version WHERE NOT EXISTS(SELECT 1 FROM SIS_NORMALIZADA.oltp.OrigenVersion v WHERE v.clave_origen=n.clave_origen);
+END;
+DROP TABLE #Carga;
+</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{E33E1C11-A1D6-49FF-B990-BDA2841528A2}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SQL_07_Publicar_SIS_DIMENSIONAL">
+      <DTS:VariableValue
+        DTS:DataType="8">SET NOCOUNT ON;
+SELECT a.* INTO #Nuevos FROM SIS_NORMALIZADA.oltp.Registro_Atencion a JOIN etl.Afectados p ON p.id_lote=@Lote AND a.anio=p.periodo/100 AND a.mes=p.periodo%100 OPTION(MAXDOP 1,MAX_GRANT_PERCENT=1);
+INSERT SIS_DIMENSIONAL.dm.Dim_Tiempo(anio,numero_mes,mes,trimestre,semestre,periodo_codigo)
+SELECT DISTINCT anio,mes,CHOOSE(mes,N'Enero',N'Febrero',N'Marzo',N'Abril',N'Mayo',N'Junio',N'Julio',N'Agosto',N'Septiembre',N'Octubre',N'Noviembre',N'Diciembre'),(mes-1)/3+1,CASE WHEN mes&lt;=6 THEN 1 ELSE 2 END,anio*100+mes FROM #Nuevos a WHERE NOT EXISTS(SELECT 1 FROM SIS_DIMENSIONAL.dm.Dim_Tiempo x WHERE x.anio=a.anio AND x.numero_mes=a.mes) OPTION(MAXDOP 1, MAX_GRANT_PERCENT=1);
+INSERT SIS_DIMENSIONAL.dm.Dim_IPRESS(id_ipress_oltp,cod_ipress,nombre_ipress,nivel_eess,ubigeo_distrito,distrito,provincia,region,cod_unidad_ejecutora,desc_unidad_ejecutora,ubigeo_valido)
+SELECT i.id_ipress,i.cod_ipress,i.nombre,i.nivel,d.ubigeo,d.nombre,p.nombre,r.nombre,u.codigo,u.nombre,i.ubigeo_valido FROM SIS_NORMALIZADA.oltp.IPRESS i JOIN SIS_NORMALIZADA.oltp.Distrito d ON i.id_distrito=d.id_distrito JOIN SIS_NORMALIZADA.oltp.Provincia p ON d.id_provincia=p.id_provincia JOIN SIS_NORMALIZADA.oltp.Region r ON p.id_region=r.id_region JOIN SIS_NORMALIZADA.oltp.Unidad_Ejecutora u ON i.id_unidad=u.id_unidad WHERE NOT EXISTS(SELECT 1 FROM SIS_DIMENSIONAL.dm.Dim_IPRESS x WHERE x.id_ipress_oltp=i.id_ipress) OPTION(MAXDOP 1,MAX_GRANT_PERCENT=1);
+INSERT SIS_DIMENSIONAL.dm.Dim_Servicio(id_servicio_oltp,cod_servicio,desc_servicio) SELECT id_servicio,codigo,descripcion FROM SIS_NORMALIZADA.oltp.Servicio s WHERE NOT EXISTS(SELECT 1 FROM SIS_DIMENSIONAL.dm.Dim_Servicio x WHERE x.id_servicio_oltp=s.id_servicio) OPTION(MAXDOP 1,MAX_GRANT_PERCENT=1);
+INSERT SIS_DIMENSIONAL.dm.Dim_Seguro(id_plan_oltp,plan_seguro) SELECT id_plan,nombre FROM SIS_NORMALIZADA.oltp.Plan_Seguro s WHERE NOT EXISTS(SELECT 1 FROM SIS_DIMENSIONAL.dm.Dim_Seguro x WHERE x.id_plan_oltp=s.id_plan) OPTION(MAXDOP 1,MAX_GRANT_PERCENT=1);
+INSERT SIS_DIMENSIONAL.dm.Dim_Demografia(sexo,grupo_edad) SELECT DISTINCT s.nombre,g.nombre FROM #Nuevos a JOIN SIS_NORMALIZADA.oltp.Sexo s ON a.id_sexo=s.id_sexo JOIN SIS_NORMALIZADA.oltp.Grupo_Edad g ON a.id_grupo_edad=g.id_grupo_edad WHERE NOT EXISTS(SELECT 1 FROM SIS_DIMENSIONAL.dm.Dim_Demografia x WHERE x.sexo=s.nombre AND x.grupo_edad=g.nombre) OPTION(MAXDOP 1, MAX_GRANT_PERCENT=1);
+
+DELETE f FROM SIS_DIMENSIONAL.dm.Fact_Atenciones f JOIN SIS_DIMENSIONAL.dm.Dim_Tiempo t ON t.id_tiempo_sk=f.id_tiempo_sk JOIN etl.Afectados p ON p.id_lote=@Lote AND p.periodo=t.periodo_codigo OPTION(MAXDOP 1,MAX_GRANT_PERCENT=1);
+INSERT SIS_DIMENSIONAL.dm.Fact_Atenciones(id_tiempo_sk,id_ipress_sk,id_servicio_sk,id_seguro_sk,id_demografia_sk,cantidad_atenciones,filas_origen,id_lote)
+SELECT t.id_tiempo_sk,i.id_ipress_sk,s.id_servicio_sk,p.id_seguro_sk,d.id_demografia_sk,SUM(a.cantidad_atenciones),COUNT_BIG(*),@Lote
+FROM #Nuevos a JOIN SIS_DIMENSIONAL.dm.Dim_Tiempo t ON t.anio=a.anio AND t.numero_mes=a.mes JOIN SIS_DIMENSIONAL.dm.Dim_IPRESS i ON i.id_ipress_oltp=a.id_ipress JOIN SIS_DIMENSIONAL.dm.Dim_Servicio s ON s.id_servicio_oltp=a.id_servicio JOIN SIS_DIMENSIONAL.dm.Dim_Seguro p ON p.id_plan_oltp=a.id_plan JOIN SIS_NORMALIZADA.oltp.Sexo x ON x.id_sexo=a.id_sexo JOIN SIS_NORMALIZADA.oltp.Grupo_Edad g ON g.id_grupo_edad=a.id_grupo_edad JOIN SIS_DIMENSIONAL.dm.Dim_Demografia d ON d.sexo=x.nombre AND d.grupo_edad=g.nombre
+GROUP BY t.id_tiempo_sk,i.id_ipress_sk,s.id_servicio_sk,p.id_seguro_sk,d.id_demografia_sk OPTION(MAXDOP 1,MAX_GRANT_PERCENT=1);
+DROP TABLE #Nuevos;
+</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{1FD8CE4F-70DB-4FA1-B6E8-81181F283008}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="SQL_08_Conciliar_y_Confirmar">
+      <DTS:VariableValue
+        DTS:DataType="8">SET NOCOUNT ON;
+INSERT etl.Validaciones(id_lote,control,esperado,obtenido,cumple)
+SELECT @Lote,CONCAT('ATENCIONES_',p.periodo),COALESCE(n.cantidad,0),COALESCE(d.cantidad,0),CASE WHEN COALESCE(n.cantidad,0)=COALESCE(d.cantidad,0) THEN 1 ELSE 0 END FROM etl.Afectados p
+OUTER APPLY(SELECT SUM(cantidad_atenciones) cantidad FROM SIS_NORMALIZADA.oltp.Registro_Atencion WHERE anio=p.periodo/100 AND mes=p.periodo%100)n
+OUTER APPLY(SELECT SUM(f.cantidad_atenciones) cantidad FROM SIS_DIMENSIONAL.dm.Fact_Atenciones f JOIN SIS_DIMENSIONAL.dm.Dim_Tiempo t ON t.id_tiempo_sk=f.id_tiempo_sk WHERE t.periodo_codigo=p.periodo)d WHERE p.id_lote=@Lote OPTION(MAXDOP 1,MAX_GRANT_PERCENT=1);
+INSERT etl.Validaciones(id_lote,control,esperado,obtenido,cumple)
+SELECT @Lote,CONCAT('LINAJE_FILAS_',p.periodo),COALESCE(n.filas,0),COALESCE(d.filas,0),CASE WHEN COALESCE(n.filas,0)=COALESCE(d.filas,0) THEN 1 ELSE 0 END FROM etl.Afectados p
+OUTER APPLY(SELECT COUNT_BIG(*) filas FROM SIS_NORMALIZADA.oltp.Registro_Atencion WHERE anio=p.periodo/100 AND mes=p.periodo%100)n
+OUTER APPLY(SELECT SUM(f.filas_origen) filas FROM SIS_DIMENSIONAL.dm.Fact_Atenciones f JOIN SIS_DIMENSIONAL.dm.Dim_Tiempo t ON t.id_tiempo_sk=f.id_tiempo_sk WHERE t.periodo_codigo=p.periodo)d WHERE p.id_lote=@Lote OPTION(MAXDOP 1,MAX_GRANT_PERCENT=1);
+IF EXISTS(SELECT 1 FROM etl.Validaciones WHERE id_lote=@Lote AND cumple=0) THROW 52009,'Conciliacion fallida; rollback.',1;
+INSERT etl.Publicaciones SELECT @Lote,periodo,version_anterior+1,huella,filas_anteriores,filas,atenciones,sysdatetime() FROM etl.PlanParticion WHERE id_lote=@Lote AND accion&lt;&gt;'SIN_CAMBIOS';
+UPDATE p SET huella=n.huella,filas=n.filas,atenciones=n.atenciones,version=n.version_anterior+1,id_lote=@Lote,actualizado=sysdatetime() FROM etl.Particiones p JOIN etl.PlanParticion n ON n.periodo=p.periodo WHERE n.id_lote=@Lote AND n.accion='CAMBIADO';
+INSERT etl.Particiones(periodo,huella,filas,atenciones,version,id_lote) SELECT periodo,huella,filas,atenciones,1,@Lote FROM etl.PlanParticion WHERE id_lote=@Lote AND accion='NUEVO';
+IF EXISTS(SELECT 1 FROM etl.Afectados WHERE id_lote=@Lote) UPDATE SIS_DIMENSIONAL.dm.Publicacion SET version=version+1,id_lote=@Lote,fecha=sysdatetime() WHERE id=1;
+UPDATE raw.EventosSQL SET estado='PUBLICADO' WHERE id_lote=@Lote AND estado='PROCESANDO';
+UPDATE raw.Registros SET estado_proceso='PUBLICADO' WHERE id_lote=@Lote AND fuente_tipo='SQL' AND estado_proceso='PROCESANDO';
+-- En SQL se confirman eventos (incluidas bajas/versiones superadas), no filas finales del hecho.
+IF @Modo='SQL' UPDATE etl.Lotes SET filas_aceptadas=filas_origen WHERE id_lote=@Lote;
+UPDATE etl.Lotes SET estado='EXITOSO',fecha_fin=sysdatetime(),filas_dm=(SELECT COUNT_BIG(*) FROM SIS_DIMENSIONAL.dm.Fact_Atenciones),atenciones_dm=(SELECT COALESCE(SUM(cantidad_atenciones),0) FROM SIS_DIMENSIONAL.dm.Fact_Atenciones),mensaje=CONCAT('Periodos afectados: ',(SELECT COUNT(*) FROM etl.Afectados WHERE id_lote=@Lote)) WHERE id_lote=@Lote;
+COMMIT;
+EXEC sys.sp_releaseapplock @Resource='SIS_3BD',@LockOwner='Session';
+</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\01_Iniciar_Lote_y_Bloquear"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{5B3DFAFF-5B05-46E0-921C-6F91AE2633D2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="01_Iniciar_Lote_y_Bloquear"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"DECLARE @Lote uniqueidentifier = '" + @[User::IdLote] + "'; DECLARE @Esperadas bigint = " + @[User::FilasEsperadas] + "; DECLARE @SimularFallo int = " + @[User::SimularFallo] + "; " + " DECLARE @Modo varchar(20)='" + @[User::Modo] + "'; DECLARE @Archivo nvarchar(1000)=N'" + REPLACE(@[User::Archivo_Entrada],"'","''") + "'; " + @[User::SQL_01_Iniciar_Lote_y_Bloquear]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7CA2D0E4-DE97-42C7-8986-6E68F81413F6}"
+          SQLTask:SqlStatementSource="DECLARE @Lote uniqueidentifier = '{B3EA4D44-6382-462A-8959-6932828680D9}'; DECLARE @Esperadas bigint = 40000; DECLARE @SimularFallo int = 0;  DECLARE @Modo varchar(20)='SNAPSHOT'; DECLARE @Archivo nvarchar(1000)=N'.\motor\fuentes\entrada.csv'; SET NOCOUNT ON;SET XACT_ABORT ON;&#xA;IF DB_NAME()&lt;&gt;'SIS_RAW' OR NOT EXISTS(SELECT 1 FROM etl.Proyecto WHERE nombre='SIS-3BD-v1') THROW 52003,'Base no autorizada.',1;&#xA;DECLARE @Lock int;EXEC @Lock=sys.sp_getapplock @Resource='SIS_3BD',@LockMode='Exclusive',@LockOwner='Session',@LockTimeout=0;&#xA;IF @Lock&lt;0 THROW 52004,'Otra carga 3BD esta activa.',1;&#xA;EXEC sys.sp_set_session_context @key=N'Lote',@value=@Lote;&#xA;UPDATE raw.EventosSQL SET estado='PENDIENTE',id_lote=NULL WHERE estado='PROCESANDO';&#xA;UPDATE etl.Lotes SET estado='ERROR',fecha_fin=sysdatetime(),mensaje=N'Proceso anterior interrumpido; repetir entrada.' WHERE id_lote&lt;&gt;@Lote AND estado NOT IN('EXITOSO','ERROR');&#xA;IF EXISTS(SELECT 1 FROM etl.Lotes WHERE id_lote=@Lote)&#xA; UPDATE etl.Lotes SET estado='CARGANDO_RAW',fecha_fin=NULL,mensaje=NULL WHERE id_lote=@Lote;&#xA;ELSE&#xA; INSERT etl.Lotes(id_lote,modo,estado,archivo) VALUES(@Lote,@Modo,'CARGANDO_RAW',@Archivo);&#xA;TRUNCATE TABLE stg.Entrada;&#xA;&#xA;TRUNCATE TABLE stg.ErroresLectura;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\02_CSV_a_SIS_RAW_FastLoad"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{26B741C6-F936-4B05-9C42-373B26D53D2E}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="02_CSV_a_SIS_RAW_FastLoad"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="Disable">@[User::Modo] == "SQL"</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <pipeline
+          defaultBufferMaxRows="1000"
+          engineThreads="2"
+          version="1">
+          <components>
+            <component
+              refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Cargar_stg_Raw_Entrada"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[stg].[Entrada]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">true</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions">TABLOCK,ROWS_PER_BATCH=1000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">1000</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SQL_Carga_Rapida]"
+                  connectionManagerRefId="Package.ConnectionManagers[SQL_Carga_Rapida]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].Columns[ANIO]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="ANIO"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[ANIO]"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[ANIO]" />
+                    <inputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].Columns[MES]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="MES"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[MES]"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[MES]" />
+                    <inputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].Columns[REGION]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="REGION"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[REGION]"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[REGION]" />
+                    <inputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].Columns[PROVINCIA]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="PROVINCIA"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[PROVINCIA]"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[PROVINCIA]" />
+                    <inputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].Columns[UBIGEO_DISTRITO]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="UBIGEO_DISTRITO"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[UBIGEO_DISTRITO]"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[UBIGEO_DISTRITO]" />
+                    <inputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].Columns[DISTRITO]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="DISTRITO"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[DISTRITO]"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[DISTRITO]" />
+                    <inputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].Columns[COD_UNIDAD_EJECUTORA]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="COD_UNIDAD_EJECUTORA"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[COD_UNIDAD_EJECUTORA]"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[COD_UNIDAD_EJECUTORA]" />
+                    <inputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].Columns[DESC_UNIDAD_EJECUTORA]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="DESC_UNIDAD_EJECUTORA"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_UNIDAD_EJECUTORA]"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[DESC_UNIDAD_EJECUTORA]" />
+                    <inputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].Columns[COD_IPRESS]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="COD_IPRESS"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[COD_IPRESS]"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[COD_IPRESS]" />
+                    <inputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].Columns[IPRESS]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="IPRESS"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[IPRESS]"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[IPRESS]" />
+                    <inputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].Columns[NIVEL_EESS]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="NIVEL_EESS"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[NIVEL_EESS]"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[NIVEL_EESS]" />
+                    <inputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].Columns[PLAN_SEGURO]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="PLAN_SEGURO"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[PLAN_SEGURO]"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[PLAN_SEGURO]" />
+                    <inputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].Columns[COD_SERVICIO]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="COD_SERVICIO"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[COD_SERVICIO]"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[COD_SERVICIO]" />
+                    <inputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].Columns[DESC_SERVICIO]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="DESC_SERVICIO"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_SERVICIO]"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[DESC_SERVICIO]" />
+                    <inputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].Columns[SEXO]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="SEXO"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[SEXO]"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[SEXO]" />
+                    <inputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].Columns[GRUPO_EDAD]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="GRUPO_EDAD"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[GRUPO_EDAD]"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[GRUPO_EDAD]" />
+                    <inputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].Columns[ATENCIONES]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="ATENCIONES"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[ATENCIONES]"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[ATENCIONES]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[fila_archivo]"
+                      dataType="i8"
+                      name="fila_archivo" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[ANIO]"
+                      dataType="wstr"
+                      length="1000"
+                      name="ANIO" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[MES]"
+                      dataType="wstr"
+                      length="1000"
+                      name="MES" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[REGION]"
+                      dataType="wstr"
+                      length="1000"
+                      name="REGION" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[PROVINCIA]"
+                      dataType="wstr"
+                      length="1000"
+                      name="PROVINCIA" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[UBIGEO_DISTRITO]"
+                      dataType="wstr"
+                      length="1000"
+                      name="UBIGEO_DISTRITO" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[DISTRITO]"
+                      dataType="wstr"
+                      length="1000"
+                      name="DISTRITO" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[COD_UNIDAD_EJECUTORA]"
+                      dataType="wstr"
+                      length="1000"
+                      name="COD_UNIDAD_EJECUTORA" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_UNIDAD_EJECUTORA]"
+                      dataType="wstr"
+                      length="1000"
+                      name="DESC_UNIDAD_EJECUTORA" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[COD_IPRESS]"
+                      dataType="wstr"
+                      length="1000"
+                      name="COD_IPRESS" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[IPRESS]"
+                      dataType="wstr"
+                      length="1000"
+                      name="IPRESS" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[NIVEL_EESS]"
+                      dataType="wstr"
+                      length="1000"
+                      name="NIVEL_EESS" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[PLAN_SEGURO]"
+                      dataType="wstr"
+                      length="1000"
+                      name="PLAN_SEGURO" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[COD_SERVICIO]"
+                      dataType="wstr"
+                      length="1000"
+                      name="COD_SERVICIO" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[DESC_SERVICIO]"
+                      dataType="wstr"
+                      length="1000"
+                      name="DESC_SERVICIO" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[SEXO]"
+                      dataType="wstr"
+                      length="1000"
+                      name="SEXO" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[GRUPO_EDAD]"
+                      dataType="wstr"
+                      length="1000"
+                      name="GRUPO_EDAD" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB].ExternalColumns[ATENCIONES]"
+                      dataType="wstr"
+                      length="1000"
+                      name="ATENCIONES" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cuarentena_Errores_de_Lectura"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="Destino de OLE DB;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;4"
+              description="Destino de OLE DB"
+              name="Cuarentena_Errores_de_Lectura"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Número de segundos antes de que se agote el tiempo de espera de un comando. Un valor de 0 indica un tiempo de espera infinito."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowset">[stg].[ErroresLectura]</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica la variable que contiene el nombre del objeto de base de datos usado para abrir un conjunto de filas."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Comando SQL para ejecutar."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica la página de códigos de columna para utilizar cuando la información de página de códigos no está disponible en el origen de datos."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Fuerza el uso del valor de la propiedad DefaultCodePage al describir datos de caracteres."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica el modo utilizado para obtener acceso a la base de datos."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si los valores proporcionados para columnas de identidad se van a copiar al destino. Si es False, los valores de las columnas de identidad se generan automáticamente en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indica si las columnas que contienen NULL tendrán NULL insertado en el destino. Si es False, las columnas que contienen NULL tendrán sus valores predeterminados insertados en el destino. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica opciones para usar con la carga rápida. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Especifica cuándo se emiten confirmaciones durante la inserción de datos. El valor 0 especifica que se emitirá una confirmación al final de la inserción de datos. Sólo se aplica si está activada la carga rápida."
+                  name="FastLoadMaxInsertCommitSize">1000</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cuarentena_Errores_de_Lectura.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SQL_Carga_Rapida]"
+                  connectionManagerRefId="Package.ConnectionManagers[SQL_Carga_Rapida]"
+                  description="La conexión de tiempo de ejecución OLE DB usada para obtener acceso a la base de datos."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cuarentena_Errores_de_Lectura.Inputs[Entrada de destino de OLE DB]"
+                  errorOrTruncationOperation="Insertar"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrada de destino de OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cuarentena_Errores_de_Lectura.Inputs[Entrada de destino de OLE DB].Columns[ErrorCode]"
+                      cachedDataType="i4"
+                      cachedName="ErrorCode"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Cuarentena_Errores_de_Lectura.Inputs[Entrada de destino de OLE DB].ExternalColumns[ErrorCode]"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de error de origen de archivo plano].Columns[ErrorCode]" />
+                    <inputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cuarentena_Errores_de_Lectura.Inputs[Entrada de destino de OLE DB].Columns[ErrorColumn]"
+                      cachedDataType="i4"
+                      cachedName="ErrorColumn"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Cuarentena_Errores_de_Lectura.Inputs[Entrada de destino de OLE DB].ExternalColumns[ErrorColumn]"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de error de origen de archivo plano].Columns[ErrorColumn]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cuarentena_Errores_de_Lectura.Inputs[Entrada de destino de OLE DB].ExternalColumns[id_error]"
+                      dataType="i8"
+                      name="id_error" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cuarentena_Errores_de_Lectura.Inputs[Entrada de destino de OLE DB].ExternalColumns[ErrorCode]"
+                      dataType="i4"
+                      name="ErrorCode" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cuarentena_Errores_de_Lectura.Inputs[Entrada de destino de OLE DB].ExternalColumns[ErrorColumn]"
+                      dataType="i4"
+                      name="ErrorColumn" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cuarentena_Errores_de_Lectura.Outputs[Salida de error de destino de OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Salida de error de destino de OLE DB"
+                  synchronousInputId="Package\02_CSV_a_SIS_RAW_FastLoad\Cuarentena_Errores_de_Lectura.Inputs[Entrada de destino de OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cuarentena_Errores_de_Lectura.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Cuarentena_Errores_de_Lectura.Outputs[Salida de error de destino de OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Cuarentena_Errores_de_Lectura.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Cuarentena_Errores_de_Lectura.Outputs[Salida de error de destino de OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Origen de archivo plano;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; Todos los derechos reservados; http://www.microsoft.com/sql/support;1"
+              description="Origen de archivo plano"
+              localeId="3082"
+              name="Leer_CSV_Entrada"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Especifica si las columnas de longitud cero se tratan como NULL."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Especifica el nombre de una columna de salida que contiene el nombre de archivo. Si no se especifica ningún nombre, no se genera ninguna columna de salida con el nombre de archivo."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[CSV_Entrada]"
+                  connectionManagerRefId="Package.ConnectionManagers[CSV_Entrada]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano]"
+                  name="Salida de origen de archivo plano">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[ANIO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[ANIO]"
+                      length="1000"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[ANIO]"
+                      name="ANIO"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[MES]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[MES]"
+                      length="1000"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[MES]"
+                      name="MES"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[REGION]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[REGION]"
+                      length="1000"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[REGION]"
+                      name="REGION"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[PROVINCIA]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[PROVINCIA]"
+                      length="1000"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[PROVINCIA]"
+                      name="PROVINCIA"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[UBIGEO_DISTRITO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[UBIGEO_DISTRITO]"
+                      length="1000"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[UBIGEO_DISTRITO]"
+                      name="UBIGEO_DISTRITO"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[DISTRITO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[DISTRITO]"
+                      length="1000"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[DISTRITO]"
+                      name="DISTRITO"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[COD_UNIDAD_EJECUTORA]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[COD_UNIDAD_EJECUTORA]"
+                      length="1000"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[COD_UNIDAD_EJECUTORA]"
+                      name="COD_UNIDAD_EJECUTORA"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[DESC_UNIDAD_EJECUTORA]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[DESC_UNIDAD_EJECUTORA]"
+                      length="1000"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[DESC_UNIDAD_EJECUTORA]"
+                      name="DESC_UNIDAD_EJECUTORA"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[COD_IPRESS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[COD_IPRESS]"
+                      length="1000"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[COD_IPRESS]"
+                      name="COD_IPRESS"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[IPRESS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[IPRESS]"
+                      length="1000"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[IPRESS]"
+                      name="IPRESS"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[NIVEL_EESS]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[NIVEL_EESS]"
+                      length="1000"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[NIVEL_EESS]"
+                      name="NIVEL_EESS"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[PLAN_SEGURO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[PLAN_SEGURO]"
+                      length="1000"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[PLAN_SEGURO]"
+                      name="PLAN_SEGURO"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[COD_SERVICIO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[COD_SERVICIO]"
+                      length="1000"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[COD_SERVICIO]"
+                      name="COD_SERVICIO"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[DESC_SERVICIO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[DESC_SERVICIO]"
+                      length="1000"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[DESC_SERVICIO]"
+                      name="DESC_SERVICIO"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[SEXO]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[SEXO]"
+                      length="1000"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[SEXO]"
+                      name="SEXO"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[GRUPO_EDAD]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[GRUPO_EDAD]"
+                      length="1000"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[GRUPO_EDAD]"
+                      name="GRUPO_EDAD"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[ATENCIONES]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversión"
+                      errorRowDisposition="RedirectRow"
+                      externalMetadataColumnId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[ATENCIONES]"
+                      length="1000"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].Columns[ATENCIONES]"
+                      name="ATENCIONES"
+                      truncationRowDisposition="RedirectRow">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si la columna usa las rutinas de análisis más rápidas independientes de la configuración regional."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indica si los datos están en formato binario."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[ANIO]"
+                      dataType="wstr"
+                      length="1000"
+                      name="ANIO" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[MES]"
+                      dataType="wstr"
+                      length="1000"
+                      name="MES" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[REGION]"
+                      dataType="wstr"
+                      length="1000"
+                      name="REGION" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[PROVINCIA]"
+                      dataType="wstr"
+                      length="1000"
+                      name="PROVINCIA" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[UBIGEO_DISTRITO]"
+                      dataType="wstr"
+                      length="1000"
+                      name="UBIGEO_DISTRITO" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[DISTRITO]"
+                      dataType="wstr"
+                      length="1000"
+                      name="DISTRITO" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[COD_UNIDAD_EJECUTORA]"
+                      dataType="wstr"
+                      length="1000"
+                      name="COD_UNIDAD_EJECUTORA" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[DESC_UNIDAD_EJECUTORA]"
+                      dataType="wstr"
+                      length="1000"
+                      name="DESC_UNIDAD_EJECUTORA" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[COD_IPRESS]"
+                      dataType="wstr"
+                      length="1000"
+                      name="COD_IPRESS" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[IPRESS]"
+                      dataType="wstr"
+                      length="1000"
+                      name="IPRESS" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[NIVEL_EESS]"
+                      dataType="wstr"
+                      length="1000"
+                      name="NIVEL_EESS" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[PLAN_SEGURO]"
+                      dataType="wstr"
+                      length="1000"
+                      name="PLAN_SEGURO" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[COD_SERVICIO]"
+                      dataType="wstr"
+                      length="1000"
+                      name="COD_SERVICIO" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[DESC_SERVICIO]"
+                      dataType="wstr"
+                      length="1000"
+                      name="DESC_SERVICIO" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[SEXO]"
+                      dataType="wstr"
+                      length="1000"
+                      name="SEXO" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[GRUPO_EDAD]"
+                      dataType="wstr"
+                      length="1000"
+                      name="GRUPO_EDAD" />
+                    <externalMetadataColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano].ExternalColumns[ATENCIONES]"
+                      dataType="wstr"
+                      length="1000"
+                      name="ATENCIONES" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de error de origen de archivo plano]"
+                  isErrorOut="true"
+                  name="Salida de error de origen de archivo plano">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de error de origen de archivo plano].Columns[Columna de salida de error de origen de archivo plano]"
+                      codePage="65001"
+                      dataType="text"
+                      description="Columna de salida de error de origen de archivo plano"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de error de origen de archivo plano].Columns[Columna de salida de error de origen de archivo plano]"
+                      name="Columna de salida de error de origen de archivo plano" />
+                    <outputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de error de origen de archivo plano].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de error de origen de archivo plano].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de error de origen de archivo plano].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de error de origen de archivo plano].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\02_CSV_a_SIS_RAW_FastLoad.Paths[Salida de error de origen de archivo plano]"
+              endId="Package\02_CSV_a_SIS_RAW_FastLoad\Cuarentena_Errores_de_Lectura.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de error de origen de archivo plano"
+              startId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de error de origen de archivo plano]" />
+            <path
+              refId="Package\02_CSV_a_SIS_RAW_FastLoad.Paths[Salida de origen de archivo plano]"
+              endId="Package\02_CSV_a_SIS_RAW_FastLoad\Cargar_stg_Raw_Entrada.Inputs[Entrada de destino de OLE DB]"
+              name="Salida de origen de archivo plano"
+              startId="Package\02_CSV_a_SIS_RAW_FastLoad\Leer_CSV_Entrada.Outputs[Salida de origen de archivo plano]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\03_Archivar_RAW_Historico"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{BC572BB3-C3D0-43EB-9ED5-F33CA7CF8B6F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="03_Archivar_RAW_Historico"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"DECLARE @Lote uniqueidentifier = '" + @[User::IdLote] + "'; DECLARE @Esperadas bigint = " + @[User::FilasEsperadas] + "; DECLARE @SimularFallo int = " + @[User::SimularFallo] + "; " + " DECLARE @Modo varchar(20)='" + @[User::Modo] + "'; DECLARE @Archivo nvarchar(1000)=N'" + REPLACE(@[User::Archivo_Entrada],"'","''") + "'; " + @[User::SQL_03_Archivar_RAW_Historico]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7CA2D0E4-DE97-42C7-8986-6E68F81413F6}"
+          SQLTask:SqlStatementSource="DECLARE @Lote uniqueidentifier = '{B3EA4D44-6382-462A-8959-6932828680D9}'; DECLARE @Esperadas bigint = 40000; DECLARE @SimularFallo int = 0;  DECLARE @Modo varchar(20)='SNAPSHOT'; DECLARE @Archivo nvarchar(1000)=N'.\motor\fuentes\entrada.csv'; SET NOCOUNT ON;&#xA;IF @Modo='SNAPSHOT'&#xA; INSERT raw.Registros(id_lote,fila_origen,fuente_tipo,[ANIO],[MES],[REGION],[PROVINCIA],[UBIGEO_DISTRITO],[DISTRITO],[COD_UNIDAD_EJECUTORA],[DESC_UNIDAD_EJECUTORA],[COD_IPRESS],[IPRESS],[NIVEL_EESS],[PLAN_SEGURO],[COD_SERVICIO],[DESC_SERVICIO],[SEXO],[GRUPO_EDAD],[ATENCIONES]) SELECT @Lote,fila_archivo,'SNAPSHOT',[ANIO],[MES],[REGION],[PROVINCIA],[UBIGEO_DISTRITO],[DISTRITO],[COD_UNIDAD_EJECUTORA],[DESC_UNIDAD_EJECUTORA],[COD_IPRESS],[IPRESS],[NIVEL_EESS],[PLAN_SEGURO],[COD_SERVICIO],[DESC_SERVICIO],[SEXO],[GRUPO_EDAD],[ATENCIONES] FROM stg.Entrada;&#xA;ELSE IF EXISTS(SELECT 1 FROM raw.Registros WHERE id_lote=@Lote AND fuente_tipo='SQL' AND estado_proceso='PENDIENTE') BEGIN&#xA; UPDATE raw.Registros SET estado_proceso='PROCESANDO' WHERE id_lote=@Lote AND fuente_tipo='SQL' AND estado_proceso='PENDIENTE';&#xA;END ELSE BEGIN&#xA; ;WITH e AS(SELECT TOP(1000) * FROM raw.EventosSQL WITH(UPDLOCK,READPAST) WHERE estado='PENDIENTE' ORDER BY id_evento)&#xA; UPDATE e SET estado='PROCESANDO',id_lote=@Lote;&#xA; INSERT raw.Registros(id_lote,fila_origen,fuente_tipo,clave_origen,version_origen,operacion,id_evento,[ANIO],[MES],[REGION],[PROVINCIA],[UBIGEO_DISTRITO],[DISTRITO],[COD_UNIDAD_EJECUTORA],[DESC_UNIDAD_EJECUTORA],[COD_IPRESS],[IPRESS],[NIVEL_EESS],[PLAN_SEGURO],[COD_SERVICIO],[DESC_SERVICIO],[SEXO],[GRUPO_EDAD],[ATENCIONES])&#xA; SELECT @Lote,e.id_evento,'SQL',e.clave_origen,e.version,e.operacion,e.id_evento,j.[ANIO],j.[MES],j.[REGION],j.[PROVINCIA],j.[UBIGEO_DISTRITO],j.[DISTRITO],j.[COD_UNIDAD_EJECUTORA],j.[DESC_UNIDAD_EJECUTORA],j.[COD_IPRESS],j.[IPRESS],j.[NIVEL_EESS],j.[PLAN_SEGURO],j.[COD_SERVICIO],j.[DESC_SERVICIO],j.[SEXO],j.[GRUPO_EDAD],j.[ATENCIONES] FROM raw.EventosSQL e OUTER APPLY OPENJSON(e.datos) WITH([ANIO] nvarchar(1000) '$.ANIO',[MES] nvarchar(1000) '$.MES',[REGION] nvarchar(1000) '$.REGION',[PROVINCIA] nvarchar(1000) '$.PROVINCIA',[UBIGEO_DISTRITO] nvarchar(1000) '$.UBIGEO_DISTRITO',[DISTRITO] nvarchar(1000) '$.DISTRITO',[COD_UNIDAD_EJECUTORA] nvarchar(1000) '$.COD_UNIDAD_EJECUTORA',[DESC_UNIDAD_EJECUTORA] nvarchar(1000) '$.DESC_UNIDAD_EJECUTORA',[COD_IPRESS] nvarchar(1000) '$.COD_IPRESS',[IPRESS] nvarchar(1000) '$.IPRESS',[NIVEL_EESS] nvarchar(1000) '$.NIVEL_EESS',[PLAN_SEGURO] nvarchar(1000) '$.PLAN_SEGURO',[COD_SERVICIO] nvarchar(1000) '$.COD_SERVICIO',[DESC_SERVICIO] nvarchar(1000) '$.DESC_SERVICIO',[SEXO] nvarchar(1000) '$.SEXO',[GRUPO_EDAD] nvarchar(1000) '$.GRUPO_EDAD',[ATENCIONES] nvarchar(1000) '$.ATENCIONES') j WHERE e.id_lote=@Lote AND e.estado='PROCESANDO';&#xA;END;&#xA;DECLARE @N bigint=(SELECT COUNT_BIG(*) FROM raw.Registros WHERE id_lote=@Lote);&#xA;&#xA;UPDATE etl.Lotes SET filas_origen=@N,estado='RAW_ARCHIVADO' WHERE id_lote=@Lote;&#xA;&#xA;IF EXISTS(SELECT 1 FROM stg.ErroresLectura) BEGIN&#xA; INSERT etl.Rechazos(id_lote,archivo,motivo) SELECT @Lote,@Archivo,CONCAT('PARSER_SSIS: ErrorCode=',ErrorCode,'; columna=',ErrorColumn,'; original completo archivado en la recepcion') FROM stg.ErroresLectura;&#xA; UPDATE etl.Lotes SET filas_rechazadas=(SELECT COUNT_BIG(*) FROM stg.ErroresLectura),filas_origen=filas_origen+(SELECT COUNT_BIG(*) FROM stg.ErroresLectura) WHERE id_lote=@Lote;&#xA; THROW 52012,'Errores de lectura: lote conservado, no se publica parcialmente.',1;&#xA;END;&#xA;IF @Modo='SNAPSHOT' AND (SELECT COUNT_BIG(*) FROM raw.Registros WHERE id_lote=@Lote)&lt;&gt;(SELECT COUNT_BIG(*) FROM stg.Entrada) THROW 52013,'Conteo RAW no coincide con la entrada SSIS.',1;&#xA;&#xA;IF @Modo='SNAPSHOT' AND @N=0 THROW 52005,'Snapshot vacio: no autoriza borrar periodos.',1;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\04_Validar_Contrato_y_Nulos"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{1AB10ED8-2B1F-4B54-8AA9-63586C94CFE0}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="04_Validar_Contrato_y_Nulos"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"DECLARE @Lote uniqueidentifier = '" + @[User::IdLote] + "'; DECLARE @Esperadas bigint = " + @[User::FilasEsperadas] + "; DECLARE @SimularFallo int = " + @[User::SimularFallo] + "; " + " DECLARE @Modo varchar(20)='" + @[User::Modo] + "'; DECLARE @Archivo nvarchar(1000)=N'" + REPLACE(@[User::Archivo_Entrada],"'","''") + "'; " + @[User::SQL_04_Validar_Contrato_y_Nulos]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7CA2D0E4-DE97-42C7-8986-6E68F81413F6}"
+          SQLTask:SqlStatementSource="DECLARE @Lote uniqueidentifier = '{B3EA4D44-6382-462A-8959-6932828680D9}'; DECLARE @Esperadas bigint = 40000; DECLARE @SimularFallo int = 0;  DECLARE @Modo varchar(20)='SNAPSHOT'; DECLARE @Archivo nvarchar(1000)=N'.\motor\fuentes\entrada.csv'; SET NOCOUNT ON; SET XACT_ABORT ON;&#xA;TRUNCATE TABLE stg.Limpia;&#xA;INSERT etl.Rechazos SELECT @Lote,archivo,fila_archivo,motivo,anio_original,mes_original,atenciones_original FROM stg.v_Normalizada CROSS APPLY(SELECT CONCAT(CASE WHEN anio_num IS NULL OR NOT EXISTS(SELECT 1 FROM etl.AniosPermitidos y WHERE y.anio=anio_num) THEN N'ANIO_INVALIDO; ' ELSE N'' END,CASE WHEN mes_num IS NULL OR mes_num NOT BETWEEN 1 AND 12 THEN N'MES_INVALIDO; ' ELSE N'' END,CASE WHEN atenciones_num IS NULL OR atenciones_num &lt; 0 THEN N'ATENCIONES_INVALIDAS; ' ELSE N'' END,CASE WHEN CHARINDEX(NCHAR(65533),CONCAT(REGION,PROVINCIA,DISTRITO,IPRESS,DESC_SERVICIO) COLLATE Latin1_General_100_BIN2)&gt;0 THEN N'TEXTO_CON_REEMPLAZO; ' ELSE N'' END,CASE WHEN COD_IPRESS=N'NO INFORMADO' OR COD_SERVICIO=N'NO INFORMADO' THEN N'CODIGO_OBLIGATORIO_AUSENTE; ' ELSE N'' END,CASE WHEN LEN(REGION)&gt;150 OR LEN(PROVINCIA)&gt;150 OR LEN(DISTRITO)&gt;150 OR LEN(UBIGEO_DISTRITO)&gt;20 OR LEN(COD_IPRESS)&gt;50 OR LEN(COD_SERVICIO)&gt;50 OR LEN(COD_UNIDAD_EJECUTORA)&gt;50 OR LEN(NIVEL_EESS)&gt;50 OR LEN(PLAN_SEGURO)&gt;100 OR LEN(SEXO)&gt;50 OR LEN(GRUPO_EDAD)&gt;100 OR LEN(IPRESS)&gt;400 OR LEN(DESC_SERVICIO)&gt;400 OR LEN(DESC_UNIDAD_EJECUTORA)&gt;400 THEN N'LONGITUD_EXCEDIDA; ' ELSE N'' END) motivo) q WHERE motivo&lt;&gt;N'' OPTION(MAXDOP 1, MAX_GRANT_PERCENT=1);&#xA;INSERT stg.Limpia([archivo],[fila_archivo],[id_raw],[clave_origen],[version_origen],[ANIO],[MES],[REGION],[PROVINCIA],[UBIGEO_DISTRITO],[DISTRITO],[COD_UNIDAD_EJECUTORA],[DESC_UNIDAD_EJECUTORA],[COD_IPRESS],[IPRESS],[NIVEL_EESS],[PLAN_SEGURO],[COD_SERVICIO],[DESC_SERVICIO],[SEXO],[GRUPO_EDAD],[ATENCIONES],[ubigeo_valido],[clave_ipress],[clave_servicio],[clave_unidad]) SELECT archivo,fila_archivo,id_raw,clave_origen,version_origen,anio_num,mes_num,[REGION],[PROVINCIA],[UBIGEO_DISTRITO],[DISTRITO],[COD_UNIDAD_EJECUTORA],[DESC_UNIDAD_EJECUTORA],[COD_IPRESS],[IPRESS],[NIVEL_EESS],[PLAN_SEGURO],[COD_SERVICIO],[DESC_SERVICIO],[SEXO],[GRUPO_EDAD],atenciones_num,CASE WHEN LEN(UBIGEO_DISTRITO)=6 AND UBIGEO_DISTRITO NOT LIKE '%[^0-9]%' AND LEFT(UBIGEO_DISTRITO,2) BETWEEN '01' AND '25' THEN 1 ELSE 0 END,HASHBYTES('SHA2_256',CONCAT([COD_IPRESS],NCHAR(31),[IPRESS],NCHAR(31),[NIVEL_EESS],NCHAR(31),[UBIGEO_DISTRITO],NCHAR(31),[DISTRITO],NCHAR(31),[PROVINCIA],NCHAR(31),[REGION],NCHAR(31),[COD_UNIDAD_EJECUTORA],NCHAR(31),[DESC_UNIDAD_EJECUTORA])),HASHBYTES('SHA2_256',CONCAT([COD_SERVICIO],NCHAR(31),[DESC_SERVICIO])),HASHBYTES('SHA2_256',CONCAT([COD_UNIDAD_EJECUTORA],NCHAR(31),[DESC_UNIDAD_EJECUTORA])) FROM stg.v_Normalizada CROSS APPLY(SELECT CONCAT(CASE WHEN anio_num IS NULL OR NOT EXISTS(SELECT 1 FROM etl.AniosPermitidos y WHERE y.anio=anio_num) THEN N'ANIO_INVALIDO; ' ELSE N'' END,CASE WHEN mes_num IS NULL OR mes_num NOT BETWEEN 1 AND 12 THEN N'MES_INVALIDO; ' ELSE N'' END,CASE WHEN atenciones_num IS NULL OR atenciones_num &lt; 0 THEN N'ATENCIONES_INVALIDAS; ' ELSE N'' END,CASE WHEN CHARINDEX(NCHAR(65533),CONCAT(REGION,PROVINCIA,DISTRITO,IPRESS,DESC_SERVICIO) COLLATE Latin1_General_100_BIN2)&gt;0 THEN N'TEXTO_CON_REEMPLAZO; ' ELSE N'' END,CASE WHEN COD_IPRESS=N'NO INFORMADO' OR COD_SERVICIO=N'NO INFORMADO' THEN N'CODIGO_OBLIGATORIO_AUSENTE; ' ELSE N'' END,CASE WHEN LEN(REGION)&gt;150 OR LEN(PROVINCIA)&gt;150 OR LEN(DISTRITO)&gt;150 OR LEN(UBIGEO_DISTRITO)&gt;20 OR LEN(COD_IPRESS)&gt;50 OR LEN(COD_SERVICIO)&gt;50 OR LEN(COD_UNIDAD_EJECUTORA)&gt;50 OR LEN(NIVEL_EESS)&gt;50 OR LEN(PLAN_SEGURO)&gt;100 OR LEN(SEXO)&gt;50 OR LEN(GRUPO_EDAD)&gt;100 OR LEN(IPRESS)&gt;400 OR LEN(DESC_SERVICIO)&gt;400 OR LEN(DESC_UNIDAD_EJECUTORA)&gt;400 THEN N'LONGITUD_EXCEDIDA; ' ELSE N'' END) motivo) q WHERE motivo=N'' OPTION(MAXDOP 1, MAX_GRANT_PERCENT=1);&#xA;&#xA;IF EXISTS(SELECT 1 FROM etl.Rechazos WHERE id_lote=@Lote)&#xA; BEGIN UPDATE etl.Lotes SET filas_aceptadas=(SELECT COUNT_BIG(*) FROM stg.Limpia),filas_rechazadas=(SELECT COUNT_BIG(*) FROM etl.Rechazos WHERE id_lote=@Lote) WHERE id_lote=@Lote;&#xA; THROW 51302,'Snapshot invalido: se registraron rechazos. No se publica parcialmente un mes.',1; END;&#xA;&#xA;IF @Modo='SQL' AND EXISTS(SELECT 1 FROM raw.Registros r JOIN SIS_NORMALIZADA.oltp.OrigenVersion v ON v.clave_origen=r.clave_origen WHERE r.id_lote=@Lote AND r.version_origen&lt;=v.version) THROW 52006,'Version SQL anterior o igual a la publicada.',1;&#xA;UPDATE etl.Lotes SET filas_aceptadas=(SELECT COUNT_BIG(*) FROM stg.Limpia),filas_rechazadas=0,estado='VALIDADO' WHERE id_lote=@Lote;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\05_Detectar_Incremento"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{94EE6B0D-E0D3-48E4-911E-74162A5AEAA2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="05_Detectar_Incremento"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"DECLARE @Lote uniqueidentifier = '" + @[User::IdLote] + "'; DECLARE @Esperadas bigint = " + @[User::FilasEsperadas] + "; DECLARE @SimularFallo int = " + @[User::SimularFallo] + "; " + " DECLARE @Modo varchar(20)='" + @[User::Modo] + "'; DECLARE @Archivo nvarchar(1000)=N'" + REPLACE(@[User::Archivo_Entrada],"'","''") + "'; " + @[User::SQL_05_Detectar_Incremento]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7CA2D0E4-DE97-42C7-8986-6E68F81413F6}"
+          SQLTask:SqlStatementSource="DECLARE @Lote uniqueidentifier = '{B3EA4D44-6382-462A-8959-6932828680D9}'; DECLARE @Esperadas bigint = 40000; DECLARE @SimularFallo int = 0;  DECLARE @Modo varchar(20)='SNAPSHOT'; DECLARE @Archivo nvarchar(1000)=N'.\motor\fuentes\entrada.csv'; SET NOCOUNT ON;&#xA;IF @Modo='SNAPSHOT' BEGIN&#xA; UPDATE l SET huella_fila=HASHBYTES('SHA2_256',(SELECT l.[ANIO],l.[MES],l.[REGION],l.[PROVINCIA],l.[UBIGEO_DISTRITO],l.[DISTRITO],l.[COD_UNIDAD_EJECUTORA],l.[DESC_UNIDAD_EJECUTORA],l.[COD_IPRESS],l.[IPRESS],l.[NIVEL_EESS],l.[PLAN_SEGURO],l.[COD_SERVICIO],l.[DESC_SERVICIO],l.[SEXO],l.[GRUPO_EDAD],l.[ATENCIONES] FOR JSON PATH,WITHOUT_ARRAY_WRAPPER)) FROM stg.Limpia l;&#xA; -- Merkle por 256 cubetas: conserva multiplicidad sin concatenar todo el mes en un unico valor.&#xA; SELECT ANIO*100+MES periodo,CONVERT(varchar(64),huella_fila,2) h,COUNT_BIG(*) n INTO #H FROM stg.Limpia GROUP BY ANIO,MES,huella_fila OPTION(MAXDOP 1,MAX_GRANT_PERCENT=1);&#xA; SELECT periodo,LEFT(h,2) cubeta,HASHBYTES('SHA2_256',STRING_AGG(CONVERT(varchar(max),CONCAT(h,':',n,';')),'') WITHIN GROUP(ORDER BY h)) firma INTO #B FROM #H GROUP BY periodo,LEFT(h,2) OPTION(MAXDOP 1,MAX_GRANT_PERCENT=1);&#xA; SELECT periodo,HASHBYTES('SHA2_256',STRING_AGG(CONVERT(varchar(max),CONCAT(cubeta,CONVERT(varchar(64),firma,2))),';') WITHIN GROUP(ORDER BY cubeta)) firma INTO #P FROM #B GROUP BY periodo OPTION(MAXDOP 1,MAX_GRANT_PERCENT=1);&#xA; INSERT etl.PlanParticion(id_lote,periodo,huella,filas,atenciones,accion,filas_anteriores,version_anterior)&#xA; SELECT @Lote,n.periodo,h.firma,n.filas,n.atenciones,CASE WHEN p.periodo IS NULL THEN 'NUEVO' WHEN p.huella=h.firma AND p.filas=n.filas THEN 'SIN_CAMBIOS' ELSE 'CAMBIADO' END,COALESCE(p.filas,0),COALESCE(p.version,0)&#xA; FROM(SELECT ANIO*100+MES periodo,COUNT_BIG(*) filas,SUM(ATENCIONES) atenciones FROM stg.Limpia GROUP BY ANIO,MES)n JOIN #P h ON h.periodo=n.periodo LEFT JOIN etl.Particiones p ON p.periodo=n.periodo;&#xA; IF EXISTS(SELECT 1 FROM etl.PlanParticion WHERE id_lote=@Lote AND filas&lt;filas_anteriores*0.8) BEGIN&#xA;  INSERT etl.Rechazos(id_lote,archivo,motivo) SELECT @Lote,@Archivo,CONCAT('SNAPSHOT_PARCIAL: periodo ',periodo,', filas previas ',filas_anteriores,', recibidas ',filas) FROM etl.PlanParticion WHERE id_lote=@Lote AND filas&lt;filas_anteriores*0.8;&#xA;  THROW 52007,'Posible snapshot parcial: disminucion superior al 20%; requiere revision.',1;&#xA; END;&#xA; INSERT etl.Afectados SELECT @Lote,periodo FROM etl.PlanParticion WHERE id_lote=@Lote AND accion&lt;&gt;'SIN_CAMBIOS';&#xA;END ELSE BEGIN&#xA; INSERT etl.Afectados SELECT @Lote,periodo FROM(&#xA; SELECT ANIO*100+MES periodo FROM stg.Limpia&#xA; UNION SELECT a.anio*100+a.mes FROM SIS_NORMALIZADA.oltp.Registro_Atencion a JOIN raw.Registros r ON r.clave_origen=a.clave_origen WHERE r.id_lote=@Lote AND a.fuente_tipo='SQL')p;&#xA;END;&#xA;UPDATE etl.Lotes SET estado='CAMBIOS_DETECTADOS' WHERE id_lote=@Lote;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\06_Normalizar_SIS_NORMALIZADA"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{26B4C6CD-5CDE-4120-82EF-3F5189AFAEE9}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="06_Normalizar_SIS_NORMALIZADA"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"DECLARE @Lote uniqueidentifier = '" + @[User::IdLote] + "'; DECLARE @Esperadas bigint = " + @[User::FilasEsperadas] + "; DECLARE @SimularFallo int = " + @[User::SimularFallo] + "; " + " DECLARE @Modo varchar(20)='" + @[User::Modo] + "'; DECLARE @Archivo nvarchar(1000)=N'" + REPLACE(@[User::Archivo_Entrada],"'","''") + "'; " + @[User::SQL_06_Normalizar_SIS_NORMALIZADA]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7CA2D0E4-DE97-42C7-8986-6E68F81413F6}"
+          SQLTask:SqlStatementSource="DECLARE @Lote uniqueidentifier = '{B3EA4D44-6382-462A-8959-6932828680D9}'; DECLARE @Esperadas bigint = 40000; DECLARE @SimularFallo int = 0;  DECLARE @Modo varchar(20)='SNAPSHOT'; DECLARE @Archivo nvarchar(1000)=N'.\motor\fuentes\entrada.csv'; SET NOCOUNT ON;SET XACT_ABORT ON;&#xA;BEGIN TRAN;&#xA;SELECT l.* INTO #Carga FROM stg.Limpia l WHERE @Modo='SQL' OR EXISTS(SELECT 1 FROM etl.Afectados a WHERE a.id_lote=@Lote AND a.periodo=l.ANIO*100+l.MES) OPTION(MAXDOP 1,MAX_GRANT_PERCENT=1);&#xA;IF @Modo='SNAPSHOT'&#xA; DELETE a FROM SIS_NORMALIZADA.oltp.Registro_Atencion a JOIN etl.Afectados p ON p.id_lote=@Lote AND a.anio=p.periodo/100 AND a.mes=p.periodo%100 WHERE a.fuente_tipo='SNAPSHOT' OPTION(MAXDOP 1,MAX_GRANT_PERCENT=1);&#xA;ELSE&#xA; DELETE a FROM SIS_NORMALIZADA.oltp.Registro_Atencion a WHERE a.fuente_tipo='SQL' AND EXISTS(SELECT 1 FROM raw.Registros r WHERE r.id_lote=@Lote AND r.clave_origen=a.clave_origen) OPTION(MAXDOP 1,MAX_GRANT_PERCENT=1);&#xA;IF @SimularFallo=1 THROW 52008,'Fallo controlado: rollback entre las tres bases.',1;&#xA;INSERT SIS_NORMALIZADA.oltp.Region(nombre) SELECT DISTINCT REGION FROM #Carga l WHERE NOT EXISTS(SELECT 1 FROM SIS_NORMALIZADA.oltp.Region x WHERE x.nombre=l.REGION) OPTION(MAXDOP 1, MAX_GRANT_PERCENT=1);&#xA;INSERT SIS_NORMALIZADA.oltp.Provincia(id_region,nombre) SELECT DISTINCT r.id_region,l.PROVINCIA FROM #Carga l JOIN SIS_NORMALIZADA.oltp.Region r ON r.nombre=l.REGION WHERE NOT EXISTS(SELECT 1 FROM SIS_NORMALIZADA.oltp.Provincia x WHERE x.id_region=r.id_region AND x.nombre=l.PROVINCIA) OPTION(MAXDOP 1, MAX_GRANT_PERCENT=1);&#xA;INSERT SIS_NORMALIZADA.oltp.Distrito(id_provincia,ubigeo,nombre) SELECT DISTINCT p.id_provincia,l.UBIGEO_DISTRITO,l.DISTRITO FROM #Carga l JOIN SIS_NORMALIZADA.oltp.Region r ON r.nombre=l.REGION JOIN SIS_NORMALIZADA.oltp.Provincia p ON p.id_region=r.id_region AND p.nombre=l.PROVINCIA WHERE NOT EXISTS(SELECT 1 FROM SIS_NORMALIZADA.oltp.Distrito x WHERE x.id_provincia=p.id_provincia AND x.ubigeo=l.UBIGEO_DISTRITO AND x.nombre=l.DISTRITO) OPTION(MAXDOP 1, MAX_GRANT_PERCENT=1);&#xA;INSERT SIS_NORMALIZADA.oltp.Unidad_Ejecutora(clave_version,codigo,nombre) SELECT DISTINCT clave_unidad,COD_UNIDAD_EJECUTORA,DESC_UNIDAD_EJECUTORA FROM #Carga l WHERE NOT EXISTS(SELECT 1 FROM SIS_NORMALIZADA.oltp.Unidad_Ejecutora x WHERE x.clave_version=l.clave_unidad) OPTION(MAXDOP 1, MAX_GRANT_PERCENT=1);&#xA;INSERT SIS_NORMALIZADA.oltp.IPRESS(clave_version,cod_ipress,nombre,nivel,id_distrito,id_unidad,ubigeo_valido)&#xA;SELECT DISTINCT l.clave_ipress,l.COD_IPRESS,l.IPRESS,l.NIVEL_EESS,d.id_distrito,u.id_unidad,l.ubigeo_valido&#xA;FROM #Carga l JOIN SIS_NORMALIZADA.oltp.Region r ON r.nombre=l.REGION JOIN SIS_NORMALIZADA.oltp.Provincia p ON p.id_region=r.id_region AND p.nombre=l.PROVINCIA JOIN SIS_NORMALIZADA.oltp.Distrito d ON d.id_provincia=p.id_provincia AND d.ubigeo=l.UBIGEO_DISTRITO AND d.nombre=l.DISTRITO JOIN SIS_NORMALIZADA.oltp.Unidad_Ejecutora u ON u.clave_version=l.clave_unidad WHERE NOT EXISTS(SELECT 1 FROM SIS_NORMALIZADA.oltp.IPRESS x WHERE x.clave_version=l.clave_ipress) OPTION(MAXDOP 1, MAX_GRANT_PERCENT=1);&#xA;INSERT SIS_NORMALIZADA.oltp.Servicio(clave_version,codigo,descripcion) SELECT DISTINCT clave_servicio,COD_SERVICIO,DESC_SERVICIO FROM #Carga l WHERE NOT EXISTS(SELECT 1 FROM SIS_NORMALIZADA.oltp.Servicio x WHERE x.clave_version=l.clave_servicio) OPTION(MAXDOP 1, MAX_GRANT_PERCENT=1);&#xA;INSERT SIS_NORMALIZADA.oltp.Plan_Seguro(nombre) SELECT DISTINCT PLAN_SEGURO FROM #Carga l WHERE NOT EXISTS(SELECT 1 FROM SIS_NORMALIZADA.oltp.Plan_Seguro x WHERE x.nombre=l.PLAN_SEGURO) OPTION(MAXDOP 1, MAX_GRANT_PERCENT=1);&#xA;INSERT SIS_NORMALIZADA.oltp.Sexo(nombre) SELECT DISTINCT SEXO FROM #Carga l WHERE NOT EXISTS(SELECT 1 FROM SIS_NORMALIZADA.oltp.Sexo x WHERE x.nombre=l.SEXO) OPTION(MAXDOP 1, MAX_GRANT_PERCENT=1);&#xA;INSERT SIS_NORMALIZADA.oltp.Grupo_Edad(nombre) SELECT DISTINCT GRUPO_EDAD FROM #Carga l WHERE NOT EXISTS(SELECT 1 FROM SIS_NORMALIZADA.oltp.Grupo_Edad x WHERE x.nombre=l.GRUPO_EDAD) OPTION(MAXDOP 1, MAX_GRANT_PERCENT=1);&#xA;&#xA;INSERT SIS_NORMALIZADA.oltp.Registro_Atencion(archivo,fila_archivo,anio,mes,id_ipress,id_servicio,id_plan,id_sexo,id_grupo_edad,cantidad_atenciones,fuente_tipo,clave_origen,version_origen,id_raw)&#xA;SELECT l.archivo,l.fila_archivo,l.ANIO,l.MES,i.id_ipress,s.id_servicio,p.id_plan,x.id_sexo,g.id_grupo_edad,l.ATENCIONES,@Modo,l.clave_origen,l.version_origen,l.id_raw&#xA;FROM #Carga l JOIN SIS_NORMALIZADA.oltp.IPRESS i ON i.clave_version=l.clave_ipress JOIN SIS_NORMALIZADA.oltp.Servicio s ON s.clave_version=l.clave_servicio JOIN SIS_NORMALIZADA.oltp.Plan_Seguro p ON p.nombre=l.PLAN_SEGURO JOIN SIS_NORMALIZADA.oltp.Sexo x ON x.nombre=l.SEXO JOIN SIS_NORMALIZADA.oltp.Grupo_Edad g ON g.nombre=l.GRUPO_EDAD OPTION(MAXDOP 1,MAX_GRANT_PERCENT=1);&#xA;IF @Modo='SQL' BEGIN&#xA; SELECT clave_origen,MAX(version_origen) version INTO #V FROM raw.Registros WHERE id_lote=@Lote GROUP BY clave_origen;&#xA; UPDATE v SET version=n.version,eliminado=CASE WHEN r.operacion='D' THEN 1 ELSE 0 END FROM SIS_NORMALIZADA.oltp.OrigenVersion v JOIN #V n ON n.clave_origen=v.clave_origen JOIN raw.Registros r ON r.id_lote=@Lote AND r.clave_origen=n.clave_origen AND r.version_origen=n.version;&#xA; INSERT SIS_NORMALIZADA.oltp.OrigenVersion SELECT n.clave_origen,n.version,CASE WHEN r.operacion='D' THEN 1 ELSE 0 END FROM #V n JOIN raw.Registros r ON r.id_lote=@Lote AND r.clave_origen=n.clave_origen AND r.version_origen=n.version WHERE NOT EXISTS(SELECT 1 FROM SIS_NORMALIZADA.oltp.OrigenVersion v WHERE v.clave_origen=n.clave_origen);&#xA;END;&#xA;DROP TABLE #Carga;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\07_Publicar_SIS_DIMENSIONAL"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{4C1271FA-96AA-4460-B28E-28EDEC1FD856}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="07_Publicar_SIS_DIMENSIONAL"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"DECLARE @Lote uniqueidentifier = '" + @[User::IdLote] + "'; DECLARE @Esperadas bigint = " + @[User::FilasEsperadas] + "; DECLARE @SimularFallo int = " + @[User::SimularFallo] + "; " + " DECLARE @Modo varchar(20)='" + @[User::Modo] + "'; DECLARE @Archivo nvarchar(1000)=N'" + REPLACE(@[User::Archivo_Entrada],"'","''") + "'; " + @[User::SQL_07_Publicar_SIS_DIMENSIONAL]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7CA2D0E4-DE97-42C7-8986-6E68F81413F6}"
+          SQLTask:SqlStatementSource="DECLARE @Lote uniqueidentifier = '{B3EA4D44-6382-462A-8959-6932828680D9}'; DECLARE @Esperadas bigint = 40000; DECLARE @SimularFallo int = 0;  DECLARE @Modo varchar(20)='SNAPSHOT'; DECLARE @Archivo nvarchar(1000)=N'.\motor\fuentes\entrada.csv'; SET NOCOUNT ON;&#xA;SELECT a.* INTO #Nuevos FROM SIS_NORMALIZADA.oltp.Registro_Atencion a JOIN etl.Afectados p ON p.id_lote=@Lote AND a.anio=p.periodo/100 AND a.mes=p.periodo%100 OPTION(MAXDOP 1,MAX_GRANT_PERCENT=1);&#xA;INSERT SIS_DIMENSIONAL.dm.Dim_Tiempo(anio,numero_mes,mes,trimestre,semestre,periodo_codigo)&#xA;SELECT DISTINCT anio,mes,CHOOSE(mes,N'Enero',N'Febrero',N'Marzo',N'Abril',N'Mayo',N'Junio',N'Julio',N'Agosto',N'Septiembre',N'Octubre',N'Noviembre',N'Diciembre'),(mes-1)/3+1,CASE WHEN mes&lt;=6 THEN 1 ELSE 2 END,anio*100+mes FROM #Nuevos a WHERE NOT EXISTS(SELECT 1 FROM SIS_DIMENSIONAL.dm.Dim_Tiempo x WHERE x.anio=a.anio AND x.numero_mes=a.mes) OPTION(MAXDOP 1, MAX_GRANT_PERCENT=1);&#xA;INSERT SIS_DIMENSIONAL.dm.Dim_IPRESS(id_ipress_oltp,cod_ipress,nombre_ipress,nivel_eess,ubigeo_distrito,distrito,provincia,region,cod_unidad_ejecutora,desc_unidad_ejecutora,ubigeo_valido)&#xA;SELECT i.id_ipress,i.cod_ipress,i.nombre,i.nivel,d.ubigeo,d.nombre,p.nombre,r.nombre,u.codigo,u.nombre,i.ubigeo_valido FROM SIS_NORMALIZADA.oltp.IPRESS i JOIN SIS_NORMALIZADA.oltp.Distrito d ON i.id_distrito=d.id_distrito JOIN SIS_NORMALIZADA.oltp.Provincia p ON d.id_provincia=p.id_provincia JOIN SIS_NORMALIZADA.oltp.Region r ON p.id_region=r.id_region JOIN SIS_NORMALIZADA.oltp.Unidad_Ejecutora u ON i.id_unidad=u.id_unidad WHERE NOT EXISTS(SELECT 1 FROM SIS_DIMENSIONAL.dm.Dim_IPRESS x WHERE x.id_ipress_oltp=i.id_ipress) OPTION(MAXDOP 1,MAX_GRANT_PERCENT=1);&#xA;INSERT SIS_DIMENSIONAL.dm.Dim_Servicio(id_servicio_oltp,cod_servicio,desc_servicio) SELECT id_servicio,codigo,descripcion FROM SIS_NORMALIZADA.oltp.Servicio s WHERE NOT EXISTS(SELECT 1 FROM SIS_DIMENSIONAL.dm.Dim_Servicio x WHERE x.id_servicio_oltp=s.id_servicio) OPTION(MAXDOP 1,MAX_GRANT_PERCENT=1);&#xA;INSERT SIS_DIMENSIONAL.dm.Dim_Seguro(id_plan_oltp,plan_seguro) SELECT id_plan,nombre FROM SIS_NORMALIZADA.oltp.Plan_Seguro s WHERE NOT EXISTS(SELECT 1 FROM SIS_DIMENSIONAL.dm.Dim_Seguro x WHERE x.id_plan_oltp=s.id_plan) OPTION(MAXDOP 1,MAX_GRANT_PERCENT=1);&#xA;INSERT SIS_DIMENSIONAL.dm.Dim_Demografia(sexo,grupo_edad) SELECT DISTINCT s.nombre,g.nombre FROM #Nuevos a JOIN SIS_NORMALIZADA.oltp.Sexo s ON a.id_sexo=s.id_sexo JOIN SIS_NORMALIZADA.oltp.Grupo_Edad g ON a.id_grupo_edad=g.id_grupo_edad WHERE NOT EXISTS(SELECT 1 FROM SIS_DIMENSIONAL.dm.Dim_Demografia x WHERE x.sexo=s.nombre AND x.grupo_edad=g.nombre) OPTION(MAXDOP 1, MAX_GRANT_PERCENT=1);&#xA;&#xA;DELETE f FROM SIS_DIMENSIONAL.dm.Fact_Atenciones f JOIN SIS_DIMENSIONAL.dm.Dim_Tiempo t ON t.id_tiempo_sk=f.id_tiempo_sk JOIN etl.Afectados p ON p.id_lote=@Lote AND p.periodo=t.periodo_codigo OPTION(MAXDOP 1,MAX_GRANT_PERCENT=1);&#xA;INSERT SIS_DIMENSIONAL.dm.Fact_Atenciones(id_tiempo_sk,id_ipress_sk,id_servicio_sk,id_seguro_sk,id_demografia_sk,cantidad_atenciones,filas_origen,id_lote)&#xA;SELECT t.id_tiempo_sk,i.id_ipress_sk,s.id_servicio_sk,p.id_seguro_sk,d.id_demografia_sk,SUM(a.cantidad_atenciones),COUNT_BIG(*),@Lote&#xA;FROM #Nuevos a JOIN SIS_DIMENSIONAL.dm.Dim_Tiempo t ON t.anio=a.anio AND t.numero_mes=a.mes JOIN SIS_DIMENSIONAL.dm.Dim_IPRESS i ON i.id_ipress_oltp=a.id_ipress JOIN SIS_DIMENSIONAL.dm.Dim_Servicio s ON s.id_servicio_oltp=a.id_servicio JOIN SIS_DIMENSIONAL.dm.Dim_Seguro p ON p.id_plan_oltp=a.id_plan JOIN SIS_NORMALIZADA.oltp.Sexo x ON x.id_sexo=a.id_sexo JOIN SIS_NORMALIZADA.oltp.Grupo_Edad g ON g.id_grupo_edad=a.id_grupo_edad JOIN SIS_DIMENSIONAL.dm.Dim_Demografia d ON d.sexo=x.nombre AND d.grupo_edad=g.nombre&#xA;GROUP BY t.id_tiempo_sk,i.id_ipress_sk,s.id_servicio_sk,p.id_seguro_sk,d.id_demografia_sk OPTION(MAXDOP 1,MAX_GRANT_PERCENT=1);&#xA;DROP TABLE #Nuevos;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\08_Conciliar_y_Confirmar"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:DelayValidation="True"
+      DTS:DTSID="{8F7AA5EF-38AA-4A0D-9CB2-4BFE85032385}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="08_Conciliar_y_Confirmar"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:PropertyExpression
+        DTS:Name="SqlStatementSource">"DECLARE @Lote uniqueidentifier = '" + @[User::IdLote] + "'; DECLARE @Esperadas bigint = " + @[User::FilasEsperadas] + "; DECLARE @SimularFallo int = " + @[User::SimularFallo] + "; " + " DECLARE @Modo varchar(20)='" + @[User::Modo] + "'; DECLARE @Archivo nvarchar(1000)=N'" + REPLACE(@[User::Archivo_Entrada],"'","''") + "'; " + @[User::SQL_08_Conciliar_y_Confirmar]</DTS:PropertyExpression>
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7CA2D0E4-DE97-42C7-8986-6E68F81413F6}"
+          SQLTask:SqlStatementSource="DECLARE @Lote uniqueidentifier = '{B3EA4D44-6382-462A-8959-6932828680D9}'; DECLARE @Esperadas bigint = 40000; DECLARE @SimularFallo int = 0;  DECLARE @Modo varchar(20)='SNAPSHOT'; DECLARE @Archivo nvarchar(1000)=N'.\motor\fuentes\entrada.csv'; SET NOCOUNT ON;&#xA;INSERT etl.Validaciones(id_lote,control,esperado,obtenido,cumple)&#xA;SELECT @Lote,CONCAT('ATENCIONES_',p.periodo),COALESCE(n.cantidad,0),COALESCE(d.cantidad,0),CASE WHEN COALESCE(n.cantidad,0)=COALESCE(d.cantidad,0) THEN 1 ELSE 0 END FROM etl.Afectados p&#xA;OUTER APPLY(SELECT SUM(cantidad_atenciones) cantidad FROM SIS_NORMALIZADA.oltp.Registro_Atencion WHERE anio=p.periodo/100 AND mes=p.periodo%100)n&#xA;OUTER APPLY(SELECT SUM(f.cantidad_atenciones) cantidad FROM SIS_DIMENSIONAL.dm.Fact_Atenciones f JOIN SIS_DIMENSIONAL.dm.Dim_Tiempo t ON t.id_tiempo_sk=f.id_tiempo_sk WHERE t.periodo_codigo=p.periodo)d WHERE p.id_lote=@Lote OPTION(MAXDOP 1,MAX_GRANT_PERCENT=1);&#xA;INSERT etl.Validaciones(id_lote,control,esperado,obtenido,cumple)&#xA;SELECT @Lote,CONCAT('LINAJE_FILAS_',p.periodo),COALESCE(n.filas,0),COALESCE(d.filas,0),CASE WHEN COALESCE(n.filas,0)=COALESCE(d.filas,0) THEN 1 ELSE 0 END FROM etl.Afectados p&#xA;OUTER APPLY(SELECT COUNT_BIG(*) filas FROM SIS_NORMALIZADA.oltp.Registro_Atencion WHERE anio=p.periodo/100 AND mes=p.periodo%100)n&#xA;OUTER APPLY(SELECT SUM(f.filas_origen) filas FROM SIS_DIMENSIONAL.dm.Fact_Atenciones f JOIN SIS_DIMENSIONAL.dm.Dim_Tiempo t ON t.id_tiempo_sk=f.id_tiempo_sk WHERE t.periodo_codigo=p.periodo)d WHERE p.id_lote=@Lote OPTION(MAXDOP 1,MAX_GRANT_PERCENT=1);&#xA;IF EXISTS(SELECT 1 FROM etl.Validaciones WHERE id_lote=@Lote AND cumple=0) THROW 52009,'Conciliacion fallida; rollback.',1;&#xA;INSERT etl.Publicaciones SELECT @Lote,periodo,version_anterior+1,huella,filas_anteriores,filas,atenciones,sysdatetime() FROM etl.PlanParticion WHERE id_lote=@Lote AND accion&lt;&gt;'SIN_CAMBIOS';&#xA;UPDATE p SET huella=n.huella,filas=n.filas,atenciones=n.atenciones,version=n.version_anterior+1,id_lote=@Lote,actualizado=sysdatetime() FROM etl.Particiones p JOIN etl.PlanParticion n ON n.periodo=p.periodo WHERE n.id_lote=@Lote AND n.accion='CAMBIADO';&#xA;INSERT etl.Particiones(periodo,huella,filas,atenciones,version,id_lote) SELECT periodo,huella,filas,atenciones,1,@Lote FROM etl.PlanParticion WHERE id_lote=@Lote AND accion='NUEVO';&#xA;IF EXISTS(SELECT 1 FROM etl.Afectados WHERE id_lote=@Lote) UPDATE SIS_DIMENSIONAL.dm.Publicacion SET version=version+1,id_lote=@Lote,fecha=sysdatetime() WHERE id=1;&#xA;UPDATE raw.EventosSQL SET estado='PUBLICADO' WHERE id_lote=@Lote AND estado='PROCESANDO';&#xA;UPDATE raw.Registros SET estado_proceso='PUBLICADO' WHERE id_lote=@Lote AND fuente_tipo='SQL' AND estado_proceso='PROCESANDO';&#xA;-- En SQL se confirman eventos (incluidas bajas/versiones superadas), no filas finales del hecho.&#xA;IF @Modo='SQL' UPDATE etl.Lotes SET filas_aceptadas=filas_origen WHERE id_lote=@Lote;&#xA;UPDATE etl.Lotes SET estado='EXITOSO',fecha_fin=sysdatetime(),filas_dm=(SELECT COUNT_BIG(*) FROM SIS_DIMENSIONAL.dm.Fact_Atenciones),atenciones_dm=(SELECT COALESCE(SUM(cantidad_atenciones),0) FROM SIS_DIMENSIONAL.dm.Fact_Atenciones),mensaje=CONCAT('Periodos afectados: ',(SELECT COUNT(*) FROM etl.Afectados WHERE id_lote=@Lote)) WHERE id_lote=@Lote;&#xA;COMMIT;&#xA;EXEC sys.sp_releaseapplock @Resource='SIS_3BD',@LockOwner='Session';&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{0F56181A-A303-4FD1-B9AD-9DBEB3C18A33\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{0F56181A-A303-4FD1-B9AD-9DBEB3C18A33}"
+      DTS:From="Package\06_Normalizar_SIS_NORMALIZADA"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{0F56181A-A303-4FD1-B9AD-9DBEB3C18A33}"
+      DTS:To="Package\07_Publicar_SIS_DIMENSIONAL" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{3F7A8A2E-6F39-4399-AAC3-B6FDC1819CFE\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{3F7A8A2E-6F39-4399-AAC3-B6FDC1819CFE}"
+      DTS:From="Package\03_Archivar_RAW_Historico"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{3F7A8A2E-6F39-4399-AAC3-B6FDC1819CFE}"
+      DTS:To="Package\04_Validar_Contrato_y_Nulos" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{4B3AC72B-3993-4FF6-9A10-B12D01A16C75\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{4B3AC72B-3993-4FF6-9A10-B12D01A16C75}"
+      DTS:From="Package\04_Validar_Contrato_y_Nulos"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{4B3AC72B-3993-4FF6-9A10-B12D01A16C75}"
+      DTS:To="Package\05_Detectar_Incremento" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{6CCD462A-0DDD-4F55-B86C-C8A94AB7296F\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{6CCD462A-0DDD-4F55-B86C-C8A94AB7296F}"
+      DTS:From="Package\05_Detectar_Incremento"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{6CCD462A-0DDD-4F55-B86C-C8A94AB7296F}"
+      DTS:To="Package\06_Normalizar_SIS_NORMALIZADA" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{B3973102-66CC-44CD-8FA5-C7D7EEEDA39E\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{B3973102-66CC-44CD-8FA5-C7D7EEEDA39E}"
+      DTS:From="Package\07_Publicar_SIS_DIMENSIONAL"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{B3973102-66CC-44CD-8FA5-C7D7EEEDA39E}"
+      DTS:To="Package\08_Conciliar_y_Confirmar" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{D42B2BBF-072C-4076-93D4-0D1B68BAD3BC\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{D42B2BBF-072C-4076-93D4-0D1B68BAD3BC}"
+      DTS:From="Package\01_Iniciar_Lote_y_Bloquear"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{D42B2BBF-072C-4076-93D4-0D1B68BAD3BC}"
+      DTS:To="Package\02_CSV_a_SIS_RAW_FastLoad" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[{F684761B-CA02-4D71-A50D-BEBB2115226D\}]"
+      DTS:CreationName=""
+      DTS:DTSID="{F684761B-CA02-4D71-A50D-BEBB2115226D}"
+      DTS:From="Package\02_CSV_a_SIS_RAW_FastLoad"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="{F684761B-CA02-4D71-A50D-BEBB2115226D}"
+      DTS:To="Package\03_Archivar_RAW_Historico" />
+  </DTS:PrecedenceConstraints>
+  <DTS:EventHandlers>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnError]"
+      DTS:CreationName="OnError"
+      DTS:DTSID="{FABA781F-E743-4C80-9EAA-57B4893DBD53}"
+      DTS:EventID="6488110"
+      DTS:EventName="OnError"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="La propiedad de propagación del evento"
+          DTS:DTSID="{ED924978-6AF8-4DEB-844B-7844A0FC43B0}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnError]\Registrar_Error"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:DelayValidation="True"
+          DTS:DisableEventHandlers="True"
+          DTS:DTSID="{0ACD9BE2-37B7-4B49-9374-3A0D6633A8B3}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Registrar_Error"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="SqlStatementSource">"DECLARE @Lote uniqueidentifier='" + @[User::IdLote] + "'; DECLARE @Mensaje nvarchar(2000)=N'" + REPLACE(@[System::ErrorDescription],"'","''") + "'; IF XACT_STATE()&lt;&gt;0 ROLLBACK; IF NOT EXISTS(SELECT 1 FROM etl.Lotes WHERE id_lote=@Lote) INSERT etl.Lotes(id_lote,modo,estado) VALUES(@Lote,'Incremental_SSIS','ERROR'); UPDATE etl.Lotes SET estado='ERROR',fecha_fin=sysdatetime(),mensaje=@Mensaje WHERE id_lote=@Lote; INSERT etl.Errores(id_lote,mensaje) VALUES(@Lote,@Mensaje); UPDATE raw.EventosSQL SET estado='RECHAZADO' WHERE id_lote=@Lote AND estado='PROCESANDO';"</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7CA2D0E4-DE97-42C7-8986-6E68F81413F6}"
+              SQLTask:TimeOut="60"
+              SQLTask:SqlStatementSource="DECLARE @Lote uniqueidentifier='{B3EA4D44-6382-462A-8959-6932828680D9}'; DECLARE @Mensaje nvarchar(2000)=N''; IF XACT_STATE()&lt;&gt;0 ROLLBACK; IF NOT EXISTS(SELECT 1 FROM etl.Lotes WHERE id_lote=@Lote) INSERT etl.Lotes(id_lote,modo,estado) VALUES(@Lote,'Incremental_SSIS','ERROR'); UPDATE etl.Lotes SET estado='ERROR',fecha_fin=sysdatetime(),mensaje=@Mensaje WHERE id_lote=@Lote; INSERT etl.Errores(id_lote,mensaje) VALUES(@Lote,@Mensaje); UPDATE raw.EventosSQL SET estado='RECHAZADO' WHERE id_lote=@Lote AND estado='PROCESANDO';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+    <DTS:EventHandler
+      DTS:refId="Package.EventHandlers[OnPostExecute]"
+      DTS:CreationName="OnPostExecute"
+      DTS:DTSID="{0DF4DF69-F5B6-4FEA-9239-3F463079DED8}"
+      DTS:EventID="0"
+      DTS:EventName="OnPostExecute"
+      DTS:LocaleID="-1">
+      <DTS:Variables>
+        <DTS:Variable
+          DTS:CreationName=""
+          DTS:Description="La propiedad de propagación del evento"
+          DTS:DTSID="{15A9C9BC-8E42-4CA4-83B8-F654CC11E80B}"
+          DTS:IncludeInDebugDump="6789"
+          DTS:Namespace="System"
+          DTS:ObjectName="Propagate">
+          <DTS:VariableValue
+            DTS:DataType="11">-1</DTS:VariableValue>
+        </DTS:Variable>
+      </DTS:Variables>
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package.EventHandlers[OnPostExecute]\Liberar_Bloqueo_al_Final"
+          DTS:CreationName="Microsoft.ExecuteSQLTask"
+          DTS:DelayValidation="True"
+          DTS:Disabled="True"
+          DTS:DisableEventHandlers="True"
+          DTS:DTSID="{4C7AAAD2-3A82-4305-A15B-FC0A69B62C29}"
+          DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Liberar_Bloqueo_al_Final"
+          DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:PropertyExpression
+            DTS:Name="Disable">@[System::SourceID] != @[System::PackageID]</DTS:PropertyExpression>
+          <DTS:ObjectData>
+            <SQLTask:SqlTaskData
+              SQLTask:Connection="{7CA2D0E4-DE97-42C7-8986-6E68F81413F6}"
+              SQLTask:TimeOut="60"
+              SQLTask:SqlStatementSource="IF APPLOCK_MODE('public','SIS_3BD','Session')='Exclusive' EXEC sys.sp_releaseapplock @Resource='SIS_3BD',@LockOwner='Session';" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+    </DTS:EventHandler>
+  </DTS:EventHandlers>
+</DTS:Executable>

@@ -1,0 +1,259 @@
+table Fact_Atenciones
+	lineageTag: 46c78282-1e41-4c20-850c-be126d34b575
+
+	/// Suma de cantidad_atenciones. No corresponde a pacientes unicos.
+	measure 'Total Atenciones' = ```
+			SUM(Fact_Atenciones[cantidad_atenciones])
+			
+			```
+		formatString: #,0
+		displayFolder: 01 Ejecutivo
+		lineageTag: 1196f7b4-b757-4d98-a4d2-9cfd353711b2
+
+	measure '% Atenciones en Regiones' = ```
+			
+			DIVIDE(
+			    CALCULATE(
+			        [Total Atenciones],
+			        NOT(Dim_IPRESS[region] IN {"LIMA METROPOLITANA", "LIMA"})
+			    ),
+			    [Total Atenciones],
+			    0
+			)
+			
+			```
+		formatString: 0.0%
+		displayFolder: 04 Referencias
+		lineageTag: 32c11268-b0ea-464f-b34c-12d6016bea8f
+
+	measure '% Cobertura SIS Gratuito' = ```
+			
+			DIVIDE(
+			    CALCULATE(
+			        [Total Atenciones],
+			        SEARCH("GRATUITO", Dim_Seguro[plan_seguro], 1, 0) > 0
+			    ),
+			    [Total Atenciones],
+			    0
+			)
+			
+			```
+		formatString: 0.0%
+		displayFolder: 04 Referencias
+		lineageTag: 9581f0c8-ab76-46cb-ae34-9d9b435388ea
+
+	measure '% Atenciones Primer Nivel' = ```
+			
+			DIVIDE(
+			    CALCULATE(
+			        [Total Atenciones],
+			        Dim_IPRESS[nivel_eess] IN {"I", "1"}
+			    ),
+			    [Total Atenciones],
+			    0
+			)
+			
+			```
+		formatString: 0.0%
+		displayFolder: 04 Referencias
+		lineageTag: a6c6e1f2-d59f-4b4f-9dc2-7d24944a68f9
+
+	measure 'Meta Primer Nivel' = ```
+			0.80
+			
+			```
+		formatString: 0.0%
+		displayFolder: 04 Referencias
+		lineageTag: 19899c9a-d601-41e5-84aa-f95b49a31398
+
+	measure 'Meta Descentralizacion' = ```
+			0.70
+			
+			```
+		formatString: 0.0%
+		displayFolder: 04 Referencias
+		lineageTag: 51367230-85ac-4301-8225-ea5f4832debe
+
+	measure 'Meta SIS Gratuito' = ```
+			0.85
+			
+			```
+		formatString: 0.0%
+		displayFolder: 04 Referencias
+		lineageTag: 2bf5d8bc-b792-43ac-8009-21173e9433ed
+
+	/// Atenciones de julio a diciembre de 2018. Conserva los filtros no temporales.
+	measure 'Atenciones H2 2018' = CALCULATE([Total Atenciones], REMOVEFILTERS(Dim_Tiempo), Dim_Tiempo[anio] = 2018, Dim_Tiempo[numero_mes] >= 7)
+		formatString: #,0
+		displayFolder: 02 Comparacion equivalente
+		lineageTag: 45bed629-a885-4a6a-bb40-e39a41d377eb
+
+	/// Atenciones de julio a diciembre de 2025. Conserva los filtros no temporales.
+	measure 'Atenciones H2 2025' = CALCULATE([Total Atenciones], REMOVEFILTERS(Dim_Tiempo), Dim_Tiempo[anio] = 2025, Dim_Tiempo[numero_mes] >= 7)
+		formatString: #,0
+		displayFolder: 02 Comparacion equivalente
+		lineageTag: 416ff68a-52d2-4b44-92de-bd80f1241a80
+
+	/// Diferencia de atenciones 2025 menos 2018, julio a diciembre en ambos casos.
+	measure 'Variacion H2 absoluta' = IF(ISBLANK([Atenciones H2 2018]) || ISBLANK([Atenciones H2 2025]), BLANK(), [Atenciones H2 2025] - [Atenciones H2 2018])
+		formatString: +#,0;-#,0;0
+		displayFolder: 02 Comparacion equivalente
+		lineageTag: 96a899be-dfcd-4f63-a259-a5762765c70e
+
+	/// Variacion relativa entre periodos equivalentes. Sin base 2018 devuelve vacio.
+	measure 'Variacion H2 porcentual' = DIVIDE([Variacion H2 absoluta], [Atenciones H2 2018])
+		formatString: +0.0%;-0.0%;0.0%
+		displayFolder: 02 Comparacion equivalente
+		lineageTag: 190fbd8f-be89-472e-b3cc-f09df4ab96f1
+
+	/// Establecimientos distintos con al menos un registro de atenciones positivas en el contexto seleccionado.
+	measure 'IPRESS con actividad' = CALCULATE(DISTINCTCOUNT(Fact_Atenciones[id_ipress_sk]), KEEPFILTERS(Fact_Atenciones[cantidad_atenciones] > 0))
+		formatString: #,0
+		displayFolder: 03 Territorio
+		lineageTag: 1ec15717-8b9e-44b2-919e-5ccd130b8b4f
+
+	/// Atenciones del territorio respecto al total nacional para los filtros no territoriales vigentes.
+	measure 'Participacion territorial' = DIVIDE([Total Atenciones], CALCULATE([Total Atenciones], REMOVEFILTERS(Dim_IPRESS)))
+		formatString: 0.0%
+		displayFolder: 03 Territorio
+		lineageTag: 420430ab-1feb-4a6a-8ee8-3d57e0cfc5de
+
+	/// Diferencia en puntos porcentuales respecto a la referencia heredada de 80%.
+	measure 'Brecha primer nivel pp' = ([% Atenciones Primer Nivel] - [Meta Primer Nivel]) * 100
+		formatString: +0.0 "pp";-0.0 "pp";0.0 "pp"
+		displayFolder: 04 Referencias
+		lineageTag: c49ffa25-61a4-4438-8f38-e6ab783936cf
+
+	/// Brecha contra 70%. Mantiene exactamente la definicion territorial del archivo original.
+	measure 'Brecha regiones pp' = ([% Atenciones en Regiones] - [Meta Descentralizacion]) * 100
+		formatString: +0.0 "pp";-0.0 "pp";0.0 "pp"
+		displayFolder: 04 Referencias
+		lineageTag: 539926fc-ac77-4286-9ba7-6f2161fb7a6f
+
+	/// Brecha contra 85%. Se refiere a participacion de atenciones y no a cobertura poblacional.
+	measure 'Brecha gratuito pp' = ([% Cobertura SIS Gratuito] - [Meta SIS Gratuito]) * 100
+		formatString: +0.0 "pp";-0.0 "pp";0.0 "pp"
+		displayFolder: 04 Referencias
+		lineageTag: 7c4eb491-c1da-474a-bcaf-6873143db8bd
+
+	/// Etiqueta explicita de la disponibilidad temporal verificada en el modelo.
+	measure 'Periodo seleccionado' = "ÁMBITO DE DEMOSTRACIÓN | CONSULTA DIRECTA"
+		displayFolder: 01 Ejecutivo
+		lineageTag: 7b351596-871a-4eec-9bb3-53d32e463dbc
+
+	/// Atenciones registradas para sexo femenino; conserva filtros de perfil.
+	measure 'Atenciones mujeres' = CALCULATE([Total Atenciones], KEEPFILTERS(Dim_Demografia[sexo] = "FEMENINO"))
+		formatString: #,0
+		displayFolder: 05 Perfil
+		lineageTag: 663e6c57-fee3-41cc-af65-f6e44bc3bf9c
+
+	/// Atenciones registradas para sexo masculino; conserva filtros de perfil.
+	measure 'Atenciones hombres' = CALCULATE([Total Atenciones], KEEPFILTERS(Dim_Demografia[sexo] = "MASCULINO"))
+		formatString: #,0
+		displayFolder: 05 Perfil
+		lineageTag: 15a049b1-3864-4ed5-bfc5-c8e4085d3e56
+
+	/// Participacion de atenciones para sexo femenino, no de personas unicas.
+	measure 'Porcentaje mujeres' = DIVIDE([Atenciones mujeres], [Total Atenciones])
+		formatString: 0.0%
+		displayFolder: 05 Perfil
+		lineageTag: dbfcb7cd-7c80-4876-9879-0857cffa8cc7
+
+	/// Participacion en primer nivel.
+	measure 'Primer nivel etiqueta' = FORMAT([% Atenciones Primer Nivel], "0.0%")
+		displayFolder: 01 Ejecutivo
+		lineageTag: addfa550-9920-43f8-96bc-168a47773483
+
+	/// Participacion segun definicion original de regiones.
+	measure 'Regiones etiqueta' = FORMAT([% Atenciones en Regiones], "0.0%")
+		displayFolder: 01 Ejecutivo
+		lineageTag: c6d53a9c-2d43-4f11-8d9e-a1102579af79
+
+	/// Participacion del plan SIS Gratuito.
+	measure 'Gratuito etiqueta' = FORMAT([% Cobertura SIS Gratuito], "0.0%")
+		displayFolder: 01 Ejecutivo
+		lineageTag: ecd1260f-3679-4bd3-9d18-5326d8099867
+
+	/// Atenciones cuyos establecimientos tienen prefijo 00 en ubigeo. Para el mapa se usa su region declarada cuando es reconocida.
+	measure 'Atenciones con ubigeo incompleto' = CALCULATE([Total Atenciones], KEEPFILTERS(FILTER(Dim_IPRESS, LEFT(Dim_IPRESS[ubigeo_distrito],2) = "00")))
+		formatString: #,0
+		displayFolder: 06 Calidad de datos
+		lineageTag: 15730d32-5023-44e2-ac35-b2582c7b3124
+
+	measure 'Filas publicadas' = COUNTROWS(Fact_Atenciones)
+		formatString: #,0
+		displayFolder: 00 Automatizacion
+		lineageTag: f2f4b42c-5591-451b-812b-f6eb56eeee8d
+
+	measure 'Periodos publicados' = DISTINCTCOUNT(Fact_Atenciones[id_tiempo_sk])
+		formatString: #,0
+		displayFolder: 00 Automatizacion
+		lineageTag: 59831b37-8226-4bbd-aada-0217ed734c9c
+
+	measure 'Consulta actual' = FORMAT(NOW(), "HH:mm:ss")
+		displayFolder: 00 Automatizacion
+		lineageTag: 8ab266d9-c73e-4efc-a9eb-76ebd6f94343
+
+	column id_hecho_atencion
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: de3faeb9-44f8-4067-ba0c-a53b18f99c19
+		summarizeBy: sum
+		sourceColumn: id_hecho_atencion
+
+	column id_tiempo_sk
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 4c0ac509-7bf2-46aa-be10-2d2eebd4fa7e
+		summarizeBy: none
+		sourceColumn: id_tiempo_sk
+
+	column id_ipress_sk
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 77db56c3-0234-476b-b009-08d0ab9f1ee2
+		summarizeBy: none
+		sourceColumn: id_ipress_sk
+
+	column id_servicio_sk
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 8fe53ee2-faea-4d07-ae04-1ca352a0a593
+		summarizeBy: none
+		sourceColumn: id_servicio_sk
+
+	column id_seguro_sk
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 895a8f34-ae73-46df-b9b4-0a0ce4c0caf5
+		summarizeBy: none
+		sourceColumn: id_seguro_sk
+
+	column id_demografia_sk
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: f4f0b0aa-f898-4043-b6dd-43fcbf919d7d
+		summarizeBy: none
+		sourceColumn: id_demografia_sk
+
+	column cantidad_atenciones
+		dataType: int64
+		formatString: 0
+		lineageTag: ac24e730-fbb8-422c-bda0-0543bb347e9d
+		summarizeBy: sum
+		sourceColumn: cantidad_atenciones
+
+	partition Fact_Atenciones = m
+		mode: directQuery
+		source =
+				let
+				 Origen=Sql.Database("localhost", "SIS_DIMENSIONAL", [CreateNavigationProperties=false]),
+				 Datos=Origen{[Schema="pbi",Item="Fact_Atenciones"]}[Data]
+				in Datos
+
